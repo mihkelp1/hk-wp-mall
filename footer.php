@@ -4,6 +4,10 @@
  */
 ?>
 
+	<!-- Close page-content -->
+	</div>
+
+	<div id="footer-wrapper">
 		<footer>
 			<nav>
 				<h2>Info tudengile</h2>
@@ -18,9 +22,8 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right' ) ); ?>
 			</nav>
 		</footer>
-	
-	<!-- Close page-content -->
 	</div>
+	
 <!-- Close "main-conteiner" -->
 </div>
 
