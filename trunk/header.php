@@ -23,9 +23,9 @@
 	}
 	?></title>
 
-<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
+<link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <!--[if lt IE 9]>
-<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js" type="text/javascript"></script>
+<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 <style type="text/css">
 	input {
 		display:none;
@@ -43,8 +43,12 @@
 ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 
-<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?>
-
-<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
+<div id="main-container">
+	<header>
+		<nav><?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?></nav>
+		<?php if ( is_singular() ) { ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
+		<?php } ?>
+	</header>
