@@ -24,4 +24,14 @@ function register_my_menus() {
 
 add_action( 'init', 'register_my_menus' );
 
+/**
+ * Helper method for loading images
+ *
+ * @return String URL
+ */
+
+function getFileURL( $file_name ) {
+	return get_template_directory_uri().$file_name;
+}
+
 ?>

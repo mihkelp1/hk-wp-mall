@@ -43,6 +43,10 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+html {
+     overflow-y: scroll;
+}
+
 body {
 	line-height: 1;
 }
@@ -67,3 +71,31 @@ table {
 }
 
 /* Here begin the main styles */
+
+#main-container {
+	width: 1200px;
+	/*border-right: 1px solid #000;*/
+}
+
+header {
+	min-height: 74px;
+	background: url('images/header-shadow.png') repeat-x bottom;
+}
+
+#header-menu {
+	width: 622px;
+	float: right;
+	background: #000 url('images/header-middle.png') no-repeat left;
+	min-height: inherit;
+}
+
+header img {
+	margin-left: 138px;
+	margin-top: 5px;
+}
+
+#page-content {
+	/*border:1px solid red;*/
+	width: 962px;
+	margin: auto;
+}

@@ -2,5 +2,5 @@
 /**
  * The default template for displaying content
  */
-
 ?>
+
