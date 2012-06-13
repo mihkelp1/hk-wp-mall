@@ -52,6 +52,15 @@ body {
 	margin-bottom: 30px;
 }
 
+body, a {
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+}
+
+h2-title {
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
 ol, ul {
 	list-style: none;
 }
@@ -99,6 +108,34 @@ header {
 	height: 74px;
 	width: 559px;
 	float: right;
+}
+
+.header-menu-container ul {
+	margin-top: 20px;
+	margin-left: 15px;
+}
+
+.header-menu-container li {
+	float: left;
+	padding: 10px;
+	border-right: 1px #4e4e4e solid;
+}
+
+.header-menu-container li a {
+	color: #FFF;
+	text-decoration: none;
+}
+
+.header-menu-container li:last-child {
+	border: 0px;
+}
+
+.header-menu-container li:last-child a {
+	color: #008cdd;
+}
+
+.header-menu-container li a:hover {
+	text-decoration: underline;
 }
 
 header img {
