@@ -204,7 +204,9 @@ footer {
 .footer-menus-wrapper {
 	padding-top: 100px;
 	width: 670px;
+	margin-bottom: 40px;
 	margin-left: 12px;
+	float:left;
 }
 
 #footer-sidebar {
@@ -212,4 +214,13 @@ footer {
 	font-size: 1.0em;
 	margin-left: 20px;
 	min-height: 20px;
+	clear:both;
+}
+
+#footer-banner {
+	float:left;
+	width: 236px;
+	height: 236px;
+	margin-left: 20px;
+	margin-top: 120px;
 }
