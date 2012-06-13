@@ -76,6 +76,7 @@ table {
 #main-container {
 	width: 1200px;
 	border-right: 1px solid #000;
+	margin: auto;
 }
 
 header {
@@ -115,7 +116,7 @@ header img {
 
 #footer-wrapper {
 	background: url('images/footer.png') no-repeat;
-	height: 376px;
+	height: 390px;
 }
 
 footer {
