@@ -181,21 +181,28 @@ footer {
 .footer-nav-menu {
 	display: inline-block;
 	border-right: 1px solid #FFF;
-	width: 188px;
+	width: 165px;
 	padding-left: 20px;
-	padding-right: 7px;
+	padding-right: 20px;
 	line-height: 1.3em;
 	padding-top: 16px;
 	padding-bottom: 10px;
 	margin-top: 5px;
+	height: 230px;
+	overflow: hidden;
 }
 
 .no-border {
 	border: 0px;
 }
 
+.footer-right-menu {
+	width: 205px;
+}
+
 
 .footer-menus-wrapper {
 	padding-top: 100px;
 	width: 670px;
+	margin-left: 12px;
 }
