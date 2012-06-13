@@ -90,8 +90,11 @@ header {
 	min-height: inherit;
 }
 
-.header-menu-container {
+#header-menu, .header-menu-container {
 	background-color: #000;
+}
+
+.header-menu-container {
 	height: 74px;
 	width: 559px;
 	float: right;
