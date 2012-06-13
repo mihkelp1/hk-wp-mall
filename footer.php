@@ -18,7 +18,7 @@
 					<h2 class="menu-title">Info sisseastujatele</h2>
 					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-middle', 'container_class' => 'footer-menu-container-middle' ) ); ?>
 				</nav>
-				<nav class="footer-nav-menu no-border">
+				<nav class="footer-nav-menu footer-right-menu no-border">
 					<h2 class="menu-title">Arendusprojektid</h2>
 					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right' ) ); ?>
 				</nav>
