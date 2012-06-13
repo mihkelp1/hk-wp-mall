@@ -57,8 +57,25 @@ body, a {
 	font-weight: 400;
 }
 
-h2-title {
+a {
+	color: #FFF;
+	font-size: 0.85em;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.title {
 	font-family: 'Ubuntu Condensed', sans-serif;
+	color: #FFF;
+}
+
+.menu-title {
+	color: #FFF;
+	margin-bottom: 20px;
+	text-transform:uppercase;
 }
 
 ol, ul {
@@ -84,7 +101,6 @@ table {
 
 #main-container {
 	width: 1200px;
-	border-right: 1px solid #000;
 	margin: auto;
 }
 
@@ -159,5 +175,27 @@ header img {
 footer {
 	width: 962px;
 	margin: auto;
-	height: inherit;
+	min-height: 390px;
+}
+
+.footer-nav-menu {
+	display: inline-block;
+	border-right: 1px solid #FFF;
+	width: 188px;
+	padding-left: 20px;
+	padding-right: 7px;
+	line-height: 1.3em;
+	padding-top: 16px;
+	padding-bottom: 10px;
+	margin-top: 5px;
+}
+
+.no-border {
+	border: 0px;
+}
+
+
+.footer-menus-wrapper {
+	padding-top: 100px;
+	width: 670px;
 }
