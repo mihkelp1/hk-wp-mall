@@ -23,6 +23,13 @@
 					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right' ) ); ?>
 				</nav>
 			</div>
+		<div id="footer-banner">
+			<?php 
+				if ( function_exists( 'wp_bannerize' ) ) {
+					wp_bannerize( 'random=1&limit=1' ); 
+				}
+			?>
+		</div>
 		<?php
 			/* A sidebar in the footer? Yep. You can can customize
 			 * your footer with three columns of widgets.
