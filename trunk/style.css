@@ -169,27 +169,34 @@ header img {
 
 #footer-wrapper {
 	background: url('images/footer.png') repeat-x;
-	height: 380px;
+	height: 288px;
+	padding-top: 92px;
 }
 
 footer {
 	width: 962px;
 	margin: auto;
-	min-height: 390px;
+	min-height: inherit;
 }
 
 .footer-nav-menu {
 	display: inline-block;
 	border-right: 1px solid #FFF;
 	width: 165px;
-	padding-left: 20px;
-	padding-right: 20px;
+	height: 240px;
 	line-height: 1.3em;
-	padding-top: 16px;
+	padding-top: 10px;
 	padding-bottom: 10px;
-	margin-top: 5px;
-	height: 230px;
 	overflow: hidden;
+	vertical-align: top;
+}
+
+.footer-nav-menu-padding {
+	padding-left: 22px;
+}
+
+.footer-nav-menu-middle {
+	padding-right: 22px;
 }
 
 .no-border {
@@ -197,30 +204,30 @@ footer {
 }
 
 .footer-right-menu {
-	width: 205px;
+	width: 220px;
 }
 
 
 .footer-menus-wrapper {
-	padding-top: 100px;
 	width: 670px;
-	margin-bottom: 40px;
-	margin-left: 12px;
+	height: 230px;
 	float:left;
 }
 
 #footer-sidebar {
-	margin-top: 40px;
+	margin-top: 10px;
 	font-size: 1.0em;
-	margin-left: 20px;
 	min-height: 20px;
-	clear:both;
+}
+
+#sidebar-wrapper {
+	width: 962px;
+	margin: auto;
 }
 
 #footer-banner {
 	float:left;
 	width: 236px;
 	height: 236px;
-	margin-left: 20px;
-	margin-top: 120px;
+	/*margin-left: 20px;*/
 }
