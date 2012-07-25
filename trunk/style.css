@@ -100,7 +100,6 @@ table {
 /* Here begin the main styles */
 
 #main-container {
-	width: 1200px;
 	margin: auto;
 }
 
@@ -168,7 +167,7 @@ header img {
 }
 
 #footer-wrapper {
-	background: url('images/footer.png') no-repeat;
+	background: url('images/footer.png') repeat-x;
 	height: 390px;
 }
 
