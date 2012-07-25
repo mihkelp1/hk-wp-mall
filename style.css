@@ -231,3 +231,16 @@ footer {
 	height: 236px;
 	/*margin-left: 20px;*/
 }
+
+#slider1 li {
+	height: 70px;
+	width: 205px;
+	background: url('images/news-shadow.png') no-repeat right;
+	padding: 10px;
+	border-bottom: 1px solid red;
+	border-top: 1px solid red;
+}
+
+.bx-wrapper {
+	margin: auto;
+}
