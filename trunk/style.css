@@ -160,8 +160,8 @@ header img {
 }
 
 #page-content {
-	border-left: 1px solid red;
-	border-right: 1px solid red;
+	/*border-left: 1px solid red;
+	border-right: 1px solid red;*/
 	width: 962px;
 	min-height: 517px;
 	margin: auto;
@@ -171,6 +171,7 @@ header img {
 	background: url('images/footer.png') repeat-x;
 	height: 288px;
 	padding-top: 92px;
+	margin-top: -30px;
 }
 
 footer {
@@ -237,10 +238,16 @@ footer {
 	width: 205px;
 	background: url('images/news-shadow.png') no-repeat right;
 	padding: 10px;
-	border-bottom: 1px solid red;
-	border-top: 1px solid red;
+}
+
+#slider1 li div {
+	margin-top: 15px;
 }
 
 .bx-wrapper {
 	margin: auto;
+}
+
+#slider1 li.no-news-li-background {
+	background: none;
 }
