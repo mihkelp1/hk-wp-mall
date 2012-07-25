@@ -160,15 +160,16 @@ header img {
 }
 
 #page-content {
-	border:1px solid red;
+	border-left: 1px solid red;
+	border-right: 1px solid red;
 	width: 962px;
-	min-height: 540px;
+	min-height: 517px;
 	margin: auto;
 }
 
 #footer-wrapper {
 	background: url('images/footer.png') repeat-x;
-	height: 390px;
+	height: 380px;
 }
 
 footer {
