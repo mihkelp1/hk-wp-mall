@@ -263,6 +263,36 @@ ul.parent-pages {
 
 }
 
+ul.parent-pages a:hover {
+	background-color: #008cdd;
+	color: #FFF;
+}
+
+ul.parent-pages a {
+	display: block;
+	width: inherit;
+	padding: 8px;
+	text-decoration: none;
+}
+
 ul.children {
-	margin-left: 13px;
+	margin-left: 12px;
+	font-size: 0.9em;
+}
+
+.page-left-menu {
+	width: 200px;
+	border-right: 2px solid rgb(239,239,239);
+	float:left;
+	padding: 10px 12px 10px 12px;
+}
+
+.page-inside-content {
+	padding-left: 25px;
+	float:left;
+}
+
+/* Apply style only to direct descendents for li with class "current_page_item" */
+li.current_page_item  > a, li.current_page_parent > a {
+	color: #000;
 }
