@@ -59,9 +59,9 @@ body, a {
 
 a {
 	color: #FFF;
-	font-size: 0.85em;
 	text-decoration: none;
 }
+
 
 a:hover {
 	text-decoration: underline;
@@ -191,6 +191,10 @@ footer {
 	padding-bottom: 10px;
 	overflow: hidden;
 	vertical-align: top;
+}
+
+.footer-nav-menu a {
+	font-size: 0.85em;
 }
 
 .footer-nav-menu-padding {
