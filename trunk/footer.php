@@ -8,7 +8,7 @@
 	</div>
 
 	<div id="footer-wrapper">
-		<footer>
+		<footer class="page-footer">
 			<div class="footer-menus-wrapper">
 				<nav class="footer-nav-menu">
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-left' ); ?></h2>
