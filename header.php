@@ -48,7 +48,7 @@
 
 <div id="main-container">
 	<header class="page-header">
-	<img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="TLÜ Haapsalu Kolledž" title="TLÜ Haapsalu Kolledž" />
+	<a href="<?php echo home_url(); ?>"><img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="TLÜ Haapsalu Kolledž" title="TLÜ Haapsalu Kolledž" /></a>
 		<nav id="header-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?>
 		</nav>
