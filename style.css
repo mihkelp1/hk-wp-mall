@@ -263,7 +263,7 @@ ul.parent-pages {
 
 }
 
-ul.parent-pages a:hover {
+ul.parent-pages > li > a:hover {
 	background-color: #008cdd;
 	color: #FFF;
 }
@@ -273,11 +273,25 @@ ul.parent-pages a {
 	width: inherit;
 	padding: 8px;
 	text-decoration: none;
+	color: #008cdd;
+}
+
+ul.parent-pages > li > a {
+	font-weight: bold;
 }
 
 ul.children {
 	margin-left: 12px;
 	font-size: 0.9em;
+}
+
+ul.children li > a {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+ul.children li a:hover {
+	text-decoration: underline;
 }
 
 .page-left-menu {
