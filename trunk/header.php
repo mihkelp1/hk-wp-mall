@@ -52,9 +52,10 @@
 		<nav id="header-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?>
 		</nav>
-		<?php if ( is_singular() ) { ?>
-			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
-		<?php } ?>
 	</header>
 	
 	<div id="page-content">
+	
+		<?php if ( is_singular() ) { ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
+		<?php } ?>
