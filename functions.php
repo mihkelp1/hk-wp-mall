@@ -28,6 +28,8 @@ function _initTheme() {
 	  'after_widget'  => '</div>',
 	  'description' => __( 'Widgets in this area will be shown in the footer.' )
 	));
+	
+	add_theme_support( 'post-thumbnails' ); 
 }
 
 add_action( 'init', '_initTheme' );

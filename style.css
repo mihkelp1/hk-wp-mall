@@ -366,6 +366,11 @@ strong {
 	background: none;
 }
 
+.wp-post-image {
+	float:right;
+	padding: 10px 10px 10px 20px;
+}
+
 /* Apply style only to direct descendents for li with class "current_page_item" */
 .page-left-menu li.current_page_item  > a, .page-left-menu li.current_page_parent > a {
 	color: #000;
