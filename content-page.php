@@ -4,7 +4,7 @@
  */
 ?>
 
-<div style="height: 455px; border: 1px solid yellow;">
+<div style="min-height: 455px; clear:both; margin-top: 25px;">
 
 	<div class="page-left-menu">
 		<?php

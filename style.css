@@ -298,7 +298,7 @@ ul.children li a:hover {
 	width: 200px;
 	border-right: 2px solid rgb(239,239,239);
 	float:left;
-	padding: 10px 12px 10px 12px;
+	padding: 0px 12px 10px 12px;
 }
 
 .page-inside-content {
@@ -326,6 +326,35 @@ ul.children li a:hover {
 
 .entry-content {
 	margin-top: 30px;
+}
+
+.nav-menu-container {
+	height: 65px;
+	margin-left: 10px;
+	/*background: url('images/nav-bottom-left.png') left bottom no-repeat, url('images/nav-bottom-center.png') center bottom repeat-x, url('images/nav-bottom-right.png') right bottom no-repeat;*/
+	background: url('images/nav-border-bottom.png') bottom no-repeat;
+}
+
+.nav-menu-container li {
+	float: left;
+	background: url('images/nav-border.png') right repeat-y;
+}
+
+.nav-menu-container li a {
+	display: block;
+	padding: 25px 16px 25px 16px;
+	color: #0f88ce !important;
+	font-size: 0.9em;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.nav-menu-container li a:hover {
+	background: url('images/nav-hover.png');
+}
+
+.nav-menu-container ul li:last-child {
+	background: none;
 }
 
 /* Apply style only to direct descendents for li with class "current_page_item" */
