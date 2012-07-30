@@ -306,6 +306,7 @@ ul.children li a:hover {
 	padding-left: 25px;
 	display: inline-block;
 	width: 700px;
+	padding-bottom: 25px;
 }
 
 .entry-title {
