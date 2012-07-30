@@ -358,6 +358,6 @@ ul.children li a:hover {
 }
 
 /* Apply style only to direct descendents for li with class "current_page_item" */
-li.current_page_item  > a, li.current_page_parent > a {
+.page-left-menu li.current_page_item  > a, .page-left-menu li.current_page_parent > a {
 	color: #000;
 }
