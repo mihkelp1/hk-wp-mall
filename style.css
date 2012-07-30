@@ -339,7 +339,7 @@ strong {
 
 .nav-menu-container {
 	height: 65px;
-	margin-left: 15px;
+	margin-left: 18px;
 	/*background: url('images/nav-bottom-left.png') left bottom no-repeat, url('images/nav-bottom-center.png') center bottom repeat-x, url('images/nav-bottom-right.png') right bottom no-repeat;*/
 	background: url('images/nav-border-bottom.png') bottom no-repeat;
 }
