@@ -325,7 +325,16 @@ ul.children li a:hover {
 }
 
 .entry-content {
-	margin-top: 30px;
+	font-size: 0.85em;
+	line-height: 1.7em;
+}
+
+.entry-content p {
+	padding: 30px 0px 6px 0px;
+}
+
+strong {
+	font-weight: bold;
 }
 
 .nav-menu-container {
