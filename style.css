@@ -304,6 +304,28 @@ ul.children li a:hover {
 .page-inside-content {
 	padding-left: 25px;
 	float:left;
+	width: 700px;
+}
+
+.entry-title {
+	display: inline-block;
+	border-bottom: 5px solid rgb(0,140,221);
+	padding: 2px 5px 5px 0px;
+}
+
+.entry-title {
+	text-transform: uppercase;
+	font-size: 1.25em;
+	font-family: 'Ubuntu Condensed', sans-serif;
+}
+
+.entry-meta {
+	float: right;
+	padding: 5px;
+}
+
+.entry-content {
+	margin-top: 30px;
 }
 
 /* Apply style only to direct descendents for li with class "current_page_item" */
