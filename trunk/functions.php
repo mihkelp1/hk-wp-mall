@@ -110,11 +110,11 @@ function getNewsSlider() {
 	if ( $posts ) {
 		echo '<ul id="slider1">';
 		foreach( $posts as $post ) {
-			$img = '<img src="'.getFileURL('/images/news-icon.png').'" alt""/>';
+			$notice_class = 'news-icon';
 			if ( in_category( 'teated', $post ) ) {
-				$img = '<img src="'.getFileURL('/images/notice-icon.png').'" alt""/>';
+				$notice_class = 'notice-icon';
 			}
-			echo '<li><div class="news-image-container">'.$img.'</div><div class="news-notice-content">'.$post->post_title.'</div></li>';
+			echo '<li><a href="'.get_permalink( $post->ID ).'" title="'.$post->post_title.'"><div class="news-image '.$notice_class.'"></div><div class="news-notice-content">'.$post->post_title.'</div></a></li>';
 		}
 		echo '</ul>';
 	} else {

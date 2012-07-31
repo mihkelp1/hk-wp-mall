@@ -395,13 +395,39 @@ strong {
 	overflow: hidden;
 }
 
-.news-image-container {
-	float: left;
-	height: 70px;
+#slider1 li a {
+	color: #555555;
 }
 
-.news-image-container img {
-	margin-top: 22px;
+#slider1 li a:hover {
+	color: #008cdd;
+}
+
+#slider1 li a:hover {
+	color: #008cdd;
+
+}
+
+#slider1 li a:hover .news-icon {
+	background: url('images/news-icon-hover.png') center no-repeat;
+}
+
+#slider1 li a:hover .notice-icon {
+	background: url('images/notice-icon-hover.png') center no-repeat;
+}
+
+.news-image {
+	float: left;
+	height: 70px;
+	width: 29px;
+}
+
+.news-icon {
+	background: url('images/news-icon.png') center no-repeat;
+}
+
+.notice-icon {
+	background: url('images/notice-icon.png') center no-repeat;
 }
 
 /* Apply style only to direct descendents for li with class "current_page_item" */
