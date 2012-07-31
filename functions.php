@@ -94,4 +94,32 @@ if ( !function_exists( 'wp_nav_menu_title' ) ) {
 	}
 }
 
+/**
+ * Build news list
+ */
+
+function getNewsSlider() {
+	$args = array(
+		'numberposts'     => 20,
+		'orderby'         => 'post_date',
+		'order'           => 'DESC',
+		'post_type'       => 'post',
+		'post_status'     => 'publish' );
+	$posts = get_posts( $args );
+	
+	if ( $posts ) {
+		echo '<ul id="slider1">';
+		foreach( $posts as $post ) {
+			$img = '<img src="'.getFileURL('/images/news-icon.png').'" alt""/>';
+			if ( in_category( 'teated', $post ) ) {
+				$img = '<img src="'.getFileURL('/images/notice-icon.png').'" alt""/>';
+			}
+			echo '<li><div class="news-image-container">'.$img.'</div><div class="news-notice-content">'.$post->post_title.'</div></li>';
+		}
+		echo '</ul>';
+	} else {
+		return false;
+	}
+}
+
 ?>
