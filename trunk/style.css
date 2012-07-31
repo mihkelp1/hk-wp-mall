@@ -436,12 +436,20 @@ strong {
 }
 
 .page-left-menu .widget {
-	margin-bottom: 40px;
+	margin-bottom: 25px;
 }
 
 .content-news-archive article {
 	clear:both;
 	margin-bottom: 70px;
+}
+
+.content-news-archive {
+	margin-top: 25px;
+}
+
+.content-news-header {
+	padding: 5px 0px 25px 0px;
 }
 
 /* Calendar Widget */

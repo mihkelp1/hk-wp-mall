@@ -18,15 +18,15 @@ get_header(); ?>
 	<div class="page-left-menu">
 		<?php
 			the_widget('WP_Widget_Calendar');
-			the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => __( 'Arhiiv' ) ) );
-			the_widget( 'WP_Widget_Tag_Cloud');
+			the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => ' ' ) );
+			the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
 		?>
 	</div>
 	<div class="page-inside-content">
 
 			<?php if ( have_posts() ) : ?>
 
-				<header class="page-content-header">
+				<header class="content-news-header">
 					<h1 class="page-title">
 						<?php if ( is_day() ) : ?>
 							<?php printf( __( 'Daily Archives: %s', 'twentyeleven' ), '<span>' . get_the_date() . '</span>' ); ?>
