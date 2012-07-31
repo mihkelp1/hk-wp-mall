@@ -403,11 +403,6 @@ strong {
 	color: #008cdd;
 }
 
-#slider1 li a:hover {
-	color: #008cdd;
-
-}
-
 #slider1 li a:hover .news-icon {
 	background: url('images/news-icon-hover.png') center no-repeat;
 }
