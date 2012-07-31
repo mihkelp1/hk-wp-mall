@@ -399,7 +399,7 @@ strong {
 	color: #555555;
 }
 
-#slider1 li a:hover {
+#slider1 li a:hover .news-notice-content {
 	color: #008cdd;
 }
 
