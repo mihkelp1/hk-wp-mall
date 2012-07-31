@@ -35,7 +35,13 @@ get_header(); ?>
 						<?php elseif ( is_year() ) : ?>
 							<?php  echo '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentyeleven' ) ) . '</span>'; ?>
 						<?php else : ?>
-							<?php _e( 'Blog Archives', 'twentyeleven' ); ?>
+							<?php
+								if ( is_tag() ) {
+									single_tag_title();
+								} else {
+									_e( 'Archive', 'hk-wp-template' );
+								}
+							?>
 						<?php endif; ?>
 					</h1>
 				</header>
