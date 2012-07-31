@@ -8,15 +8,7 @@
 	kursused
 </div>
 
-<ul id="slider1">
-  <li><div>Slide one content</div></li>
-  <li><div>Slide two content</div></li>
-  <li><div>Slide one content</div></li>
-  <li><div>Slide two content</div></li>
-  <li><div>Slide one content</div></li>
-  <li><div>Slide two content</div></li>
-  
-</ul>
+<?php getNewsSlider(); ?>
 
 <script type="text/javascript">
   jQuery(document).ready(function($){

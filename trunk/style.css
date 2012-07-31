@@ -245,10 +245,6 @@ footer.page-footer {
 	padding: 10px;
 }
 
-#slider1 li div {
-	margin-top: 15px;
-}
-
 .bx-wrapper {
 	margin: auto;
 }
@@ -386,6 +382,26 @@ strong {
 
 .content-home {
 	border: 1px solid yellow;
+}
+
+.news-notice-content {
+	font-size: 0.8em;
+	line-height: 1.4em;
+	float:left;
+	width: 164px;
+	height: 65px;
+	margin-left: 10px;
+	margin-top: 12px;
+	overflow: hidden;
+}
+
+.news-image-container {
+	float: left;
+	height: 70px;
+}
+
+.news-image-container img {
+	margin-top: 22px;
 }
 
 /* Apply style only to direct descendents for li with class "current_page_item" */
