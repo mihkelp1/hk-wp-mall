@@ -4,7 +4,7 @@
  */
 ?>
 
-<div style="height: 455px; border: 1px solid yellow;">
+<div class="main-content content-home">
 	kursused
 </div>
 
