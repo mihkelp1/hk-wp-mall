@@ -145,12 +145,8 @@ table {
 	border: 0px;
 }
 
-.header-menu-container li:last-child a {
-	color: #008cdd;
-}
-
 .header-menu-container li a:hover {
-	text-decoration: underline;
+	color: #008cdd;
 }
 
 .page-header img {
