@@ -373,6 +373,21 @@ strong {
 	padding: 10px 10px 10px 20px;
 }
 
+/* Content styles few */
+
+.main-content {
+	min-height: 455px; 
+	clear:both; 
+}
+
+.content-page {
+	margin-top: 25px;
+}
+
+.content-home {
+	border: 1px solid yellow;
+}
+
 /* Apply style only to direct descendents for li with class "current_page_item" */
 .page-left-menu li.current_page_item  > a, .page-left-menu li.current_page_parent > a {
 	color: #000;
