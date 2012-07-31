@@ -56,6 +56,6 @@
 	
 	<div id="page-content">
 	
-		<?php if ( is_singular() ) { ?>
+		<?php if ( !is_home() ) { ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
 		<?php } ?>
