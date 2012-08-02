@@ -5,13 +5,38 @@
 ?>
 
 <div class="main-content content-home">
-	kursused
+	<ul id="example1">
+		<li>
+			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
+		</li>
+		<li>
+			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
+		</li>
+		<li>
+			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
+		</li>
+		<li>
+			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
+		</li>
+		<li>
+			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
+		</li>
+	</ul>
 </div>
 
 <?php getNewsSlider(); ?>
 
 <script type="text/javascript">
   jQuery(document).ready(function($){
+  	$('#example1').AccordionImageMenu({
+  		width: 960,
+  		openDim: 400,
+	    closeDim: 192,
+	    height: 384,
+	    duration: 750,
+	    effect: 'easeOutQuint'
+  	});
+	
     $('#slider1').bxSlider({
     	displaySlideQty: 4,
 	    moveSlideQty: 4,
