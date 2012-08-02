@@ -5,7 +5,7 @@
 ?>
 
 <div class="main-content content-home">
-	<ul id="example1">
+	<!--<ul id="example1">
 		<li>
 			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
 		</li>
@@ -21,7 +21,8 @@
 		<li>
 			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
 		</li>
-	</ul>
+	</ul>-->
+	<?php echo do_shortcode('[a_image_menu position="horizontal" height="400" open=0]') ?>
 </div>
 
 <?php getNewsSlider(); ?>
