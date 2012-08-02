@@ -43,12 +43,9 @@ function loadAndRegisterJavaScripts() {
 	
 	wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
 	wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
-	wp_register_script( 'jquery-accordion', get_template_directory_uri().'/js/accordionImageMenu-0.4.min_.js' );
 	
 	wp_enqueue_script( 'jquery-easing' );
 	wp_enqueue_script( 'jquery-bxSlider' );
-	wp_enqueue_script( 'jquery-ui-core' );
-	wp_enqueue_script( 'jquery-accordion' );
 	
 	//Load some styles too
 	loadAndRegisterCSS();
@@ -63,9 +60,6 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
 function loadAndRegisterCSS() {
 	wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
 	wp_enqueue_style( 'jquery.bxSlider' );
-	
-	/*wp_register_style( 'jquery.accordion', get_template_directory_uri(). '/accordionImageMenu.css' );
-	wp_enqueue_style( 'jquery.accordion' );*/
 }
 
 /**

@@ -5,23 +5,6 @@
 ?>
 
 <div class="main-content content-home">
-	<!--<ul id="example1">
-		<li>
-			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
-		</li>
-		<li>
-			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
-		</li>
-		<li>
-			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
-		</li>
-		<li>
-			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
-		</li>
-		<li>
-			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
-		</li>
-	</ul>-->
 	<?php echo do_shortcode('[a_image_menu]') ?>
 </div>
 
@@ -29,13 +12,6 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($){
-  /*	$('#example1').AccordionImageMenu({
-  		width: 960,
-  		openDim: 384,
-	    closeDim: 192,
-	    height: 400
-  	});*/
-	
     $('#slider1').bxSlider({
     	displaySlideQty: 4,
 	    moveSlideQty: 4,
