@@ -33,8 +33,7 @@
   		openDim: 384,
 	    closeDim: 192,
 	    height: 400,
-	    duration: 750,
-	    effect: 'easeOutQuint'
+	    duration: 750
   	});
 	
     $('#slider1').bxSlider({
