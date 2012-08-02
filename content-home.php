@@ -32,8 +32,7 @@
   		width: 960,
   		openDim: 384,
 	    closeDim: 192,
-	    height: 400,
-	    duration: 750
+	    height: 400
   	});
 	
     $('#slider1').bxSlider({
