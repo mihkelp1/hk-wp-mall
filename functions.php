@@ -64,8 +64,8 @@ function loadAndRegisterCSS() {
 	wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
 	wp_enqueue_style( 'jquery.bxSlider' );
 	
-	wp_register_style( 'jquery.accordion', get_template_directory_uri(). '/accordionImageMenu.css' );
-	wp_enqueue_style( 'jquery.accordion' );
+	/*wp_register_style( 'jquery.accordion', get_template_directory_uri(). '/accordionImageMenu.css' );
+	wp_enqueue_style( 'jquery.accordion' );*/
 }
 
 /**

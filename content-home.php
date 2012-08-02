@@ -22,19 +22,19 @@
 			<a href='link1'><span>title 1</span><img src="<?php echo getFileURL( '/images/home/KJD_384x400.jpg'); ?>" /></a>		
 		</li>
 	</ul>-->
-	<?php echo do_shortcode('[a_image_menu position="horizontal" height="400" open=0]') ?>
+	<?php echo do_shortcode('[a_image_menu]') ?>
 </div>
 
 <?php getNewsSlider(); ?>
 
 <script type="text/javascript">
   jQuery(document).ready(function($){
-  	$('#example1').AccordionImageMenu({
+  /*	$('#example1').AccordionImageMenu({
   		width: 960,
   		openDim: 384,
 	    closeDim: 192,
 	    height: 400
-  	});
+  	});*/
 	
     $('#slider1').bxSlider({
     	displaySlideQty: 4,
