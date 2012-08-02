@@ -482,3 +482,7 @@ strong {
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
+
+.aim a {
+	background-position: left center !important;
+}
