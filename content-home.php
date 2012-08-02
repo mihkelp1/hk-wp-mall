@@ -30,9 +30,9 @@
   jQuery(document).ready(function($){
   	$('#example1').AccordionImageMenu({
   		width: 960,
-  		openDim: 400,
+  		openDim: 384,
 	    closeDim: 192,
-	    height: 384,
+	    height: 400,
 	    duration: 750,
 	    effect: 'easeOutQuint'
   	});
