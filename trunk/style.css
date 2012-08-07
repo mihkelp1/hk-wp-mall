@@ -167,7 +167,7 @@ table {
 	background: url('images/footer.png') repeat-x;
 	height: 288px;
 	padding-top: 92px;
-	margin-top: -30px;
+	margin-top: -50px;
 }
 
 footer.page-footer {
@@ -368,7 +368,7 @@ strong {
 /* Content styles few */
 
 .main-content {
-	min-height: 455px; 
+	min-height: 405px; 
 	clear:both; 
 }
 
@@ -486,19 +486,17 @@ strong {
 /* Homepage image accordion menu */
 
 .content-home .aim a {
-	background-position: left top;
-	padding-left: 7px;
-	padding-right: 8px;
+	
 }
 
 .content-home .aim {
 	margin-top: 25px !important;
-	width: 1000px !important; 
-	left: -15px;
+	width: 1005px !important; 
+	left: -30px;
 }
 
 .content-home .aim a, .content-home .aim {
-	height: 450px !important;
+	height: 405px !important;
 	margin-bottom: 5px;
 }
 
@@ -515,7 +513,7 @@ strong {
 	font-size: 1.05em;
 	height: auto;
 	bottom: 15px;
-	left: 7px;
+	left: 8px;
 	text-align: center;
 	width: 175px;
 	margin-top: 50px;
