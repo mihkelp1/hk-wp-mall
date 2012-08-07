@@ -492,14 +492,14 @@ strong {
 }
 
 .content-home .aim {
-	margin-top: 35px !important;
+	margin-top: 25px !important;
 	width: 1000px !important; 
 	left: -15px;
 }
 
 .content-home .aim a, .content-home .aim {
 	height: 450px !important;
-	margin-bottom: 20px;
+	margin-bottom: 5px;
 }
 
 .content-home .aim a img {
@@ -514,7 +514,7 @@ strong {
 	font-weight: normal;
 	font-size: 1.05em;
 	height: auto;
-	bottom: 13px;
+	bottom: 15px;
 	left: 7px;
 	text-align: center;
 	width: 175px;
@@ -524,7 +524,9 @@ strong {
 }
 
 .content-home .aim a:last-child {
-	border-right: none !important;
-	top: 17px;
 	background-position: right top;
+}
+
+.content-home .aim a:last-child span {
+	bottom: -3px;
 }
