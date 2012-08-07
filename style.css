@@ -487,22 +487,8 @@ strong {
 
 .content-home .aim a {
 	background-position: left top;
-	z-index: 1;
 	padding-left: 7px;
 	padding-right: 8px;
-}
-
-.content-home .aim a:before, .content-home .aim a.after {
- 	position:absolute;
-   	z-index:-1;
-   	top:0;
-   	left:0;
-   	right:0;
-	bottom:0;
-}
-
-.content-home .aim a:nth-child(1n+2):after {
-	/*background: url('images/home-nav-shadow.png') 300% 0;*/
 }
 
 .content-home .aim {
