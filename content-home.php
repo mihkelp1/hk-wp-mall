@@ -24,12 +24,12 @@
 		var span = $(this).find('span:first');
 		$(this).hover(function(e) {
 			span.hoverFlow(e.type, {
-				marginLeft: '96px'
+				marginLeft: '100px'
 			}, 400);
 		},
 		function(e) {
 			span.hoverFlow(e.type, {
-				marginLeft: '-=96px'
+				marginLeft: '-=100px'
 			}, 375);
 		});
 	});
