@@ -35,7 +35,7 @@
 				span.animate({
 					marginLeft: '-=96px'
 				}, 400);
-			}, 200);
+			}, 75);
 		});
 	});
   
