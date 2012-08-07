@@ -16,6 +16,7 @@
   	setTimeout(function() {
 		$('div.aim').find('a:nth-child(-n+4)').each(function() {
 			var old_bg = $(this).css('background');
+			alert(old_bg);
 			$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall/images/home-nav-shadow.png") right 35px no-repeat,'+ old_bg });
 		});
 	}, 250 );
