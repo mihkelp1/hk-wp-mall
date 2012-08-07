@@ -20,22 +20,17 @@
 	});
 	
 	$('div.aim').find('a').each(function() {
-		var animationTimeout;
 		
 		var span = $(this).find('span:first');
-		$(this).hover(function() {
-			clearTimeout(animationTimeout);
-			span.animate({
+		$(this).hover(function(e) {
+			span.hoverFlow(e.type, {
 				marginLeft: '96px'
 			}, 400);
 		},
-		function() {
-			clearTimeout(animationTimeout);
-			animationTimeout = setTimeout(function() {
-				span.animate({
-					marginLeft: '-=96px'
-				}, 400);
-			}, 75);
+		function(e) {
+			span.hoverFlow(e.type, {
+				marginLeft: '-=96px'
+			}, 400);
 		});
 	});
   
