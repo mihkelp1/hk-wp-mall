@@ -377,7 +377,7 @@ strong {
 }
 
 .content-home {
-	border: 1px solid yellow;
+	/* No styles here */
 }
 
 .news-notice-content {
@@ -483,6 +483,48 @@ strong {
 	border-bottom: 1px solid #ccc;
 }
 
-.aim a {
-	background-position: left center !important;
+/* Homepage image accordion menu */
+
+.content-home .aim a {
+	background-position: left top;
+	background: url('images/home-nav-shadow.png');
+	padding-left: 7px;
+	padding-right: 8px;
+}
+
+.content-home .aim {
+	margin-top: 35px !important;
+	width: 1000px !important; 
+	left: -25px;
+}
+
+.content-home .aim a, .content-home .aim {
+	height: 450px !important;
+	margin-bottom: 20px;
+}
+
+.content-home .aim a img {
+	vertical-align: top;
+}
+
+.content-home .aim a span {
+	background: none;
+	color: #000;
+	text-transform: uppercase;
+	font-family: 'Ubuntu Condensed', sans-serif;
+	font-weight: normal;
+	font-size: 1.05em;
+	height: auto;
+	bottom: 13px;
+	text-align: center;
+	width: 175px;
+	margin-top: 50px;
+	padding: 2px;
+	
+}
+
+.content-home .aim a:last-child {
+	border-right: none !important;
+	top: 17px;
+	background-position: right top;
 }

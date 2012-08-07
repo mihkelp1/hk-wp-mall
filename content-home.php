@@ -12,6 +12,11 @@
 
 <script type="text/javascript">
   jQuery(document).ready(function($){
+  
+  	$('div.aim').find('a:nth-child(-n+4)').each(function() {
+  		$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall/images/home-nav-shadow.png") right 35px no-repeat,'+ $(this).css('background') });
+  	});
+  
     $('#slider1').bxSlider({
     	displaySlideQty: 4,
 	    moveSlideQty: 4,
