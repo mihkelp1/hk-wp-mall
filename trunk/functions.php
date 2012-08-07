@@ -43,9 +43,11 @@ function loadAndRegisterJavaScripts() {
 	
 	wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
 	wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
+	wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js');
 	
 	wp_enqueue_script( 'jquery-easing' );
 	wp_enqueue_script( 'jquery-bxSlider' );
+	wp_enqueue_script( 'jquery-overflow' );
 	
 	//Load some styles too
 	loadAndRegisterCSS();
