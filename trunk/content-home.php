@@ -30,7 +30,7 @@
 		function(e) {
 			span.hoverFlow(e.type, {
 				marginLeft: '-=96px'
-			}, 400);
+			}, 375);
 		});
 	});
   
