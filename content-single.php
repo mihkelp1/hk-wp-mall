@@ -14,7 +14,6 @@
 
 		<?php if ( 'post' == get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php //twentyeleven_posted_on(); ?>
 			<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
 		</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -32,9 +31,9 @@
 	<footer class="entry-meta">
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'twentyeleven' ) );
+			$tag_list = get_the_tag_list( '', __( ', ', 'hk-wp-mall' ) );
 			if ( '' != $tag_list ) {
-				$utility_text = __('Tags: %1$s', 'hk-wp-template' );
+				$utility_text = '<div class="tags-list">'.__('Tags: %1$s', 'hk-wp-template' ).'</div>';
 			}
 
 			printf(
@@ -42,5 +41,6 @@
 				$tag_list
 			);
 		?>
+		<?php _posted_on(); ?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
