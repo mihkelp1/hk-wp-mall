@@ -321,6 +321,7 @@ ul.children li a:hover {
 .entry-content {
 	font-size: 0.85em;
 	line-height: 1.7em;
+	margin-bottom: 20px;
 }
 
 .entry-content p {

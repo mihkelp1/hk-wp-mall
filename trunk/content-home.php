@@ -29,7 +29,7 @@
 		},
 		function(e) {
 			span.hoverFlow(e.type, {
-				marginLeft: '-=100px'
+				marginLeft: '0px'
 			}, 375);
 		});
 	});
