@@ -144,7 +144,7 @@ function getArchiveLeftMenu() {
  
 function _posted_on() {
 	printf( __( '<div class="posted-on"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></div>', 'hk-wp-mall' ),
-		esc_url( get_permalink() ),
+		esc_url( get_day_link( get_the_date('Y'), get_the_date('m'), get_the_date('d') ) ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
 		esc_html( get_the_date() )
