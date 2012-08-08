@@ -17,9 +17,7 @@ get_header(); ?>
 <div class="main-content content-news-archive">
 	<div class="page-left-menu">
 		<?php
-			the_widget('WP_Widget_Calendar');
-			the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => ' ' ) );
-			the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
+			getArchiveLeftMenu();
 		?>
 	</div>
 	<div class="page-inside-content">
