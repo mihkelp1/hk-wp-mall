@@ -474,11 +474,14 @@ strong {
 .widget_calendar #wp-calendar td,
 .widget_calendar #wp-calendar th {
 	text-align: center;
+	padding: 4px;
 }
+
+
 .widget_calendar #wp-calendar caption {
-	font-size: 11px;
+	font-size: 14px;
 	font-weight: 500;
-	padding: 5px 0 3px 0;
+	padding: 5px 0 5px 0;
 	text-transform: uppercase;
 }
 .widget_calendar #wp-calendar th {
@@ -546,4 +549,8 @@ strong {
 
 .widget a:hover, .entry-meta a:hover, #nav-single a:hover {
 	color: #0F66CE;
+}
+
+.widget_archive li {
+	margin-bottom: 2px;
 }
