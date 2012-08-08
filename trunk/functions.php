@@ -32,7 +32,7 @@ function _initTheme() {
 	add_theme_support( 'post-thumbnails' ); 
 }
 
-add_action( 'init', '_initTheme' );
+add_action( 'after_setup_theme', '_initTheme' );
 
 /**
  * Register and load some JavaScript
@@ -132,6 +132,23 @@ function getArchiveLeftMenu() {
 	the_widget('WP_Widget_Calendar');
 	the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => ' ' ) );
 	the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
+}
+
+
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ * Create your own twentyeleven_posted_on to override in a child theme
+ *
+ * @since Twenty Eleven 1.0
+ */
+ 
+function _posted_on() {
+	printf( __( '<div class="posted-on"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></div>', 'hk-wp-mall' ),
+		esc_url( get_permalink() ),
+		esc_attr( get_the_time() ),
+		esc_attr( get_the_date( 'c' ) ),
+		esc_html( get_the_date() )
+	);
 }
 
 ?>

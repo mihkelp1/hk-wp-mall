@@ -318,6 +318,15 @@ ul.children li a:hover {
 	padding: 5px;
 }
 
+footer.entry-meta {
+	margin-bottom: 20px;
+}
+
+.posted-on {
+	margin-top: 10px;
+	float:right;
+}
+
 .entry-content {
 	font-size: 0.85em;
 	line-height: 1.7em;
@@ -528,4 +537,13 @@ strong {
 
 .content-home .aim a:last-child span {
 	bottom: -3px;
+}
+
+.widget a, .entry-meta a, #nav-single a {
+	color: #008CDD;
+	text-decoration: none;
+}
+
+.widget a:hover, .entry-meta a:hover, #nav-single a:hover {
+	color: #0F66CE;
 }
