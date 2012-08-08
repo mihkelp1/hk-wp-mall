@@ -23,7 +23,11 @@
 				'post_type'    => 'page',
 				'post_status'  => 'publish' 
 			);
+			
 			echo '<ul class="parent-pages">';
+			?>
+			<li class="<?php if ( get_the_ID() == $child_of ) { echo 'current_page_item'; } ?>"><a href="<?php echo get_permalink($child_of);?>" title="<?php echo get_the_title($child_of);?>"><?php echo get_the_title($child_of);?></a></li>
+			<?php
 			wp_list_pages( $args );
 			echo '</ul>';
 		?>
