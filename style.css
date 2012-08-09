@@ -575,7 +575,7 @@ strong {
 
 #rollout-searchform {
 	position: absolute;
-	right: 173px;
+	right: 178px;
 	z-index: 5;
 	width: 350px;
 	background: #000;
@@ -594,7 +594,7 @@ strong {
 	padding-left: 21px;
 	margin: 4px;
 	font-size: 0.8em;
-	width: 315px;
+	width: 90%;
 	background: #FFF url('images/search-icon.png') 5px 8px no-repeat;
 }
 
