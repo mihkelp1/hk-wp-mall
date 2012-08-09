@@ -20,7 +20,7 @@
 			event.stopPropagation();
 		});
 		
-		$('.header-menu-container li:nth-child(5)').hover(function() {
+		$('.header-menu-container li:nth-child(5)').bind('mouseenter', function() {
 			$('div.#rollout-searchform').animate({
 				'width' : 'show'
 			}, 'fast', function() {
@@ -41,6 +41,16 @@
 		
 		$('div.#rollout-searchform').bind('click', function(e) {
 			e.stopPropagation();
+		});
+		
+		$('div.#rollout-searchform').bind('keyup', function(e) {
+			if ( e.keyCode == 27 ) {
+				if ( $(this).is(':visible') ) {
+					$(this).animate({
+						'width' : 'hide'
+					}, 'fast');
+				}
+			}
 		});
 	});
 </script>
