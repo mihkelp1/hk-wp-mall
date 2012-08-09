@@ -51,10 +51,11 @@
 			e.stopPropagation();
 		});
 		
-		$('div.#rollout-searchform').bind('keyup', function(e) {
+		$('div.#rollout-searchform').find('input:first').bind('keyup', function(e) {
 			if ( e.keyCode == 27 ) {
-				if ( $(this).is(':visible') ) {
-					$(this).animate({
+				var searchform = $('div.#rollout-searchform');
+				if ( searchform.is(':visible') ) {
+					searchform.animate({
 						'width' : 'hide'
 					}, 'fast');
 					search_esc_closed = true;
