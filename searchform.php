@@ -32,18 +32,12 @@
 			}
 		});
 		
-		$('.header-menu-container li:nth-child(5)').bind('mouseleave', function() {
-			search_esc_closed = false;
-		});
-		
 		$(document).live('click', function(e) {
 			var searchform = $('div.#rollout-searchform');
-			if ( e.target != searchform ) {
-				if ( searchform.is(':visible') ) {
-					$('div.#rollout-searchform').animate({
-						'width' : 'hide'
-					}, 'fast');
-				}
+			if ( searchform.is(':visible') ) {
+				$('div.#rollout-searchform').animate({
+					'width' : 'hide'
+				}, 'fast');
 			}
 		});
 		
