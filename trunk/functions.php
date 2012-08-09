@@ -18,7 +18,8 @@ function _initTheme() {
 			'nav-menu' => __( 'Navigation menu' ),
 			'footer-menu-left' => __('Footer left'),
 			'footer-menu-middle' => __('Footer middle'),
-			'footer-menu-right' => __('Footer right') )
+			'footer-menu-right' => __('Footer right'),
+			'last-resort-menu' => __('General menu') )
 		 );
 		
 	register_sidebar(array(

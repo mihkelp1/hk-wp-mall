@@ -255,12 +255,12 @@ ul.parent-pages {
 
 }
 
-ul.parent-pages > li > a:hover {
+ul.parent-pages > li > a:hover, .page-left-menu ul.menu > li > a:hover {
 	background-color: #008cdd;
 	color: #FFF;
 }
 
-ul.parent-pages a {
+ul.parent-pages a, .page-left-menu ul.menu a {
 	display: block;
 	width: inherit;
 	padding: 8px;
@@ -268,7 +268,7 @@ ul.parent-pages a {
 	color: #008cdd;
 }
 
-ul.parent-pages > li > a {
+ul.parent-pages > li > a, .page-left-menu ul.menu > li > a {
 	font-weight: bold;
 }
 
@@ -382,7 +382,7 @@ strong {
 	clear:both; 
 }
 
-.content-page, .content-news {
+.content-page, .content-news, .content-404, .content-search {
 	margin-top: 25px;
 }
 

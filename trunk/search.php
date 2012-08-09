@@ -9,47 +9,50 @@
 
 get_header(); ?>
 
-		<section id="primary">
-			<div id="content" role="main">
+<div class="main-content content-search">
+	<div class="page-left-menu">
+		<?php wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container' ) ); ?>
+	</div>
+	
+	<div class="page-inside-content">
 
-			<?php if ( have_posts() ) : ?>
+		<?php if ( have_posts() ) : ?>
 
-				<header class="page-header">
-					<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				</header>
-
-
-				<?php /* Start the Loop */ ?>
-				<?php while ( have_posts() ) : the_post(); ?>
-
-					<?php
-						/* Include the Post-Format-specific template for the content.
-						 * If you want to overload this in a child theme then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'content', get_post_format() );
-					?>
-
-				<?php endwhile; ?>
+			<header class="page-header">
+				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			</header>
 
 
-			<?php else : ?>
+			<?php /* Start the Loop */ ?>
+			<?php while ( have_posts() ) : the_post(); ?>
 
-				<article id="post-0" class="post no-results not-found">
-					<header class="entry-header">
-						<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
-					</header><!-- .entry-header -->
+				<?php
+					/* Include the Post-Format-specific template for the content.
+					 * If you want to overload this in a child theme then include a file
+					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+					 */
+					get_template_part( 'content', get_post_format() );
+				?>
 
-					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyeleven' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</article><!-- #post-0 -->
+			<?php endwhile; ?>
 
-			<?php endif; ?>
 
-			</div><!-- #content -->
-		</section><!-- #primary -->
+		<?php else : ?>
 
-<?php get_sidebar(); ?>
+			<article id="post-0" class="post no-results not-found">
+				<header class="entry-header">
+					<h1 class="entry-title"><?php _e( 'Nothing Found', 'twentyeleven' ); ?></h1>
+				</header><!-- .entry-header -->
+
+				<div class="entry-content">
+					<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyeleven' ); ?></p>
+					<?php get_search_form(); ?>
+				</div><!-- .entry-content -->
+			</article><!-- #post-0 -->
+
+		<?php endif; ?>
+
+	</div>
+</div><!-- #content -->
+
 <?php get_footer(); ?>
