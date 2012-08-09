@@ -51,11 +51,11 @@
 			e.stopPropagation();
 		});
 		
-		$('div.#rollout-searchform').find('input:first').bind('keyup', function(e) {
+		$('div.#rollout-searchform').bind('keyup', function(e) {
+			alert('opera'+e.keyCode);
 			if ( e.keyCode == 27 ) {
-				var searchform = $('div.#rollout-searchform');
-				if ( searchform.is(':visible') ) {
-					searchform.animate({
+				if ( $(this).is(':visible') ) {
+					$(this).animate({
 						'width' : 'hide'
 					}, 'fast');
 					search_esc_closed = true;
