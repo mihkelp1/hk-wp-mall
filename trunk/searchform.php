@@ -8,7 +8,7 @@
  */
 ?>
 	<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
-		<input type="text" class="search-field" name="s" id="s" autofocus="autofocus" placeholder="<?php esc_attr_e( 'Search', 'hk-wp-mall' ); ?>" />
+		<input type="text" tabindex="2" class="search-field" name="s" autofocus="autofocus" placeholder="<?php esc_attr_e( 'Search', 'hk-wp-mall' ); ?>" />
 	</form>
 
 <script type="text/javascript">	
@@ -22,7 +22,7 @@
 			event.stopPropagation();
 		});
 		
-		$('.header-menu-container li:nth-child(5)').bind('mouseenter', function() {
+		$('.header-menu-container li:nth-child(5)').bind('click', function() {
 			if ( !search_esc_closed ) {
 				$('div.#rollout-searchform').animate({
 					'width' : 'show'
