@@ -554,3 +554,11 @@ strong {
 .widget_archive li {
 	margin-bottom: 2px;
 }
+
+.widget-404 .widget {
+	margin-top: 20px;
+}
+
+.widget-404 .widget h2 {
+	margin-bottom: 20px;
+}
