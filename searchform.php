@@ -29,6 +29,11 @@
 				}, 'fast', function() {
 					$('div.#rollout-searchform').find('input:first').focus();
 				});
+			} else {
+				setTimeout( function() {
+					//Clear flag
+					search_esc_closed = false;
+				}, 250 );
 			}
 		});
 		
