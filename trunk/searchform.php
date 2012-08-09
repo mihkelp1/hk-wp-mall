@@ -15,17 +15,25 @@
 	jQuery(document).ready(function($){
 		/* Search link */
 		
+		var search_esc_closed = false;
+		
 		$('.header-menu-container li:nth-child(5)').bind( 'click', function(event) {
 			event.preventDefault();
 			event.stopPropagation();
 		});
 		
 		$('.header-menu-container li:nth-child(5)').bind('mouseenter', function() {
-			$('div.#rollout-searchform').animate({
-				'width' : 'show'
-			}, 'fast', function() {
-				$('div.#rollout-searchform').find('input:first').focus();
-			});
+			if ( !search_esc_closed ) {
+				$('div.#rollout-searchform').animate({
+					'width' : 'show'
+				}, 'fast', function() {
+					$('div.#rollout-searchform').find('input:first').focus();
+				});
+			}
+		});
+		
+		$('.header-menu-container li:nth-child(5)').bind('mouseleave', function() {
+			search_esc_closed = false;
 		});
 		
 		$(document).live('click', function(e) {
@@ -49,6 +57,7 @@
 					$(this).animate({
 						'width' : 'hide'
 					}, 'fast');
+					search_esc_closed = true;
 				}
 			}
 		});
