@@ -44,7 +44,9 @@
 	$('.header-menu-container li:nth-child(5)').hover(function() {
 		$('div.#rollout-searchform').animate({
 			'width' : 'show'
-		}, 'fast');
+		}, 'fast', function() {
+			$('div.#rollout-searchform').find('input:first').focus();
+		});
 	});
 	
 	$(document).live('click', function(e) {

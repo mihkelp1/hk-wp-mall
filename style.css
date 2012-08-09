@@ -599,5 +599,5 @@ strong {
 }
 
 .search-field:focus {
-	/* some styles here */
+	outline: none;
 }
