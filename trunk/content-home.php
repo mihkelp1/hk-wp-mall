@@ -38,17 +38,22 @@
 	
 	$('.header-menu-container li:nth-child(5)').bind( 'click', function(event) {
 		event.preventDefault();
+		event.stopPropagation();
 	});
 	
 	$('.header-menu-container li:nth-child(5)').hover(function() {
-		$('div.#rollout-searchform').slideDown('fast');
+		$('div.#rollout-searchform').animate({
+			'width' : 'show'
+		}, 'fast');
 	});
 	
 	$(document).live('click', function(e) {
 		var searchform = $('div.#rollout-searchform');
 		if ( e.target != searchform ) {
 			if ( searchform.is(':visible') ) {
-				searchform.slideUp('fast');
+				$('div.#rollout-searchform').animate({
+					'width' : 'hide'
+				}, 'fast');
 			}
 		}
 	});
