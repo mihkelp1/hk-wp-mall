@@ -606,5 +606,6 @@ strong {
 .main-content .search-field {
 	border: 1px solid rgb(111, 111, 111);
 	color: #000;
+	margin-left: 0px;
 	width: 300px;
 }
