@@ -151,7 +151,11 @@ table {
 	margin-left: 10px;
 }
 
-.header-menu-container li a:hover {
+.header-menu-container li:nth-child(5):hover {
+	background: url('images/search-icon-hover.png') center left no-repeat;
+}
+
+.header-menu-container li:hover a {
 	color: #008cdd;
 }
 
