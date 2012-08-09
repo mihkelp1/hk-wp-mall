@@ -52,7 +52,6 @@
 		});
 		
 		$('div.#rollout-searchform').bind('keyup', function(e) {
-			alert('opera'+e.keyCode);
 			if ( e.keyCode == 27 ) {
 				if ( $(this).is(':visible') ) {
 					$(this).animate({
