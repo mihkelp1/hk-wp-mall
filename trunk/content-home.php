@@ -33,6 +33,30 @@
 			}, 375);
 		});
 	});
+	
+	/* Search link */
+	
+	$('.header-menu-container li:nth-child(5)').bind( 'click', function(event) {
+		event.preventDefault();
+	});
+	
+	$('.header-menu-container li:nth-child(5)').hover(function() {
+		$('div.#rollout-searchform').slideDown('fast');
+	});
+	
+	$(document).live('click', function(e) {
+		var searchform = $('div.#rollout-searchform');
+		if ( e.target != searchform ) {
+			if ( searchform.is(':visible') ) {
+				searchform.slideUp('fast');
+			}
+		}
+	});
+	
+	$('div.#rollout-searchform').bind('click', function(e) {
+		e.stopPropagation();
+	});
+	$('div.#rollout-searchform').hide();
   
     $('#slider1').bxSlider({
     	displaySlideQty: 4,
