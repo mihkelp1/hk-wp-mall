@@ -52,6 +52,9 @@
 		<nav id="header-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?>
 		</nav>
+		<div id="rollout-searchform">
+			<?php get_search_form(); ?>
+		</div>
 	</header>
 	
 	<div id="page-content">
