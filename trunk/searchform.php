@@ -7,7 +7,7 @@
  * @since Twenty Eleven 1.0
  */
 ?>
-	<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+	<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 		<input type="text" tabindex="2" class="search-field" name="s" autofocus="autofocus" placeholder="<?php esc_attr_e( 'Search', 'hk-wp-mall' ); ?>" />
 	</form>
 
@@ -16,6 +16,8 @@
 		/* Search link */
 		
 		var search_esc_closed = false;
+		var searchform = $('div.#rollout-searchform');
+		
 		
 		$('.header-menu-container li:nth-child(5)').bind( 'click', function(event) {
 			event.preventDefault();
@@ -27,13 +29,12 @@
 				$('div.#rollout-searchform').animate({
 					'width' : 'show'
 				}, 'fast', function() {
-					$('div.#rollout-searchform').find('input:first').focus();
+					searchform.find('input:first').focus();
 				});
 			}
 		});
 		
 		$(document).live('click', function(e) {
-			var searchform = $('div.#rollout-searchform');
 			if ( searchform.is(':visible') ) {
 				$('div.#rollout-searchform').animate({
 					'width' : 'hide'
@@ -41,11 +42,11 @@
 			}
 		});
 		
-		$('div.#rollout-searchform').bind('click', function(e) {
+		searchform.bind('click', function(e) {
 			e.stopPropagation();
 		});
 		
-		$('div.#rollout-searchform').bind('keyup', function(e) {
+		searchform.bind('keyup', function(e) {
 			if ( e.keyCode == 27 ) {
 				if ( $(this).is(':visible') ) {
 					$(this).animate({
@@ -57,6 +58,12 @@
 						search_esc_closed = false;
 					}, 250 );
 				}
+			}
+		});
+		
+		$('input[class="search-field"]').each(function() {
+			if ( $(this).is(':visible') ) {
+				$(this).focus();
 			}
 		});
 	});
