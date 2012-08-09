@@ -63,6 +63,10 @@
 						'width' : 'hide'
 					}, 'fast');
 					search_esc_closed = true;
+					setTimeout( function() {
+						//Clear flag
+						search_esc_closed = false;
+					}, 250 );
 				}
 			}
 		});
