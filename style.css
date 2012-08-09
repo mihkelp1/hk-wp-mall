@@ -575,14 +575,29 @@ strong {
 
 #rollout-searchform {
 	position: absolute;
-	right: 172px;
-	top: 74px;
-	z-index: 2;
-	width: 261px;
+	right: 173px;
+	z-index: 5;
+	width: 350px;
 	background: #000;
 	-moz-border-bottom-left-radius: 5px;
 	border-bottom-left-radius: 5px;
 	-moz-border-bottom-right-radius: 5px;
 	border-bottom-right-radius: 5px;
 	padding: 5px;
+}
+
+.search-field {
+	-moz-border--radius: 5px;
+	border-radius: 5px;
+	border: 0px;
+	padding: 6px;
+	padding-left: 21px;
+	margin: 4px;
+	font-size: 0.8em;
+	width: 90%;
+	background: #FFF url('images/search-icon.png') 5px 8px no-repeat;
+}
+
+.search-field:focus {
+	/* some styles here */
 }
