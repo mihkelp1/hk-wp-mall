@@ -18,8 +18,11 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyeleven' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+			<header class="search-results-header">
+				<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'hk-wp-mall' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<div class="entry-content">
+					<?php get_search_form(); ?>
+				</div><!-- .entry-content -->
 			</header>
 
 
@@ -31,7 +34,7 @@ get_header(); ?>
 					 * If you want to overload this in a child theme then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'content', 'single' );
 				?>
 
 			<?php endwhile; ?>

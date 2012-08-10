@@ -10,22 +10,46 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<h1 class="entry-title"><?php the_title(); ?></h1>
-
-		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
+		<?php
+			if ( is_search() ) {
+		?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="search-article-header"><h1 class="entry-title"><?php the_title(); ?></h1></a>
+		<?php
+			} else {
+		?>
+			<h1 class="entry-title"><?php the_title(); ?></h1>
+		<?php 
+			}
+		?>
+	<div class="entry-meta">
+		<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
+	</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
 		<?php
 			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
+				if ( is_search() ) {
+					the_post_thumbnail( 'medium' );
+				} else {
+					the_post_thumbnail();
+				}
 			} 
 		?>
-		<?php the_content(); ?>
+		<?php
+			if ( is_search() ) {
+			?>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+			<?php
+				the_excerpt();
+			?>
+			</a>
+			<?php
+			} else {
+				the_content(); 
+			}
+			
+		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-meta">
@@ -41,6 +65,10 @@
 				$tag_list
 			);
 		?>
-		<?php _posted_on(); ?>
+		<?php 
+			if ( get_post_type() == 'post' ) { 
+				_posted_on(); 
+			}
+			?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
