@@ -64,7 +64,7 @@
 		$('input[class="search-field"]').each(function() {
 			$(this).placeholder();
 			if ( $(this).is(':visible') ) {
-				$(this).focus();
+				$(this).delay(200).focus();
 			}
 		});
 	});
