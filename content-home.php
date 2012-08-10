@@ -14,8 +14,11 @@
   jQuery(document).ready(function($){
   
 	$('div.aim').find('a:nth-child(-n+4)').each(function() {
-		var old_bg = $(this).css('background-image');
-		$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall/images/home-nav-shadow.png") right -10px no-repeat,'+ old_bg + 'no-repeat' });
+		//IF IE 9 > and other browsers
+		if (jQuery.support.leadingWhitespace) {
+			var old_bg = $(this).css('background-image');
+			$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall/images/home-nav-shadow.png") right -10px no-repeat,'+ old_bg + 'no-repeat' });
+		}
 		
 	});
 	
