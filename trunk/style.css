@@ -459,7 +459,7 @@ strong {
 	margin-bottom: 25px;
 }
 
-.content-news-archive article {
+.content-news-archive article, .content-search article {
 	clear:both;
 	margin-bottom: 70px;
 }
@@ -578,7 +578,7 @@ strong {
 	right: 178px;
 	z-index: 5;
 	width: 350px;
-	top: 16px;
+	margin-top: 16px;
 	background: #000;
 	-moz-border-bottom-left-radius: 5px;
 	border-bottom-left-radius: 5px;
@@ -608,4 +608,17 @@ strong {
 	color: #000;
 	margin-left: 0px;
 	width: 300px;
+}
+
+.search-results-header .entry-content {
+	margin-top: 20px;
+}
+
+.content-search .search-article-header, .content-search .entry-content a {
+	color: #000;
+	text-decoration: none;
+}
+
+.content-search .search-article-header h1:hover, .content-search .entry-content a:hover {
+	color: #008CDD;
 }
