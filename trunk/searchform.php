@@ -65,6 +65,7 @@
 			if ( $(this).is(':visible') ) {
 				$(this).focus();
 			}
+			$(this).placeholder();
 		});
 	});
 </script>
