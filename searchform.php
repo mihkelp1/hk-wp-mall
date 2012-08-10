@@ -62,10 +62,10 @@
 		});
 		
 		$('input[class="search-field"]').each(function() {
+			$(this).placeholder();
 			if ( $(this).is(':visible') ) {
 				$(this).focus();
 			}
-			$(this).placeholder();
 		});
 	});
 </script>
