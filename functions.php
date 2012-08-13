@@ -152,4 +152,23 @@ function _posted_on() {
 	);
 }
 
+/** Some metabox stuff */
+
+add_action( 'add_meta_boxes', 'configurePostMetaboxes' );
+
+function configurePostMetaboxes() {
+	if ( editorInLandingPage() ) {
+		add_meta_box('landing-page-metabox', __( 'Landing page', 'hk-wp-mall' ),  'landingPageMetabox', 'page', 'normal', 'high');
+	}
+}
+
+function landingPageMetabox() {
+	echo "HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE";
+}
+
+function editorInLandingPage() {
+	$data = explode( '/', get_page_template() );
+	return array_search( 'landing-page.php', $data ) ? true : false;
+}
+
 ?>
