@@ -171,4 +171,21 @@ function editorInLandingPage() {
 	return array_search( 'landing-page.php', $data ) ? true : false;
 }
 
+add_action( 'admin_init', 'removePostMetaboxes' );
+
+function removePostMetaboxes() {
+    remove_meta_box( 'trackbacksdiv', 'post', 'normal' );
+    remove_meta_box( 'authordiv', 'post', 'normal' );
+    remove_meta_box( 'postcustom', 'post', 'normal' );
+	remove_meta_box( 'commentstatusdiv', 'post', 'normal' );
+	remove_meta_box( 'commentsdiv', 'post', 'normal' );
+    remove_meta_box( 'formatdiv', 'post', 'normal' );
+    
+    remove_meta_box( 'commentsdiv', 'page', 'normal' );
+    remove_meta_box( 'authordiv', 'page', 'normal' );
+    remove_meta_box( 'postcustom', 'page', 'normal' );
+    remove_meta_box( 'commentstatusdiv', 'page', 'normal' );
+    
+}
+
 ?>
