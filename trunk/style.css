@@ -392,7 +392,7 @@ strong {
 	clear:both; 
 }
 
-.content-page, .content-news, .content-404, .content-search {
+.content-page, .content-news, .content-404, .content-search, .landing-page {
 	margin-top: 25px;
 }
 
@@ -621,4 +621,29 @@ strong {
 
 .content-search .search-article-header h1:hover, .content-search .entry-content a:hover {
 	color: #008CDD;
+}
+
+.entry-content img.alignright {
+	float: right;
+}
+
+.landing-page .page-inside-content {
+	width: 100%;
+}
+
+.landing-page .entry-title {
+	font-size: 2.3em;
+}
+
+.entry-content ul li {
+	background: url('images/list-bulletin.png') center left no-repeat;
+	padding-left: 22px;
+	line-height: 1.8em;
+}
+.landing-page {
+	margin-top: 37px;
+}
+
+.landing-page .entry-content ul li {
+	font-size: 1.1em;
 }

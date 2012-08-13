@@ -59,6 +59,6 @@
 	
 	<div id="page-content">
 	
-		<?php if ( !is_home() ) { ?>
+		<?php if ( !is_home() && !is_page_template( 'landing-page.php' ) ) { ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container' ) ); ?>
 		<?php } ?>
