@@ -671,3 +671,12 @@ ul.landing-page-menu li {
 .hide-if-landing-thumbnail {
 	display:none;
 }
+
+blockquote {
+	background: url('images/blockquote.png') left center no-repeat;
+	padding-left: 35px;
+}
+
+em {
+	font-style: italic;
+}
