@@ -666,3 +666,7 @@ ul.landing-page-menu li {
 	float: left;
 	margin-right: 7px;
 }
+
+.hide-if-landing-thumbnail {
+	display:none;
+}
