@@ -185,6 +185,39 @@ function landingPageMetabox() {
 	}
 	echo '</select>';
 	echo '</p>';
+	?>
+	<script type="text/javascript">
+				jQuery(document).ready(function($) {
+				$('#upload_logo_button').click(function() {
+					tb_show('Upload a logo', 'media-upload.php?type=image&TB_iframe=true&post_id=0', false);
+					return false;
+				});			
+				window.send_to_editor = function(html) {
+					var html = $(html);
+					var image = $(html);
+					if ( html.prop('tagName') != 'IMG' ) {
+						image = html.find('img:first');
+					}
+					var image_url = image.attr('src');
+					var image_id = image.attr('class').match(/\d+/gi);
+					$('#imgURL').html(html);
+					$('#landing-image-id').val(image_id);
+					tb_remove();
+				}
+			});
+
+		</script>
+		<a id="upload_logo_button" title="Vali maandumislehe pilt">Vali maandumislehe pilt</a>
+		<input type="hidden" name="landing-image-id" value="<?php echo the_landing_thumbnail_ID(); ?>" id="landing-image-id" />
+		<p id="imgURL">
+			<?php
+				if ( has_landing_thumbnail() ) {
+					the_landing_thumbnail( 'full' );
+				}
+			?>
+		</p>
+		
+	<?php
 }
 
 add_action( 'save_post', 'savePostMetadata', 1, 2 );
@@ -194,6 +227,7 @@ function savePostMetadata( $post_id, $post ) {
 		if ( $post->page_template == 'landing-page.php' ) {
 			update_post_meta( $post_id, 'landing-nav-menu', sanitize_text_field( $_POST['landing-nav-menu'] ) );
 			update_post_meta( $post_id, 'landing-yt-video', sanitize_text_field( $_POST['landing-yt-video'] ) );
+			update_post_meta( $post_id, 'landing-image-id', sanitize_text_field( $_POST['landing-image-id'] ) );
 		}
 	}
 }
@@ -212,10 +246,23 @@ function getLandingPageYT( $page_id ) {
 	return get_post_meta( $page_id, 'landing-yt-video', true );
 }
 
+function the_landing_thumbnail_ID() {
+	return get_post_meta( get_the_ID(), 'landing-image-id', true );
+}
+
+function the_landing_thumbnail( $size = 'medium' ) {
+	echo wp_get_attachment_image( the_landing_thumbnail_ID(), $size, false, array( 'class' => 'wp-post-image landing-image' ) );
+}
+
+function has_landing_thumbnail() {
+	return the_landing_thumbnail_ID() ?  true : false;
+}
+
 function editorInLandingPage() {
 	$data = explode( '/', get_page_template() );
 	return array_search( 'landing-page.php', $data ) ? true : false;
 }
+
 
 add_action( 'admin_init', 'removePostMetaboxes' );
 

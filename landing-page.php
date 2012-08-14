@@ -20,8 +20,12 @@ get_header(); ?>
 				</header><!-- .entry-header -->
 			
 				<div class="entry-content">
+					<?php
+					if ( has_landing_thumbnail() ) {
+						the_landing_thumbnail('full');
+					} 
+					?>
 					<?php the_content(); ?>
-					<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
 				</div><!-- .entry-content -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 		
