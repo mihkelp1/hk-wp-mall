@@ -27,6 +27,11 @@ get_header(); ?>
 		
 		<?php endwhile; // end of the loop. ?>
 
+	<?php 
+		if ( $nav_menu_id = getLandingPageMenu( get_the_ID() ) ) {
+			wp_nav_menu( array( 'menu' => $nav_menu_id ) );
+		}
+	?>
 	</div>
 </div><!-- #primary -->
 
