@@ -181,9 +181,10 @@ table {
 }
 
 footer.page-footer {
-	width: 962px;
+	width: 932px;
 	margin: auto;
 	min-height: inherit;
+	height: inherit;
 }
 
 .footer-nav-menu {
@@ -233,14 +234,14 @@ footer.page-footer {
 }
 
 #sidebar-wrapper {
-	width: 962px;
+	width: 952px;
 	margin: auto;
 }
 
 #footer-banner {
 	float:left;
-	width: 236px;
-	height: 236px;
+	width: 240px;
+	height: 240px;
 	/*margin-left: 20px;*/
 }
 
