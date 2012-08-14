@@ -189,7 +189,7 @@ function landingPageMetabox() {
 	<script type="text/javascript">
 				jQuery(document).ready(function($) {
 				$('#upload_logo_button').click(function() {
-					tb_show('Upload a logo', 'media-upload.php?type=image&TB_iframe=true&post_id=0', false);
+					tb_show('Vali maandumislehe pilt', 'media-upload.php?type=image&TB_iframe=true&post_id=0', false);
 					return false;
 				});			
 				window.send_to_editor = function(html) {
@@ -202,13 +202,29 @@ function landingPageMetabox() {
 					var image_id = image.attr('class').match(/\d+/gi);
 					$('#imgURL').html(html);
 					$('#landing-image-id').val(image_id);
+					if ( image.length > 0 ) {
+						$('#upload_logo_button').addClass('hide-if-landing-thumbnail');
+						$('#remove_landing_thumbnail').removeClass('hide-if-landing-thumbnail');
+					}
 					tb_remove();
 				}
+				
+				$('#remove_landing_thumbnail').click(function() {
+					if ( confirm("Oled kindel?") ) {
+						$('#imgURL').html("");
+						$('#landing-image-id').val(0);
+						$('#upload_logo_button').removeClass('hide-if-landing-thumbnail');
+						$(this).addClass('hide-if-landing-thumbnail');
+					}
+				});
 			});
 
 		</script>
-		<a id="upload_logo_button" title="Vali maandumislehe pilt">Vali maandumislehe pilt</a>
-		<input type="hidden" name="landing-image-id" value="<?php echo the_landing_thumbnail_ID(); ?>" id="landing-image-id" />
+		<style type="text/css">
+			.hide-if-landing-thumbnail {
+				display:none;
+			}
+		</style>
 		<p id="imgURL">
 			<?php
 				if ( has_landing_thumbnail() ) {
@@ -216,6 +232,11 @@ function landingPageMetabox() {
 				}
 			?>
 		</p>
+		
+		<a id="upload_logo_button" title="Vali maandumislehe pilt" class="<?php echo ( has_landing_thumbnail() ? 'hide-if-landing-thumbnail' : ''); ?>">Vali maandumislehe pilt</a>
+		<a id="remove_landing_thumbnail" title="Eemalda maandumislehe pilt" class="<?php echo ( has_landing_thumbnail() ? '' : 'hide-if-landing-thumbnail'); ?>">Eemalda pilt</a>
+		
+		<input type="hidden" name="landing-image-id" value="<?php echo the_landing_thumbnail_ID(); ?>" id="landing-image-id" />
 		
 	<?php
 }
