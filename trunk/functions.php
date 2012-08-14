@@ -152,6 +152,10 @@ function _posted_on() {
 	);
 }
 
+function getAllNavMenus(){
+    return get_terms( 'nav_menu', array( 'hide_empty' => true ) );
+}
+
 /** Some metabox stuff */
 
 add_action( 'add_meta_boxes', 'configurePostMetaboxes' );
@@ -163,7 +167,43 @@ function configurePostMetaboxes() {
 }
 
 function landingPageMetabox() {
-	echo "HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE";
+	//TODO HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE
+	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hp-wp-mall' ).'</label> ';
+	echo '<input type="text" name="landing-yt-video" id="landing-yt-video" style="width: 400px" value="'.getLandingPageYT( get_the_ID() ).'"/></p>';
+	
+	echo '<p>';
+	echo '<label for="landing-nav-menu">'.__( 'Pick a landing page menu', 'hk-wp-mall').'</label> ';
+	echo '<select name="landing-nav-menu" id="landing-nav-menu">';
+	echo '<option value="0">'.__( 'Pick a menu', 'hk-wp-mall' ).'</option>';
+	$prev_menu_id = getLandingPageMenu( get_the_ID() );
+	foreach( getAllNavMenus() as $nav_menu ) {
+		if ( $prev_menu_id == $nav_menu->term_id ) {
+			echo '<option value="'.$nav_menu->term_id.'" selected="selected">'.$nav_menu->name.'</option>';
+		} else {
+			echo '<option value="'.$nav_menu->term_id.'">'.$nav_menu->name.'</option>';
+		}
+	}
+	echo '</select>';
+	echo '</p>';
+}
+
+add_action( 'save_post', 'savePostMetadata', 1, 2 );
+
+function savePostMetadata( $post_id, $post ) {
+	if ( $post->post_type == 'page' ) {
+		if ( $post->page_template == 'landing-page.php' ) {
+			update_post_meta( $post_id, 'landing-nav-menu', sanitize_text_field( $_POST['landing-nav-menu'] ) );
+			update_post_meta( $post_id, 'landing-yt-video', sanitize_text_field( $_POST['landing-yt-video'] ) );
+		}
+	}
+}
+
+function getLandingPageMenu( $page_id ) {
+	return get_post_meta( $page_id, 'landing-nav-menu', true );
+}
+
+function getLandingPageYT( $page_id ) {
+	return get_post_meta( $page_id, 'landing-yt-video', true );
 }
 
 function editorInLandingPage() {
