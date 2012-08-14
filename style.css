@@ -265,17 +265,21 @@ ul.parent-pages {
 
 }
 
-ul.parent-pages > li > a:hover, .page-left-menu ul.menu > li > a:hover {
+ul.parent-pages > li > a:hover, .page-left-menu ul.menu > li > a:hover, .landing-page-menu > li > a:hover {
 	background-color: #008cdd;
 	color: #FFF;
 }
 
-ul.parent-pages a, .page-left-menu ul.menu a {
+ul.parent-pages a, .page-left-menu ul.menu a, .landing-page-menu a {
 	display: block;
 	width: inherit;
 	padding: 8px;
 	text-decoration: none;
 	color: #008cdd;
+}
+
+.landing-page-menu a {
+	padding: 6px;
 }
 
 ul.parent-pages > li > a, .page-left-menu ul.menu > li > a {
@@ -645,4 +649,16 @@ strong {
 
 .landing-page .entry-content ul li {
 	font-size: 1.1em;
+}
+
+.landing-nav-menu-wrapper {
+	clear: both;
+	height: 24px;
+	background: url('images/nav-border-top.png') top no-repeat;
+	padding: 13px 10px 10px 25px;
+}
+
+ul.landing-page-menu li {
+	float: left;
+	margin-right: 7px;
 }

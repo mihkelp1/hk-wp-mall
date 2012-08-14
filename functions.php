@@ -174,8 +174,8 @@ function landingPageMetabox() {
 	echo '<p>';
 	echo '<label for="landing-nav-menu">'.__( 'Pick a landing page menu', 'hk-wp-mall').'</label> ';
 	echo '<select name="landing-nav-menu" id="landing-nav-menu">';
-	echo '<option value="0">'.__( 'Pick a menu', 'hk-wp-mall' ).'</option>';
-	$prev_menu_id = getLandingPageMenu( get_the_ID() );
+	echo '<option value="0">'.__( 'Disabled', 'hk-wp-mall' ).'</option>';
+	$prev_menu_id = getLandingPageMenu( get_the_ID(), true );
 	foreach( getAllNavMenus() as $nav_menu ) {
 		if ( $prev_menu_id == $nav_menu->term_id ) {
 			echo '<option value="'.$nav_menu->term_id.'" selected="selected">'.$nav_menu->name.'</option>';
@@ -198,8 +198,14 @@ function savePostMetadata( $post_id, $post ) {
 	}
 }
 
-function getLandingPageMenu( $page_id ) {
-	return get_post_meta( $page_id, 'landing-nav-menu', true );
+function getLandingPageMenu( $page_id, $id_only = false ) {
+	$menu_id = get_post_meta( $page_id, 'landing-nav-menu', true );
+	if ( $id_only ) {
+		return $menu_id;
+	}
+	if ( $menu_id ) {
+		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu' ) );
+	}
 }
 
 function getLandingPageYT( $page_id ) {
