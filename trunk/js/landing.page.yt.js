@@ -26,7 +26,18 @@ function onYouTubeIframeAPIReady() {
 	});
 }
 
+function stopVideo() {
+	player.stopVideo();
+}
+
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
 	player.loadVideoById( landingPageVideo.videoId );
+	jQuery("#TB_closeWindowButton").bind('click', function() {
+		stopVideo();
+	});
+	
+	jQuery('#TB_overlay').bind('click', function() {
+		stopVideo();
+	});
 }
