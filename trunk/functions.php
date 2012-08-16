@@ -51,6 +51,16 @@ function loadAndRegisterJavaScripts() {
 	wp_enqueue_script( 'jquery-overflow' );
 	wp_enqueue_script( 'thickbox' );
 	
+	if ( is_page_template( 'landing-page.php' ) ) {
+		if ( has_youtube_video() ) {
+			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js');
+			wp_enqueue_script( 'landing-page-yt' );
+			
+			$translation_array = array( 'videoId' => getLandingPageYT( true ) );
+			wp_localize_script( 'landing-page-yt', 'landingPageVideo', $translation_array );
+		}
+	}
+	
 	//Load some styles too
 	loadAndRegisterCSS();
 }
