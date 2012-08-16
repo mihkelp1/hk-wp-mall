@@ -628,10 +628,6 @@ strong {
 	color: #008CDD;
 }
 
-.entry-content img.alignright {
-	float: right;
-}
-
 .landing-page .page-inside-content {
 	width: 100%;
 }
@@ -711,4 +707,8 @@ em {
 .landing-video-button div {
 	font-size: 13px;
 	color: #606060;
+}
+
+.landing-image {
+	margin-top: -75px;
 }
