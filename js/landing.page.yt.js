@@ -28,6 +28,7 @@ function onYouTubeIframeAPIReady() {
 
 function stopVideo() {
 	player.stopVideo();
+	player.clearVideo();
 }
 
 // 4. The API will call this function when the video player is ready.
