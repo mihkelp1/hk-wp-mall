@@ -166,6 +166,26 @@ function configurePostMetaboxes() {
 	}
 }
 
+function replace_thickbox_text($translated_text, $text, $domain) {
+	if ('Insert into Post' == $text) {
+		$referer = strpos( wp_get_referer(), 'hk-landing-page' );
+		if ( $referer != '' ) {
+			return __('Add to landing page', 'hk-wp-mall' );
+		}
+	}
+	return $translated_text;
+}
+
+add_action( 'admin_init', 'landingPageImageSetup' );
+
+function landingPageImageSetup() {
+	global $pagenow;
+	if ( 'media-upload.php' == $pagenow || 'async-upload.php' == $pagenow ) {
+		// Now we'll replace the 'Insert into Post Button' inside Thickbox
+		add_filter( 'gettext', 'replace_thickbox_text'  , 1, 3 );
+	}
+}
+
 function landingPageMetabox() {
 	//TODO HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE
 	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hp-wp-mall' ).'</label> ';
@@ -189,7 +209,7 @@ function landingPageMetabox() {
 	<script type="text/javascript">
 				jQuery(document).ready(function($) {
 				$('#upload_logo_button').click(function() {
-					tb_show('Vali maandumislehe pilt', 'media-upload.php?type=image&TB_iframe=true&post_id=0', false);
+					tb_show('Vali maandumislehe pilt', 'media-upload.php?referer=hk-landing-page&type=image&TB_iframe=true&post_id=0', false);
 					return false;
 				});			
 				window.send_to_editor = function(html) {
