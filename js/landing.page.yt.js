@@ -22,7 +22,6 @@ jQuery(document).ready(function($) {
 			},
 			beforeClose: function() {
 				player.pauseVideo();
-				//player.seekTo( 0 );
 				player_was_paused = true;
 			}
 		});

@@ -42,17 +42,22 @@ add_action( 'after_setup_theme', '_initTheme' );
 function loadAndRegisterJavaScripts() {
 	wp_enqueue_script( 'jquery' );
 	
-	wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
-	wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
-	wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js');
-	
-	wp_enqueue_script( 'jquery-easing' );
-	wp_enqueue_script( 'jquery-bxSlider' );
-	wp_enqueue_script( 'jquery-overflow' );
-	wp_enqueue_script( 'jquery-ui-dialog' );
+	if ( is_home() ) {
+		wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
+		wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
+		wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js');
+		
+		wp_enqueue_script( 'jquery-easing' );
+		wp_enqueue_script( 'jquery-bxSlider' );
+		wp_enqueue_script( 'jquery-overflow' );
+	} else {
+		//If not home page, remove accordion menu wp_head action - this disables inserting unneed JavaScript and CSS.
+		remove_action('wp_head', 'a_image_menu_head');
+	}
 	
 	if ( is_page_template( 'landing-page.php' ) ) {
 		if ( has_youtube_video() ) {
+			wp_enqueue_script( 'jquery-ui-dialog' );
 			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js');
 			wp_enqueue_script( 'landing-page-yt' );
 			
@@ -72,10 +77,17 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
  */
 
 function loadAndRegisterCSS() {
-	wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
-	wp_register_style( 'jquery.ui.css', get_template_directory_uri(). '/css/ui-custom-theme/jquery-ui-1.8.23.custom.css' );
-	wp_enqueue_style( 'jquery.bxSlider' );
-	wp_enqueue_style( 'jquery.ui.css' );
+	if ( is_home() ) {
+		wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
+		wp_enqueue_style( 'jquery.bxSlider' );
+	}
+	
+	if ( is_page_template( 'landing-page.php' ) ) {
+		if ( has_youtube_video() ) {
+			wp_register_style( 'jquery.ui.css', get_template_directory_uri(). '/css/ui-custom-theme/jquery-ui-1.8.23.custom.css' );
+			wp_enqueue_style( 'jquery.ui.css' );
+		}
+	}
 }
 
 /**
