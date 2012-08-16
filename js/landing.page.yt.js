@@ -10,6 +10,8 @@ jQuery(document).ready(function($) {
 	$('#playLandingVideo').bind('click', function() {
 		$('#playerWrapper').dialog({
 			width: 680,
+			minWidth: 680,
+			minHeight: 450,
 			modal: true,
 			resizable: false,
 			draggable: false,
