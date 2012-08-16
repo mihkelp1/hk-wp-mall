@@ -680,3 +680,8 @@ blockquote {
 em {
 	font-style: italic;
 }
+
+#TB_title {
+	background: transparent;
+	background-color: #FFF !important;
+}

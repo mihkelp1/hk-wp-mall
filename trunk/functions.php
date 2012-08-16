@@ -49,6 +49,7 @@ function loadAndRegisterJavaScripts() {
 	wp_enqueue_script( 'jquery-easing' );
 	wp_enqueue_script( 'jquery-bxSlider' );
 	wp_enqueue_script( 'jquery-overflow' );
+	wp_enqueue_script( 'thickbox' );
 	
 	//Load some styles too
 	loadAndRegisterCSS();
@@ -63,6 +64,7 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
 function loadAndRegisterCSS() {
 	wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
 	wp_enqueue_style( 'jquery.bxSlider' );
+	wp_enqueue_style( 'thickbox.css', '/'.WPINC.'/js/thickbox/thickbox.css' );
 }
 
 /**
@@ -189,7 +191,7 @@ function landingPageImageSetup() {
 function landingPageMetabox() {
 	//TODO HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE
 	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hp-wp-mall' ).'</label> ';
-	echo '<input type="text" name="landing-yt-video" id="landing-yt-video" style="width: 400px" value="'.getLandingPageYT( get_the_ID() ).'"/></p>';
+	echo '<input type="text" name="landing-yt-video" id="landing-yt-video" style="width: 400px" value="'.getLandingPageYT().'"/></p>';
 	
 	echo '<p>';
 	echo '<label for="landing-nav-menu">'.__( 'Pick a landing page menu', 'hk-wp-mall').'</label> ';
@@ -283,8 +285,26 @@ function getLandingPageMenu( $page_id, $id_only = false ) {
 	}
 }
 
-function getLandingPageYT( $page_id ) {
-	return get_post_meta( $page_id, 'landing-yt-video', true );
+function getLandingPageYT( $id_only = false ) {
+	if ( $id_only ) {
+		$query_params = parse_url( get_post_meta( get_the_ID(), 'landing-yt-video', true ), PHP_URL_QUERY );
+		if ( !is_null( $query_params ) ) {
+			$params_array = explode( '&', $query_params );
+			foreach( $params_array as $param ) {
+				$query_pair = explode( '=', $param );
+				if ( $query_pair[0] == 'v' ) {
+					return $query_pair[1];
+				}
+			}
+		}
+		return false;
+	} else {
+		return get_post_meta( get_the_ID(), 'landing-yt-video', true );
+	}
+}
+
+function has_youtube_video() {
+	return getLandingPageYT( true ) ? true : false;
 }
 
 function the_landing_thumbnail_ID() {
