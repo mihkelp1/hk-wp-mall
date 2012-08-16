@@ -4,6 +4,29 @@ jQuery(document).ready(function($) {
 	tag.src = "//www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+	
+	var player_was_paused = false;
+	
+	$('#playLandingVideo').bind('click', function() {
+		$('#playerWrapper').dialog({
+			width: 680,
+			modal: true,
+			resizable: false,
+			draggable: false,
+			open: function() {
+				if ( player_was_paused ) {
+					setTimeout( function() {
+						player.playVideo();
+					}, 150 );
+				}
+			},
+			beforeClose: function() {
+				player.pauseVideo();
+				//player.seekTo( 0 );
+				player_was_paused = true;
+			}
+		});
+	});
 });
 
 // 3. This function creates an <iframe> (and YouTube player)
@@ -26,19 +49,7 @@ function onYouTubeIframeAPIReady() {
 	});
 }
 
-function stopVideo() {
-	player.stopVideo();
-	player.clearVideo();
-}
-
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
 	player.loadVideoById( landingPageVideo.videoId );
-	jQuery("#TB_closeWindowButton").bind('click', function() {
-		stopVideo();
-	});
-	
-	jQuery('#TB_overlay').bind('click', function() {
-		stopVideo();
-	});
 }

@@ -685,3 +685,30 @@ em {
 	background: transparent;
 	background-color: #FFF !important;
 }
+
+.landing-video-button {
+	background: url('images/video-button.png') 0px 25px no-repeat;
+	width: 177px;
+	height: 74px;
+	text-align: center;
+	float: right;
+	margin-right: 30px;
+}
+
+.landing-video-button:hover {
+	background: url('images/video-button-hover.png') 0 25px no-repeat;
+}
+
+.landing-video-button a {
+	text-decoration: none;
+	font-size: 1.4em;
+	color: #FFF;
+	margin-left: 35px;
+	top: 17px;
+	position: relative;
+}
+
+.landing-video-button div {
+	font-size: 13px;
+	color: #606060;
+}
