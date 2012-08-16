@@ -31,8 +31,11 @@ get_header(); ?>
 					?>
 						<div id="playerWrapper" style="display:none">
 							<div id="player"></div>
-						</div>							
-						<a href="#TB_inline?width=640&height=410&inlineId=playerWrapper" class="thickbox">test</a>
+						</div>
+						<div class="landing-video-button">
+							<div>Kuula mida tudengid arvavad.</div>
+							<a href="#" class="thickbox" id="playLandingVideo">VAATA KLIPPI</a>
+						</div>
 					<?php 
 						}
 					?>
