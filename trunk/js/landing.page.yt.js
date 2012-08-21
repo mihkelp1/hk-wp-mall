@@ -7,7 +7,8 @@ jQuery(document).ready(function($) {
 	
 	var player_was_paused = false;
 	
-	$('#playLandingVideo').bind('click', function() {
+	$('#playLandingVideo').bind('click', function(event) {
+		event.preventDefault();
 		$('#playerWrapper').dialog({
 			width: 680,
 			minWidth: 680,
