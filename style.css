@@ -687,7 +687,7 @@ em {
 	width: 177px;
 	height: 74px;
 	text-align: center;
-	float: right;
+	margin-left: 200px;
 	margin-right: 30px;
 }
 
@@ -711,4 +711,12 @@ em {
 
 .landing-image {
 	margin-top: -75px;
+	padding-bottom: 20px;
+}
+
+.landing-sais-button {
+	width: 107px;
+	right: -150px;
+	margin-bottom: 25px;
+	position: relative;
 }

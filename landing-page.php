@@ -32,6 +32,9 @@ get_header(); ?>
 						<div id="playerWrapper" style="display:none">
 							<div id="player"></div>
 						</div>
+						<div class="landing-sais-button">
+							<a href="http://www.sais.ee/" title="SAIS"><img src="<?php echo getFileURL('/images/sais-button.png');?>"/></a>
+						</div>
 						<div class="landing-video-button">
 							<div>Kuula mida tudengid arvavad.</div>
 							<a href="#" class="thickbox" id="playLandingVideo">VAATA KLIPPI</a>
