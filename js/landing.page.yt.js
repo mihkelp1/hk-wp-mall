@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 						player.playVideo();
 					}, 150 );
 				} else {
-					player.playVideo();
+					init_YT_Player();
 				}
 			},
 			beforeClose: function() {
@@ -32,20 +32,26 @@ jQuery(document).ready(function($) {
 	});
 });
 
-// 3. This function creates an <iframe> (and YouTube player)
-//    after the API code downloads.
+
 var player;
-function onYouTubeIframeAPIReady() {
+function init_YT_Player() {
 	player = new YT.Player('player', {
 	  height: '390',
 	  width: '640',
-	  videoId: landingPageVideo.videoId,
 	  playerVars: {
 		showinfo: 0,
 		modestbranding: 1,
 		rel: 0,
 		theme: 'light',
 		autohide: 1
+	  },
+	  events: {
+		'onReady': onPlayerReady
 	  }
 	});
+}
+
+// 4. The API will call this function when the video player is ready.
+function onPlayerReady(event) {
+	player.loadVideoById( landingPageVideo.videoId );
 }
