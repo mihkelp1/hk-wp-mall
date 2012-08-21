@@ -20,6 +20,8 @@ jQuery(document).ready(function($) {
 					setTimeout( function() {
 						player.playVideo();
 					}, 150 );
+				} else {
+					player.playVideo();
 				}
 			},
 			beforeClose: function() {
@@ -37,20 +39,13 @@ function onYouTubeIframeAPIReady() {
 	player = new YT.Player('player', {
 	  height: '390',
 	  width: '640',
+	  videoId: landingPageVideo.videoId,
 	  playerVars: {
 		showinfo: 0,
 		modestbranding: 1,
 		rel: 0,
 		theme: 'light',
 		autohide: 1
-	  },
-	  events: {
-		'onReady': onPlayerReady
 	  }
 	});
-}
-
-// 4. The API will call this function when the video player is ready.
-function onPlayerReady(event) {
-	player.loadVideoById( landingPageVideo.videoId );
 }
