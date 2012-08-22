@@ -35,8 +35,10 @@ jQuery(document).ready(function($) {
 	$('#reminderForm').submit(function() {
 		var data = $(this).serialize();
 		$.post(landingPageMeta.ajaxUrl, data, function(response) {
-			alert(response);
-		});
+			alert(response.status);
+		},
+		'json'
+		);
 		return false;
 	});
 	
