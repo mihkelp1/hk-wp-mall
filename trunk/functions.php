@@ -57,10 +57,40 @@ function reminder_shortcode( $atts ) {
 		'flag' => '-',
 		'text' => _( 'Normal text, default' )
 	), $atts ) );
+	
+	echo '<div id="reminder-wrapper" style="display:none;"><form method="post" action="'.admin_url( 'admin-ajax.php' ).'" id="reminderForm">';
+	echo '<input type="hidden" name="action" value="subscribe_reminder" />';
+	echo '<input type="hidden" name="security" value="'.wp_create_nonce('hk-reminder-nonce').'" />';
+	echo '<input type="hidden" name="security_2_step" value="'.wp_create_nonce( $flag ).'" />';
+	echo '<input type="hidden" name="reminder_flag" value="'.$flag.'" />';
+	echo '<input type="email" name="reminder_email" placeholder="E-post"/>';
+	echo '<input type="submit" value="Telli" />';
+	echo '</form></div>';
 
 	echo "{$flag} = {$text}";
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
+
+add_action('wp_ajax_nopriv_subscribe_reminder', 'subscribeReminderFunc');
+
+function subscribeReminderFunc() {
+	if ( check_ajax_referer( 'hk-reminder-nonce', 'security', false ) ) {
+		$remindersHandler = new HK_Reminders();
+		$email = sanitize_text_field( $_POST['reminder_email'] );
+		$flag = sanitize_text_field( $_POST['reminder_flag'] );
+		$flag_nonce = sanitize_text_field( $_POST['security_2_step'] );
+		//If flag has not been altered, proceed
+		if ( wp_verify_nonce( $flag_nonce, $flag ) ) {
+			//If is valid email proceed
+			if ( is_email( $email ) ) {
+				var_dump($remindersHandler->addReminder( $email, $flag ));
+			}
+		}
+	} else {
+		echo "failed";
+	}
+	die;
+}
 
 function createReminderMenu() {
 	//TODO fix permission, create custom permission ??
@@ -131,8 +161,8 @@ function loadAndRegisterJavaScripts() {
 			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js');
 			wp_enqueue_script( 'landing-page-yt' );
 			
-			$translation_array = array( 'videoId' => getLandingPageYT( true ) );
-			wp_localize_script( 'landing-page-yt', 'landingPageVideo', $translation_array );
+			$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ) );
+			wp_localize_script( 'landing-page-yt', 'landingPageMeta', $translation_array );
 		}
 	}
 	
