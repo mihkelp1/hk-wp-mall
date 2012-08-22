@@ -58,7 +58,9 @@ function reminder_shortcode( $atts ) {
 		'text' => _( 'Normal text, default' )
 	), $atts ) );
 	
-	echo '<div id="reminder-wrapper" style="display:none;"><form method="post" action="'.admin_url( 'admin-ajax.php' ).'" id="reminderForm">';
+	echo '<div id="reminder-wrapper" style="display:none;">';
+	echo '<p>Täname, et oled huvitatud valitud erialal õppimisest. Meelespea saadetakse teile enne vastuvõtu avamist.</p>';
+	echo '<form method="post" action="'.admin_url( 'admin-ajax.php' ).'" id="reminderForm">';
 	echo '<input type="hidden" name="action" value="subscribe_reminder" />';
 	echo '<input type="hidden" name="security" value="'.wp_create_nonce('hk-reminder-nonce').'" />';
 	echo '<input type="hidden" name="security_2_step" value="'.wp_create_nonce( $flag ).'" />';
