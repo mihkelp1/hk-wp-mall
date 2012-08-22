@@ -7,7 +7,7 @@ jQuery(document).ready(function($) {
 	
 	var player_was_paused = false;
 	
-	$('#playLandingVideo').bind('click', function(event) {
+	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
 		$('#playerWrapper').dialog({
 			width: 680,
@@ -29,6 +29,27 @@ jQuery(document).ready(function($) {
 				player.pauseVideo();
 				player_was_paused = true;
 			}
+		});
+	});
+	
+	$('#reminderForm').submit(function() {
+		var data = $(this).serialize();
+		$.post(landingPageMeta.ajaxUrl, data, function(response) {
+			alert(response);
+		});
+		return false;
+	});
+	
+	$('#landing-reminder-button').bind('click', function(event) {
+		
+		event.preventDefault();
+		$('#reminder-wrapper').dialog({
+			width: 380,
+			minWidth: 380,
+			minHeight: 250,
+			modal: true,
+			resizable: false,
+			draggable: false
 		});
 	});
 });
@@ -54,5 +75,5 @@ function init_YT_Player() {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-	player.loadVideoById( landingPageVideo.videoId );
+	player.loadVideoById( landingPageMeta.videoId );
 }
