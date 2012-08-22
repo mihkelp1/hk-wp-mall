@@ -119,6 +119,13 @@ function subscribeReminderFunc() {
 function createReminderMenu() {
 	//TODO fix permission, create custom permission ??
 	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', 'Tellitud', 'Tellitud', 'read', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', 'Seaded', 'Seaded', 'read', 'hk-reminders-settings', 'createRemindersSettingsPage');
+}
+
+function createRemindersSettingsPage() {
+	//TODO create settings page with settings API
+	echo "settings";
 }
 
 function createRemindersPage() {
