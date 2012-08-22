@@ -66,14 +66,17 @@ function reminder_shortcode( $atts ) {
 	echo '<input type="email" name="reminder_email" placeholder="E-post"/>';
 	echo '<input type="submit" value="Telli" />';
 	echo '</form></div>';
-
-	echo "{$flag} = {$text}";
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
 
 add_action('wp_ajax_nopriv_subscribe_reminder', 'subscribeReminderFunc');
 
 function subscribeReminderFunc() {
+	header('Cache-Control: no-cache, must-revalidate');
+	header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+	header('Content-type: application/json');
+	
+	$status = 0;
 	if ( check_ajax_referer( 'hk-reminder-nonce', 'security', false ) ) {
 		$remindersHandler = new HK_Reminders();
 		$email = sanitize_text_field( $_POST['reminder_email'] );
@@ -83,12 +86,31 @@ function subscribeReminderFunc() {
 		if ( wp_verify_nonce( $flag_nonce, $flag ) ) {
 			//If is valid email proceed
 			if ( is_email( $email ) ) {
-				var_dump($remindersHandler->addReminder( $email, $flag ));
+				$reminder_added = $remindersHandler->addReminder( $email, $flag );
+				if ( $reminder_added ) {
+					$headers = 'From: TLÜ Haapsalu Kolledž <no-reply@hk.tlu.ee>' . "\r\n";
+					$wp_send_success = wp_mail( $email, "Tellitud meelespea", "Olete tellinud meeldetuletuse Tallinna Ülikooli Haapsalu Kolledži veebilehelt", $headers );
+					if ( $wp_send_success) {
+						//Subscribe success
+						$status = 1;
+					}
+				} else {
+					//Already subscribed
+					$status = 2;
+				}
+			} else {
+				//Not an valid email
+				$status = 3;
 			}
+		} else {
+			//Trying to alter security checks
+			$status = 4;
 		}
 	} else {
-		echo "failed";
+		//Trying to alter security checks
+		$status = 4;
 	}
+	echo json_encode( array( 'status' => $status ) );
 	die;
 }
 
