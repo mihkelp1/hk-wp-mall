@@ -35,9 +35,16 @@ get_header(); ?>
 						<div class="landing-sais-button">
 							<a href="http://www.sais.ee/" title="SAIS"><img src="<?php echo getFileURL('/images/sais-button.png');?>"/></a>
 						</div>
+						<?php
+							//do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
+						?>
+						<div class="landing-reminder-button">
+							<div>Soovid õppida valitud erialal?</div>
+							<a href="#" id="subscribeReminder">TELLI MEELESPEA</a>
+						</div>
 						<div class="landing-video-button">
 							<div>Kuula mida tudengid arvavad.</div>
-							<a href="#" class="thickbox" id="playLandingVideo">VAATA KLIPPI</a>
+							<a href="#" id="playLandingVideo">VAATA KLIPPI</a>
 						</div>
 					<?php 
 						}

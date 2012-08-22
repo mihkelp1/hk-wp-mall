@@ -687,8 +687,8 @@ em {
 	width: 177px;
 	height: 74px;
 	text-align: center;
-	margin-left: 200px;
-	margin-right: 30px;
+	margin-right: 10px;
+	display: inline-block;
 }
 
 .landing-video-button:hover {
@@ -704,7 +704,7 @@ em {
 	position: relative;
 }
 
-.landing-video-button div {
+.landing-video-button div, .landing-reminder-button div {
 	font-size: 13px;
 	color: #606060;
 }
@@ -718,5 +718,27 @@ em {
 	width: 107px;
 	right: -150px;
 	margin-bottom: 25px;
+	position: relative;
+}
+
+.landing-reminder-button {
+	background: url('images/reminder-button.png') 0px 25px no-repeat;
+	width: 187px;
+	height: 74px;
+	text-align: center;
+	margin-right: 30px;
+	display: inline-block;
+}
+
+.landing-reminder-button:hover {
+	background: url('images/reminder-button-hover.png') 0 25px no-repeat;
+}
+
+.landing-reminder-button a {
+	text-decoration: none;
+	font-size: 1.4em;
+	color: #FFF;
+	margin-left: 0px;
+	top: 17px;
 	position: relative;
 }

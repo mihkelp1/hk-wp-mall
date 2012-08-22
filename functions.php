@@ -31,9 +31,79 @@ function _initTheme() {
 	));
 	
 	add_theme_support( 'post-thumbnails' ); 
+	
+	global $wpdb;
+	$table_name = $wpdb->prefix . "hk_reminders";
+	require_once( 'class-reminders.php' );
+	if ( $wpdb->get_var( 'show tables like "'.$table_name.'"') != $table_name ) {
+		$sql = "CREATE TABLE " . $table_name . " (
+		id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		email varchar(250) NOT NULL,
+		flag varchar(250) DEFAULT '',
+		date TIMESTAMP,
+		KEY (email) );";
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		dbDelta($sql);
+	}
 }
 
 add_action( 'after_setup_theme', '_initTheme' );
+
+//Reminder functions
+add_action( 'admin_menu', 'createReminderMenu' );
+
+function reminder_shortcode( $atts ) {
+	extract( shortcode_atts( array(
+		'flag' => '-',
+		'text' => _( 'Normal text, default' )
+	), $atts ) );
+
+	echo "{$flag} = {$text}";
+}
+add_shortcode( 'hk_reminder', 'reminder_shortcode' );
+
+function createReminderMenu() {
+	//TODO fix permission, create custom permission ??
+	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
+}
+
+function createRemindersPage() {
+	global $wpdb;
+	$remindersHandler = new HK_Reminders();
+	
+	echo '<div class="wrap">';
+	echo '<h2>Meelespead</h2>';
+
+	
+	$current_flag = '';
+	$flags = $remindersHandler->fetchFlags();
+	foreach( $flags as $reminder ) {
+		if ( $current_flag != $reminder->flag ) {
+			echo '<h3>'.$reminder->flag.'</h3>';
+			echo '<table class="wp-list-table widefat fixed users" cellspacing="0">';
+			echo '<thead><tr>
+				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" id="name" class="manage-column column-name sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=name&amp;order=asc"><span>Email</span><span class="sorting-indicator"></span></a></th><th scope="col" id="email" class="manage-column column-email sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=email&amp;order=asc"><span>Flag</span><span class="sorting-indicator"></span></a></th><th scope="col" id="role" class="manage-column column-role" style="">Date</th>	</tr>
+				</thead>';
+			echo '<tfoot><tr>
+				<th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" id="name" class="manage-column column-name sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=name&amp;order=asc"><span>Email</span><span class="sorting-indicator"></span></a></th><th scope="col" id="email" class="manage-column column-email sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=email&amp;order=asc"><span>Flag</span><span class="sorting-indicator"></span></a></th><th scope="col" id="role" class="manage-column column-role" style="">Date</th>	</tr>
+				</tfoot>';
+				
+			echo '<tbody id="the-list" class="list:user">';
+		}
+		foreach( $remindersHandler->fetchByFlag( $reminder->flag ) as $remindee ) {
+			echo '<tr id="user-'.$remindee->id.'" class="alternate">
+				<th scope="row" class="check-column"><input type="checkbox" name="users[]" id="user_1" class="administrator" value="1"></th><td class="name column-name">'.$remindee->email.'</td>
+				<td class="email column-email">'.$reminder->flag.'</td>
+				<td class="role column-role">'.$remindee->date.'</td></tr>';
+		}
+		if ( $current_flag != $reminder->flag ) {
+				echo '</tbody>';
+				echo '</table>';
+				echo '<input type="submit" name="" id="doaction2" class="button-secondary action" value="Apply">'; 
+		}
+	}
+	echo '</div>';
+}
 
 /**
  * Register and load some JavaScript
@@ -230,6 +300,7 @@ function landingPageMetabox() {
 	}
 	echo '</select>';
 	echo '</p>';
+	
 	?>
 	<script type="text/javascript">
 				jQuery(document).ready(function($) {
