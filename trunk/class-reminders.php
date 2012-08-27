@@ -1,7 +1,9 @@
 <?php
 
+//TODO fully convert into static class
+
 class HK_Reminders {
-	private $table_name = false;
+	private static $table_name = false;
 
 	function __construct() {
 		global $wpdb;
@@ -25,6 +27,27 @@ class HK_Reminders {
 		} else {
 			return false;
 		}
+	}
+	
+	function removeRemindee( $id = false ) {
+		if ( intval( $id ) > 0 ) {
+			global $wpdb;
+			return $wpdb->query( $wpdb->prepare( 'DELETE FROM '.$this->table_name.' WHERE id = %d', $id ) );
+		}
+		return false;
+	}
+	
+	private static function getTableName() {
+		global $wpdb;
+		return $wpdb->prefix.'hk_reminders';
+	}
+	
+	public static function getCountByFlag( $flag = '') {
+		if ( !empty( $flag ) ) {
+			global $wpdb;
+			return $wpdb->get_var( $wpdb->prepare( 'SELECT count(*) FROM '.self::getTableName().' WHERE flag = %s', $flag ) );
+		}
+		return 0;
 	}
 	
 	function checkIfThisYearReminder( $email, $flag ) {
