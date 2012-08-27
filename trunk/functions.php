@@ -120,6 +120,7 @@ function createReminderMenu() {
 	//TODO fix permission, create custom permission instead of using read permission ??
 	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', 'Tellitud', 'Tellitud', 'read', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', '', 'Saada teavitus', 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
 	add_options_page('Meelespea seaded','Meelespea seaded','manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
 	add_submenu_page( 'hk-reminders', '', 'Seaded', 'manage_options', 'options-general.php?page=hk-reminders-settings');
 }
@@ -207,6 +208,19 @@ function checkForFlagDelete() {
 			die;
 		}
 	}
+}
+
+function sendEmailNotice() {
+	echo '<div class="wrap">';
+	echo '<form action="" method="post">';
+	echo '<input type="hidden" name="hk_action" value="remove_remindee" />';
+	echo '<h2>Saada teavitus</h2>';
+	echo '<p>Subject</p>';
+	echo '<input type="text" name="hk-reminder-subject" />';
+	echo '<p>Sisu</p>';
+	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
+	echo '<p><input type="submit" value="Saada" /></p>';
+	echo '</div>';
 }
 
 function createRemindersPage() {
