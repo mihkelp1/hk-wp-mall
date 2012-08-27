@@ -35,6 +35,16 @@ class HK_Reminders {
 		}
 		return false;
 	}
+	
+	public static function getSetting( $setting = '' ) {
+		if ( !empty( $setting ) ) {
+			$data = get_option('hk-reminders');
+			if ( isSet( $data[$setting] ) ) {
+				return $data[$setting];
+			}
+		}
+		return false;
+	}
 }
 
 ?>
