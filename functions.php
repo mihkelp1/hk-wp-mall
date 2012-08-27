@@ -193,19 +193,36 @@ function createRemindersSettingsPage() {
 	echo '</form></div>';
 }
 
+add_action( 'admin_init', 'checkForFlagDelete' );
+
+function checkForFlagDelete() {
+	if ( isSet( $_POST ) && isSet( $_POST['hk_action'] ) ) {
+		if ( $_POST['hk_action'] === 'remove_remindee' ) {
+			$remindees = $_POST['remindees'];
+			$reminders = new HK_Reminders();
+			foreach( $remindees as $remindee ) {
+				$reminders->removeRemindee( $remindee );
+			}
+			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders'), admin_url() ));
+			die;
+		}
+	}
+}
+
 function createRemindersPage() {
 	global $wpdb;
 	$remindersHandler = new HK_Reminders();
 	
 	echo '<div class="wrap">';
+	echo '<form action="" method="post">';
+	echo '<input type="hidden" name="hk_action" value="remove_remindee" />';
 	echo '<h2>Meelespead</h2>';
-
 	
 	$current_flag = '';
 	$flags = $remindersHandler->fetchFlags();
 	foreach( $flags as $reminder ) {
 		if ( $current_flag != $reminder->flag ) {
-			echo '<h3>'.$reminder->flag.'</h3>';
+			echo '<h3>'.$reminder->flag.' - '.HK_Reminders::getCountByFlag( $reminder->flag ).'</h3>';
 			echo '<table class="wp-list-table widefat fixed users" cellspacing="0">';
 			echo '<thead><tr>
 				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" id="name" class="manage-column column-name sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=name&amp;order=asc"><span>Email</span><span class="sorting-indicator"></span></a></th><th scope="col" id="email" class="manage-column column-email sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=email&amp;order=asc"><span>Flag</span><span class="sorting-indicator"></span></a></th><th scope="col" id="role" class="manage-column column-role" style="">Date</th>	</tr>
@@ -218,17 +235,20 @@ function createRemindersPage() {
 		}
 		foreach( $remindersHandler->fetchByFlag( $reminder->flag ) as $remindee ) {
 			echo '<tr id="user-'.$remindee->id.'" class="alternate">
-				<th scope="row" class="check-column"><input type="checkbox" name="users[]" id="user_1" class="administrator" value="1"></th><td class="name column-name">'.$remindee->email.'</td>
+				<th scope="row" class="check-column"><input type="checkbox" name="remindees[]" id="user_1" class="administrator" value="'.$remindee->id.'"></th><td class="name column-name">'.$remindee->email.'</td>
 				<td class="email column-email">'.$reminder->flag.'</td>
 				<td class="role column-role">'.$remindee->date.'</td></tr>';
 		}
 		if ( $current_flag != $reminder->flag ) {
 				echo '</tbody>';
 				echo '</table>';
-				echo '<input type="submit" name="" id="doaction2" class="button-secondary action" value="Apply">'; 
+				echo '<input type="submit" name="" id="doaction2" class="button-secondary action" value="Delete">'; 
 		}
 	}
-	echo '</div>';
+	if ( empty( $flags ) ) {
+		echo '<p><strong>'.__( 'No subscriptions.', 'hk-wp-mall' ).'</strong></p>';
+	}
+	echo '</form></div>';
 }
 
 /**
