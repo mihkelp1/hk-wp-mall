@@ -117,15 +117,64 @@ function subscribeReminderFunc() {
 }
 
 function createReminderMenu() {
-	//TODO fix permission, create custom permission ??
+	//TODO fix permission, create custom permission instead of using read permission ??
 	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', 'Tellitud', 'Tellitud', 'read', 'hk-reminders', 'createRemindersPage');
-	add_submenu_page( 'hk-reminders', 'Seaded', 'Seaded', 'read', 'hk-reminders-settings', 'createRemindersSettingsPage');
+	add_options_page('Meelespea seaded','Meelespea seaded','manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
+	add_submenu_page( 'hk-reminders', '', 'Seaded', 'manage_options', 'options-general.php?page=hk-reminders-settings');
+}
+
+add_action( 'admin_init', 'registerReminderSettings' );
+
+function registerReminderSettings() {
+	register_setting( 'hk-reminders', 'hk-reminders', 'sanitizeSettings' );
+	add_settings_section( 'hk-reminders-general', '', 'accountSettingsHeader', 'hk-reminders' );
+	add_settings_field( 'modal-welcome-text', __( "Modal welcome text", 'hk-wp-mall' ), 'printModalWelcomeField', 'hk-reminders', 'hk-reminders-general', array( 'label_for' => 'modal-welcome-text' ) );
+	/*add_settings_field( 'login-password', __( "Password", $this->getTextdomain() ), array( &$this, 'printPasswordField' ), 'dippler', 'dippler-general', array( 'label_for' => 'login-password' ) );*/
+
+}
+
+/**
+ * Print account settings section header
+ */
+ 
+function accountSettingsHeader() {
+	echo '<h3>'.__( 'Subscribe popup', 'hk-wp-mall' ).'</h3>';
+}
+
+function printModalWelcomeField() {
+	var_dump(HK_Reminders::getSetting('modal-welcome-text'));
+	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="40" rows="8"></textarea>';
+    echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
+}
+
+/**
+ * Sanitize settings form values
+ * 
+ * Add custom message for settings saved message
+ *
+ * @return Array
+ */
+
+function sanitizeSettings( $options ) {
+	return $options;
+	//TODO WHAT ARE ALLOWED CHARS IN BOS PASSWORD ?? DO WE NEED PASSWORD SANITIZE ?
+	$options['login-name'] = trim( strip_tags( $options['login-name'] ) );
+	if ( !get_settings_errors( 'dippler-settings' ) ) {
+		add_settings_error('dippler-settings', 'dippler_settings_updated', __('Your Dippler account settings are saved.'), 'updated');
+	}
+	return $options;	
 }
 
 function createRemindersSettingsPage() {
-	//TODO create settings page with settings API
-	echo "settings";
+	echo '<div class="wrap">';
+	screen_icon();
+	echo '<h2>'.__( 'Settings', 'hk-wp-mall' ).'</h2>';
+	echo '<form action="options.php" method="post">';
+	settings_fields( 'hk-reminders' );
+	do_settings_sections( 'hk-reminders' );
+	echo '<input name="Submit" type="submit" id="submit" class="button-primary" value="'.__( 'Save' ).'" />';
+	echo '</form></div>';
 }
 
 function createRemindersPage() {
