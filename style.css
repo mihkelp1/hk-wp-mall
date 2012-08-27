@@ -604,7 +604,7 @@ strong {
 	background: #FFF url('images/search-icon.png') 5px 8px no-repeat;
 }
 
-.search-field:focus {
+.search-field:focus, #reminder_email {
 	outline: none;
 }
 
@@ -741,4 +741,13 @@ em {
 	margin-left: 0px;
 	top: 17px;
 	position: relative;
+}
+
+#reminder-wrapper input {
+	margin-top: 15px;
+}
+
+#reminder_email {
+	border: 0px;
+	border-bottom: 1px solid #ccc;
 }
