@@ -59,7 +59,7 @@ function reminder_shortcode( $atts ) {
 	), $atts ) );
 	
 	echo '<div id="reminder-wrapper" style="display:none;">';
-	echo '<p>Täname, et oled huvitatud valitud erialal õppimisest. Meelespea saadetakse teile enne vastuvõtu avamist.</p>';
+	echo '<p>'.HK_Reminders::getSetting( 'modal-welcome-text' ).'</p>';
 	echo '<form method="post" action="'.admin_url( 'admin-ajax.php' ).'" id="reminderForm">';
 	echo '<input type="hidden" name="action" value="subscribe_reminder" />';
 	echo '<input type="hidden" name="security" value="'.wp_create_nonce('hk-reminder-nonce').'" />';
@@ -90,8 +90,8 @@ function subscribeReminderFunc() {
 			if ( is_email( $email ) ) {
 				$reminder_added = $remindersHandler->addReminder( $email, $flag );
 				if ( $reminder_added ) {
-					$headers = 'From: TLÜ Haapsalu Kolledž <no-reply@hk.tlu.ee>' . "\r\n";
-					$wp_send_success = wp_mail( $email, "Tellitud meelespea", "Olete tellinud meeldetuletuse Tallinna Ülikooli Haapsalu Kolledži veebilehelt", $headers );
+					$headers = sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+					$wp_send_success = wp_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), HK_Reminders::getSetting( 'confirmation-email' ), $headers );
 					if ( $wp_send_success) {
 						//Subscribe success
 						$status = 1;
@@ -128,9 +128,11 @@ add_action( 'admin_init', 'registerReminderSettings' );
 
 function registerReminderSettings() {
 	register_setting( 'hk-reminders', 'hk-reminders', 'sanitizeSettings' );
-	add_settings_section( 'hk-reminders-general', '', 'accountSettingsHeader', 'hk-reminders' );
-	add_settings_field( 'modal-welcome-text', __( "Modal welcome text", 'hk-wp-mall' ), 'printModalWelcomeField', 'hk-reminders', 'hk-reminders-general', array( 'label_for' => 'modal-welcome-text' ) );
-	/*add_settings_field( 'login-password', __( "Password", $this->getTextdomain() ), array( &$this, 'printPasswordField' ), 'dippler', 'dippler-general', array( 'label_for' => 'login-password' ) );*/
+	add_settings_section( 'hk-reminders-modal', '', 'accountSettingsHeader', 'hk-reminders' );
+	add_settings_field( 'modal-welcome-text', __( "Modal welcome text", 'hk-wp-mall' ), 'printModalWelcomeField', 'hk-reminders', 'hk-reminders-modal', array( 'label_for' => 'modal-welcome-text' ) );
+	add_settings_section( 'hk-reminders-confirm-email', '', 'confirmTitle', 'hk-reminders' );
+	add_settings_field( 'confirmation-email-subject', __( "Subject", 'hk-wp-mall' ), 'confirmEmailSubject', 'hk-reminders', 'hk-reminders-confirm-email', array( 'label_for' => 'confirmation-email-subject' ) );
+	add_settings_field( 'confirmation-email', __( "Body", 'hk-wp-mall' ), 'printConfirmationEmail', 'hk-reminders', 'hk-reminders-confirm-email', array( 'label_for' => 'confirmation-email' ) );
 
 }
 
@@ -142,11 +144,25 @@ function accountSettingsHeader() {
 	echo '<h3>'.__( 'Subscribe popup', 'hk-wp-mall' ).'</h3>';
 }
 
+function confirmTitle() {
+	echo '<h3>'.__( 'Confirmation email', 'hk-wp-mall' ).'</h3>';
+}
+
 function printModalWelcomeField() {
-	var_dump(HK_Reminders::getSetting('modal-welcome-text'));
-	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="40" rows="8"></textarea>';
+	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('modal-welcome-text').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
 }
+
+function confirmEmailSubject() {
+	echo '<input name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 290px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
+    echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
+}
+
+function printConfirmationEmail() {
+	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
+    echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
+}
+
 
 /**
  * Sanitize settings form values
