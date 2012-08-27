@@ -48,7 +48,6 @@ jQuery(document).ready(function($) {
 		$('#reminder-wrapper').dialog({
 			width: 380,
 			minWidth: 380,
-			minHeight: 250,
 			modal: true,
 			resizable: false,
 			draggable: false
