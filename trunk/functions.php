@@ -185,7 +185,7 @@ function sanitizeSettings( $options ) {
 function createRemindersSettingsPage() {
 	echo '<div class="wrap">';
 	screen_icon();
-	echo '<h2>'.__( 'Settings', 'hk-wp-mall' ).'</h2>';
+	echo '<h2>'.__( 'Reminders settings', 'hk-wp-mall' ).'</h2>';
 	echo '<form action="options.php" method="post">';
 	settings_fields( 'hk-reminders' );
 	do_settings_sections( 'hk-reminders' );
