@@ -204,7 +204,17 @@ function checkForFlagDelete() {
 			foreach( $remindees as $remindee ) {
 				$reminders->removeRemindee( $remindee );
 			}
-			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders'), admin_url() ));
+			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders'), admin_url('admin.php') ));
+			die;
+		}
+		
+		if ( $_POST['hk_action'] === 'send_email_reminder' ) {
+			$remindees = HK_Reminders::getAll();
+			$headers = sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+			foreach( $remindees as $remindee ) {
+				$reminder_send_success = wp_mail( $remindee->email, $_POST['hk-reminder-subject'], $_POST['hk-reminder-body'], $headers );
+			}
+			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send'), admin_url('admin.php') ));
 			die;
 		}
 	}
@@ -213,8 +223,9 @@ function checkForFlagDelete() {
 function sendEmailNotice() {
 	echo '<div class="wrap">';
 	echo '<form action="" method="post">';
-	echo '<input type="hidden" name="hk_action" value="remove_remindee" />';
+	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>Saada teavitus</h2>';
+	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
 	echo '<p>Subject</p>';
 	echo '<input type="text" name="hk-reminder-subject" />';
 	echo '<p>Sisu</p>';
