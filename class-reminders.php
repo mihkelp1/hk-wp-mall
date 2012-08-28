@@ -66,6 +66,16 @@ class HK_Reminders {
 		return $wpdb->insert( self::getHistoryTable(), array( 'count' => $count ), array( '%d' ) );
 	}
 	
+	public static function getHistory() {
+		global $wpdb;
+		return $wpdb->get_results( $wpdb->prepare( 'SELECT count, date FROM '.self::getHistoryTable() ) );
+	}
+	
+	public static function getLastSentDate() {
+		global $wpdb;
+		return $wpdb->get_var( 'SELECT date FROM '.self::getHistoryTable().' ORDER BY id DESC LIMIT 1 ');
+	}
+	
 	function checkIfThisYearReminder( $email, $flag ) {
 		global $wpdb;
 		$result = $wpdb->get_var( $wpdb->prepare( 'SELECT id FROM '.$this->table_name.' WHERE email = %s AND flag = %s AND YEAR(date) = YEAR(NOW())', $email, $flag ) );

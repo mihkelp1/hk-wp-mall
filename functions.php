@@ -238,6 +238,7 @@ function sendEmailNotice() {
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>Saada teavitus</h2>';
 	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
+	echo '<p>Viimane teavitus saadeti '.HK_Reminders::getLastSentDate().'</p>';
 	echo '<p>Subject</p>';
 	echo '<input type="text" name="hk-reminder-subject" />';
 	echo '<p>Sisu</p>';
@@ -247,7 +248,29 @@ function sendEmailNotice() {
 }
 
 function sentReminderHistory() {
-	echo "ajalugu";
+	echo '<div id="wrap">';
+	echo '<h2>Ajalugu</h2>';
+	$history = HK_Reminders::getHistory();
+	
+	echo '<table class="wp-list-table widefat fixed users" cellspacing="0">';
+	echo '<thead><tr>
+				<th scope="col" id="name" class="manage-column column-role" style=""><span>Saadetud mitmele</span></th><th scope="col" id="role" class="manage-column column-role" style="">Kuupäev</th>	</tr>
+				</thead>';
+	echo '<tfoot><tr>
+			<th scope="col" id="name" class="manage-column column-role" style=""><span>Saadetud mitmele</span></th><th scope="col" id="role" class="manage-column column-role" style="">Kuupäev</th>	</tr>
+		</tfoot>';
+				
+	echo '<tbody id="the-list" class="list:user">';
+	
+	foreach( $history as $item ) {
+			
+		echo '<tr class="alternate">
+			<td class="name column-name">'.$item->count.'</td>
+			<td class="email column-email">'.$item->date.'</td></tr>';
+	}
+	echo '</tbody>';
+	echo '</table>';
+	echo '</div>';
 }
 
 function createRemindersPage() {
