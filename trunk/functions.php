@@ -34,6 +34,7 @@ function _initTheme() {
 	
 	global $wpdb;
 	$table_name = $wpdb->prefix . "hk_reminders";
+	$table_history = $wpdb->prefix. 'hk_reminders_history';
 	require_once( 'class-reminders.php' );
 	if ( $wpdb->get_var( 'show tables like "'.$table_name.'"') != $table_name ) {
 		$sql = "CREATE TABLE " . $table_name . " (
@@ -42,7 +43,16 @@ function _initTheme() {
 		flag varchar(250) DEFAULT '',
 		date TIMESTAMP,
 		KEY (email) );";
-		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');		
+		dbDelta($sql);
+	}
+	
+	if ( $wpdb->get_var( 'show tables like "'.$table_history.'"') != $table_history ) {
+		require_once(ABSPATH . 'wp-admin/includes/upgrade.php');		
+		$sql = "CREATE TABLE " . $table_history . " (
+		id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		count INT(11),
+		date TIMESTAMP);";	
 		dbDelta($sql);
 	}
 }
@@ -121,6 +131,7 @@ function createReminderMenu() {
 	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', 'Tellitud', 'Tellitud', 'read', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', '', 'Saada teavitus', 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
+	add_submenu_page( 'hk-reminders', '', 'Ajalugu', 'manage_options', 'hk-reminders-history', 'sentReminderHistory');
 	add_options_page('Meelespea seaded','Meelespea seaded','manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
 	add_submenu_page( 'hk-reminders', '', 'Seaded', 'manage_options', 'options-general.php?page=hk-reminders-settings');
 }
@@ -214,6 +225,7 @@ function checkForFlagDelete() {
 			foreach( $remindees as $remindee ) {
 				$reminder_send_success = wp_mail( $remindee->email, $_POST['hk-reminder-subject'], $_POST['hk-reminder-body'], $headers );
 			}
+			HK_Reminders::addToHistory( count( $remindees ) );
 			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send'), admin_url('admin.php') ));
 			die;
 		}
@@ -232,6 +244,10 @@ function sendEmailNotice() {
 	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
 	echo '<p><input type="submit" value="Saada" /></p>';
 	echo '</div>';
+}
+
+function sentReminderHistory() {
+	echo "ajalugu";
 }
 
 function createRemindersPage() {

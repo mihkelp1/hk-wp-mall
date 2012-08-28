@@ -42,6 +42,11 @@ class HK_Reminders {
 		return $wpdb->prefix.'hk_reminders';
 	}
 	
+	private static function getHistoryTable() {
+		global $wpdb;
+		return $wpdb->prefix . 'hk_reminders_history';
+	}
+	
 	public static function getCountByFlag( $flag = '') {
 		global $wpdb;
 		if ( !empty( $flag ) ) {
@@ -54,6 +59,11 @@ class HK_Reminders {
 	public static function getAll() {
 		global $wpdb;
 		return $wpdb->get_results( 'SELECT email FROM '.self::getTableName() );
+	}
+	
+	public static function addToHistory( $count = 0 ) {
+		global $wpdb;
+		return $wpdb->insert( self::getHistoryTable(), array( 'count' => $count ), array( '%d' ) );
 	}
 	
 	function checkIfThisYearReminder( $email, $flag ) {
