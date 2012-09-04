@@ -28,3 +28,7 @@
 .content-home .aim a:first-child + a + a + a + a span {
 	bottom: -3px;
 }
+
+.nav-menu-container ul li:first-child + li + li + li + li + li {
+	background: none;
+}
