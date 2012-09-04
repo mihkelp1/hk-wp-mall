@@ -77,5 +77,6 @@ function init_YT_Player() {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
+	alert(landingPageMeta.videoId);
 	player.loadVideoById( landingPageMeta.videoId );
 }
