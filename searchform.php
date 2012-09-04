@@ -10,7 +10,6 @@
 	<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 		<input type="text" tabindex="2" class="search-field" name="s" autofocus="autofocus" placeholder="<?php esc_attr_e( 'Search', 'hk-wp-mall' ); ?>" />
 	</form>
-
 <script type="text/javascript">	
 	jQuery(document).ready(function($){
 		/* Search link */
