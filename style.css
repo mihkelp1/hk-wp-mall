@@ -302,7 +302,7 @@ ul.children li a:hover {
 }
 
 .page-left-menu {
-	width: 200px;
+	width: 210px;
 	border-right: 2px solid rgb(239,239,239);
 	display: inline-block;
 	padding: 0px 12px 10px 12px;
@@ -312,7 +312,7 @@ ul.children li a:hover {
 .page-inside-content {
 	padding-left: 25px;
 	display: inline-block;
-	width: 700px;
+	width: 690px;
 	padding-bottom: 25px;
 }
 
