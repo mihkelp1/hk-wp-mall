@@ -1,6 +1,5 @@
 var player;
 var player_was_paused = false;
-var is_ie7 = false;
 
 jQuery(document).ready(function($) {
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -60,8 +59,7 @@ jQuery(document).ready(function($) {
 });
 
 function init_YT_Player() {
-	alert(is_ie7);
-	if ( is_ie7 ) {
+	if ( is_ie7 typeof != 'undefined' && is_ie7 ) {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
 		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
