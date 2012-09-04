@@ -45,12 +45,6 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 </script>
 <![endif]-->
 
-<!--[if lte IE 7]>
-<script type="text/javascript">
-	var is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
-</script>
-<![endif]-->
-
 <?php
 	/* Always have wp_head() just before the closing </head>
 	 * tag of your theme, or you will break many plugins, which
@@ -59,6 +53,14 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 	 */
 	wp_head();
 ?>
+
+<!--[if lte IE 7]>
+<script type="text/javascript">
+	is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
+</script>
+<![endif]-->
+
+
 </head>
 
 <body <?php body_class(); ?>>
