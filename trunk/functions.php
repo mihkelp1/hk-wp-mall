@@ -75,8 +75,8 @@ function reminder_shortcode( $atts ) {
 	echo '<input type="hidden" name="security" value="'.wp_create_nonce('hk-reminder-nonce').'" />';
 	echo '<input type="hidden" name="security_2_step" value="'.wp_create_nonce( $flag ).'" />';
 	echo '<input type="hidden" name="reminder_flag" value="'.$flag.'" />';
-	echo '<input type="email" name="reminder_email" id="reminder_email" placeholder="E-post" style="width: 340px"/>';
-	echo '<p><input type="submit" value="Telli" style="float: right;"/></p>';
+	echo '<input type="email" name="reminder_email" id="reminder_email" class="visible" placeholder="E-post" style="width: 340px"/>';
+	echo '<p><input type="submit" value="Telli" style="float: right;" class="visible" /></p>';
 	echo '</form></div>';
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
@@ -240,7 +240,7 @@ function sendEmailNotice() {
 	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
 	echo '<p>Viimane teavitus saadeti '.HK_Reminders::getLastSentDate().'</p>';
 	echo '<p>Subject</p>';
-	echo '<input type="text" class="visible" name="hk-reminder-subject" />';
+	echo '<input type="text" name="hk-reminder-subject" />';
 	echo '<p>Sisu</p>';
 	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
 	echo '<p><input type="submit" value="Saada" /></p>';
