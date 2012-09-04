@@ -47,7 +47,7 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 
 <!--[if lte IE 7]>
 <script type="text/javascript">
-	is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
+	var is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 </script>
 <![endif]-->
 
