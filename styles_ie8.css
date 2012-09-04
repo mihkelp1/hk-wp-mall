@@ -15,7 +15,7 @@
 #rollout-searchform {
 	position: absolute;
 	right: 178px;
-	z-index: 5;
+	z-index: 10;
 	width: 350px;
 	top: 50px;
 	margin-top: 16px;
