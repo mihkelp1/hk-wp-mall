@@ -1,5 +1,6 @@
 var player;
 var player_was_paused = false;
+var is_ie7 = false;
 
 jQuery(document).ready(function($) {
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -59,25 +60,27 @@ jQuery(document).ready(function($) {
 });
 
 function init_YT_Player() {
-	var params = { allowScriptAccess: "always" };
-    var atts = { id: "yt_player" };
-    swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
+	if ( is_ie7 ) {
+		var params = { allowScriptAccess: "always" };
+		var atts = { id: "yt_player" };
+		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
                        "player", "640", "390", "8", null, null, params, atts);
-return;
-	player = new YT.Player('player', {
-	  height: '390',
-	  width: '640',
-	  playerVars: {
-		showinfo: 0,
-		modestbranding: 1,
-		rel: 0,
-		theme: 'light',
-		autohide: 1
-	  },
-	  events: {
-		'onReady': onPlayerReady
-	  }
-	});
+    } else {
+		player = new YT.Player('player', {
+		  height: '390',
+		  width: '640',
+		  playerVars: {
+			showinfo: 0,
+			modestbranding: 1,
+			rel: 0,
+			theme: 'light',
+			autohide: 1
+		  },
+		  events: {
+			'onReady': onPlayerReady
+		  }
+		});
+	}
 }
 
 function onYouTubePlayerReady(playerId) {
@@ -87,6 +90,5 @@ function onYouTubePlayerReady(playerId) {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-	alert(landingPageMeta.videoId);
 	player.loadVideoById( landingPageMeta.videoId );
 }
