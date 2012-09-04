@@ -13,9 +13,13 @@
 }
 
 .content-home .aim a {
-	background-position: left;
+	background-position: left 0%;
 }
 
 .content-home .aim a:first-child + a + a + a + a {
-	background-position: right;
+	background-position: right 0%;
+}
+
+.content-home .aim a:first-child + a + a + a + a span {
+	bottom: -3px;
 }
