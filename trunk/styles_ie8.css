@@ -11,3 +11,7 @@
 .header-menu-container ul li:first-child + li + li + li + li:hover {
 	background: url('images/search-icon-hover.png') center left no-repeat;
 }
+
+.aim a {
+	background-position: none;
+}
