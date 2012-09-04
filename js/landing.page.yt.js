@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 	
 	var player_was_paused = false;
+	var player;
 	
 	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
@@ -26,8 +27,10 @@ jQuery(document).ready(function($) {
 				}
 			},
 			beforeClose: function() {
-				player.pauseVideo();
-				player_was_paused = true;
+				if ( player ) {
+					player.pauseVideo();
+					player_was_paused = true;
+				}
 			}
 		});
 	});
@@ -55,8 +58,6 @@ jQuery(document).ready(function($) {
 	});
 });
 
-
-var player;
 function init_YT_Player() {
 	player = new YT.Player('player', {
 	  height: '390',
