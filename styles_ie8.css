@@ -16,6 +16,6 @@
 	background-position: left;
 }
 
-.content-home .aim a:first-child + li + li + li + li {
+.content-home .aim a:first-child + a + a + a + a {
 	background-position: right;
 }
