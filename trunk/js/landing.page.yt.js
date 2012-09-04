@@ -61,8 +61,8 @@ jQuery(document).ready(function($) {
 function init_YT_Player() {
 	var params = { allowScriptAccess: "always" };
     var atts = { id: "yt_player" };
-    swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3",
-                       "player", "425", "356", "8", null, null, params, atts);
+    swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
+                       "player", "640", "390", "8", null, null, params, atts);
 return;
 	player = new YT.Player('player', {
 	  height: '390',
@@ -78,6 +78,11 @@ return;
 		'onReady': onPlayerReady
 	  }
 	});
+}
+
+function onYouTubePlayerReady(playerId) {
+	player = document.getElementById("yt_player");
+	player.playVideo();
 }
 
 // 4. The API will call this function when the video player is ready.
