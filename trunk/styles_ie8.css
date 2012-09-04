@@ -17,6 +17,10 @@
 	border-left: 1px solid #CCC;
 }
 
+.content-home .aim a:first-child {
+	border: 0px;
+}
+
 .content-home .aim a:first-child + a + a + a + a {
 	background-position: right 0%;
 }
