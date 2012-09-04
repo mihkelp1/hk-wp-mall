@@ -60,6 +60,7 @@ jQuery(document).ready(function($) {
 });
 
 function init_YT_Player() {
+	alert(is_ie7);
 	if ( is_ie7 ) {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
