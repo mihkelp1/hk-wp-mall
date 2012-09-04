@@ -34,6 +34,10 @@
 </style>
 <![endif]-->
 
+<!--[if IE 8]>
+<link rel="stylesheet" media="screen" href="<?php bloginfo('template_directory'); ?>/styles_ie8.css ?>" />
+<![endif]-->
+
 <?php
 	/* Always have wp_head() just before the closing </head>
 	 * tag of your theme, or you will break many plugins, which
