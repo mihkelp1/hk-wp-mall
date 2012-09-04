@@ -11,3 +11,18 @@
 .header-menu-container ul li:first-child + li + li + li + li:hover {
 	background: url('images/search-icon-hover.png') center left no-repeat;
 }
+
+#rollout-searchform {
+	position: absolute;
+	right: 178px;
+	z-index: 5;
+	width: 350px;
+	top: 50px;
+	margin-top: 16px;
+	background: #000;
+	-moz-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-moz-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding: 5px;
+}
