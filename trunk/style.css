@@ -141,7 +141,7 @@ table {
 	text-decoration: none;
 }
 
-.header-menu-container ul li:last-child {
+.header-menu-container ul li:first-child + li + li + li + li + li { /* This should work for IE 8, means -> li:last-child */
 	border: 0px;
 }
 
