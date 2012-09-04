@@ -1,0 +1,15 @@
+.entry-title {
+	border: 0px;
+}
+
+.page-left-menu, .landing-reminder-button {
+	float:left;
+}
+
+.landing-nav-menu-wrapper {
+	margin-bottom: 20px;
+}
+
+.footer-nav-menu .menu-title {
+	font-size: 0.9em;
+}
