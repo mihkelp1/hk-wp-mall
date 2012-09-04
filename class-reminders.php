@@ -52,7 +52,7 @@ class HK_Reminders {
 		if ( !empty( $flag ) ) {
 			return $wpdb->get_var( $wpdb->prepare( 'SELECT count(*) FROM '.self::getTableName().' WHERE flag = %s', $flag ) );
 		} else {
-			return $wpdb->get_var( 'SELECT DISTINCT count(*) FROM '.self::getTableName() );
+			return $wpdb->get_var( 'SELECT DISTINCT count(email) FROM '.self::getTableName() );
 		}
 	}
 	
