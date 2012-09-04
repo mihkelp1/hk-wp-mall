@@ -14,12 +14,10 @@
 
 .content-home .aim a {
 	background-position: left 0%;
-	border: 10px solid #ccc;
 }
 
 .content-home .aim a:first-child + a + a + a + a {
 	background-position: right 0%;
-	border-right: 0px;
 }
 
 .content-home .aim a:first-child + a + a + a + a span {
