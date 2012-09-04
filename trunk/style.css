@@ -630,7 +630,7 @@ strong {
 }
 
 .landing-page .page-inside-content {
-	width: 100%;
+	width: 99%;
 }
 
 .landing-page .entry-title {
@@ -688,7 +688,7 @@ em {
 	width: 177px;
 	height: 74px;
 	text-align: center;
-	margin-right: 10px;
+	margin-right: 5px;
 	display: inline-block;
 }
 
@@ -727,7 +727,7 @@ em {
 	width: 187px;
 	height: 74px;
 	text-align: center;
-	margin-right: 30px;
+	margin-right: 25px;
 	display: inline-block;
 }
 
