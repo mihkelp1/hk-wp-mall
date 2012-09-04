@@ -141,11 +141,11 @@ table {
 	text-decoration: none;
 }
 
-.header-menu-container ul li:first-child + li + li + li + li + li { /* This should work for IE 8, means -> li:last-child */
+.header-menu-container li:last-child {
 	border: 0px;
 }
 
-.header-menu-container ul li:first-child + li + li + li + li { /* This should work for IE 8, means --> nth-child(5) */
+.header-menu-container li:nth-child(5) {
 	background: url('images/search-icon.png') center left no-repeat;
 	padding-left: 17px;
 	margin-left: 10px;
