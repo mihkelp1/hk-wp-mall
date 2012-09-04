@@ -14,7 +14,7 @@
 
 .content-home .aim a {
 	background-position: left 0%;
-	border-right: 1px solid #ccc;
+	border: 10px solid #ccc;
 }
 
 .content-home .aim a:first-child + a + a + a + a {
