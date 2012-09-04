@@ -1,12 +1,12 @@
+var player;
+var player_was_paused = false;
+
 jQuery(document).ready(function($) {
 	// 2. This code loads the IFrame Player API code asynchronously.
 	var tag = document.createElement('script');
 	tag.src = "//www.youtube.com/iframe_api";
 	var firstScriptTag = document.getElementsByTagName('script')[0];
 	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-	
-	var player_was_paused = false;
-	var player;
 	
 	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
