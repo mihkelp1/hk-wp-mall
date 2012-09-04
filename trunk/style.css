@@ -141,7 +141,7 @@ table {
 	text-decoration: none;
 }
 
-.header-menu-container li:last-child {
+.header-menu-container ul li:last-child {
 	border: 0px;
 }
 
