@@ -38,7 +38,9 @@
 <link rel="stylesheet" media="screen" href="<?php bloginfo('template_directory'); ?>/styles_ie8.css ?>" />
 <![endif]-->
 
-
+<!--[if IE 7]>
+<link rel="stylesheet" media="screen" href="<?php bloginfo('template_directory'); ?>/styles_ie7.css ?>" />
+<![endif]-->
 
 <?php
 	/* Always have wp_head() just before the closing </head>
