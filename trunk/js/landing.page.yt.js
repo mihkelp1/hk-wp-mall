@@ -60,13 +60,15 @@ jQuery(document).ready(function($) {
 });
 
 function init_YT_Player() {
+	// IF IE7 or less, use Youtube JavaScript API
 	if ( is_ie7 ) {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
 		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
                        "player", "640", "390", "8", null, null, params, atts);
     } else {
-		player = new YT.Player('player', {
+    	//Otherwise use more modern iFrame API
+    	player = new YT.Player('player', {
 		  height: '390',
 		  width: '640',
 		  playerVars: {
@@ -83,12 +85,13 @@ function init_YT_Player() {
 	}
 }
 
+/* This method is called by Youtube JavaScript API */
 function onYouTubePlayerReady(playerId) {
 	player = document.getElementById("yt_player");
 	player.playVideo();
 }
 
-// 4. The API will call this function when the video player is ready.
+/* This method is called by Youtube iFrame API */
 function onPlayerReady(event) {
 	player.loadVideoById( landingPageMeta.videoId );
 }
