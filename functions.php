@@ -240,7 +240,7 @@ function sendEmailNotice() {
 	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
 	echo '<p>Viimane teavitus saadeti '.HK_Reminders::getLastSentDate().'</p>';
 	echo '<p>Subject</p>';
-	echo '<input type="text" name="hk-reminder-subject" />';
+	echo '<input type="text" class="visible" name="hk-reminder-subject" />';
 	echo '<p>Sisu</p>';
 	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
 	echo '<p><input type="submit" value="Saada" /></p>';

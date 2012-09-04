@@ -752,3 +752,7 @@ em {
 	border: 0px;
 	border-bottom: 1px solid #ccc;
 }
+
+.visible {
+	display: inline;
+}
