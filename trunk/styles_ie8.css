@@ -12,6 +12,10 @@
 	background: url('images/search-icon-hover.png') center left no-repeat;
 }
 
-.aim a {
-	background-position: left !important;
+.content-home .aim a:last-child {
+	background-position: right;
+}
+
+.content-home .aim a {
+	background-position: left;
 }
