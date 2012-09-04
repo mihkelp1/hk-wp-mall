@@ -338,7 +338,7 @@ function loadAndRegisterJavaScripts() {
 	if ( is_page_template( 'landing-page.php' ) ) {
 		if ( has_youtube_video() ) {
 			wp_enqueue_script( 'jquery-ui-dialog' );
-			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js');
+			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js', array('swfobject') );
 			wp_enqueue_script( 'landing-page-yt' );
 			
 			$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ) );

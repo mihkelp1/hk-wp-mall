@@ -59,6 +59,11 @@ jQuery(document).ready(function($) {
 });
 
 function init_YT_Player() {
+	var params = { allowScriptAccess: "always" };
+    var atts = { id: "yt_player" };
+    swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3",
+                       "player", "425", "356", "8", null, null, params, atts);
+return;
 	player = new YT.Player('player', {
 	  height: '390',
 	  width: '640',
