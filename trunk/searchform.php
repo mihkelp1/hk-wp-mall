@@ -8,6 +8,7 @@
  */
 ?>
 	<form method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
+		<h1 style="color: #FFF">testing</h1>
 		<input type="text" tabindex="2" class="search-field" name="s" autofocus="autofocus" placeholder="<?php esc_attr_e( 'Search', 'hk-wp-mall' ); ?>" />
 	</form>
 <script type="text/javascript">	
