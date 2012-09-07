@@ -326,10 +326,13 @@ function loadAndRegisterJavaScripts() {
 		wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
 		wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
 		wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js');
+		//Load home-script in footer, so ensure proper execution
+		wp_register_script( 'hk-home-script', get_template_directory_uri().'/js/home-page.js', array(), false, true );
 		
 		wp_enqueue_script( 'jquery-easing' );
 		wp_enqueue_script( 'jquery-bxSlider' );
 		wp_enqueue_script( 'jquery-overflow' );
+		wp_enqueue_script( 'hk-home-script' );
 	} else {
 		//If not home page, remove accordion menu wp_head action - this disables inserting unneed JavaScript and CSS.
 		remove_action('wp_head', 'a_image_menu_head');
