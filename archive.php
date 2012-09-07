@@ -34,11 +34,7 @@ get_header(); ?>
 							<?php  echo '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'twentyeleven' ) ) . '</span>'; ?>
 						<?php else : ?>
 							<?php
-								if ( is_tag() ) {
-									single_tag_title();
-								} else {
-									_e( 'Archive', 'hk-wp-template' );
-								}
+								single_tag_title();
 							?>
 						<?php endif; ?>
 					</h1>
