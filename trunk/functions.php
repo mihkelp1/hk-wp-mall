@@ -30,7 +30,7 @@ function _initTheme() {
 	  'description' => __( 'Widgets in this area will be shown in the footer.' )
 	));
 	
-	add_theme_support( 'post-thumbnails' ); 
+	add_theme_support( 'post-thumbnails' );
 	
 	global $wpdb;
 	$table_name = $wpdb->prefix . "hk_reminders";
@@ -438,6 +438,9 @@ function getArchiveLeftMenu() {
 	the_widget('WP_Widget_Calendar');
 	the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => ' ' ) );
 	the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
+	echo '<div class="widget">';
+	wp_list_categories('feed_image='.get_bloginfo('template_directory').'/images/rss.png&children=0&exclude=1&show_count&title_li=<h2 class="feeds-title"></h2>');
+	echo '</div>';
 }
 
 

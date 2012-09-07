@@ -757,3 +757,17 @@ em {
 .visible {
 	display: inline;
 }
+
+.widget .categories img {
+	float: left;
+	margin-right: 4px;
+}
+
+.widget .categories li {
+	margin-bottom: 4px;
+}
+
+.widget .categories {
+	margin-top: 40px;
+	list-style: none;
+}

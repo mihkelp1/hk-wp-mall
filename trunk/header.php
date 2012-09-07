@@ -24,6 +24,7 @@
 	?></title>
 
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu+Condensed&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+<link href="<?php bloginfo('rss2_url'); ?>" rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' )?>" />
 <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
 <!--[if lt IE 9]>
 <script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
