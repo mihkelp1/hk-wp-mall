@@ -416,6 +416,16 @@ strong {
 	overflow: hidden;
 }
 
+/* Default position if script not loaded yet (bxSlider) */
+#slider1 {
+	overflow: hidden;
+	height: 90px;
+}
+
+#slider1 li {
+	float: left;
+}
+
 #slider1 li a {
 	color: #555555;
 }
@@ -514,7 +524,7 @@ strong {
 /* Homepage image accordion menu */
 
 .content-home .aim a {
-	
+	background-position: left 0px;
 }
 
 .content-home .aim {
