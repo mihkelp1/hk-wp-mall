@@ -11,3 +11,22 @@ Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
+
+= People Lists mooduli seadistus =
+
+{{
+<div class ='user-thumbnail'>%thumbnail%</div> 
+<div class ='user-info user-name'>%firstname% %lastname%</div> 
+<div class ='user-info user-title'>%people_lists_tiitel%</div> 
+<div class='user-info'>Telefon: %people_lists_telefon%</div>
+<div class='user-info'>GSM: %people_lists_gsm%</div>
+<div class='user-info'>Faks:  %people_lists_faks%</div>
+
+<div class ='user-info'>%email%</div> 
+<div class ='user-bio'>%bio%</div>			
+
+<div class='user-info qr'>
+<img class='qr-image' src="http://chart.apis.google.com/chart?cht=qr&chs=96x96&chld=L|0&choe=UTF-8&chl=BEGIN%3AVCARD%0AN%3A%firstname%+%lastname%%0AORG%3ATLÜ+Haapsalu+Kolled%C5%BE%0ATITLE%3A%people_lists_tiitel%%0A%0ATEL;WORK%3A%people_lists_telefon%%0A%0ATEL;CELL%3A%people_lists_gsm%%0AEMAIL%3A%email%%0AEND%3AVCARD" />
+</div>			
+
+}}
