@@ -16,6 +16,17 @@ Add your content here.  Format your content with:
 
 === Template sisu ===
 
+Vajalikud lisa väljad profiilis:
+
+{{{
+%people_lists_telefon%
+%people_lists_gsm%
+%people_lists_faks%
+%people_lists_tiitel%
+}}}
+
+* Template sisu *
+
 {{{
 <div class ='user-thumbnail'>%thumbnail%</div> 
 <div class ='user-info user-name'>%firstname% %lastname%</div> 
