@@ -14,7 +14,7 @@ Add your content here.  Format your content with:
 
 = People Lists mooduli seadistus =
 
-{{
+{{{
 <div class ='user-thumbnail'>%thumbnail%</div> 
 <div class ='user-info user-name'>%firstname% %lastname%</div> 
 <div class ='user-info user-title'>%people_lists_tiitel%</div> 
@@ -29,4 +29,4 @@ Add your content here.  Format your content with:
 <img class='qr-image' src="http://chart.apis.google.com/chart?cht=qr&chs=96x96&chld=L|0&choe=UTF-8&chl=BEGIN%3AVCARD%0AN%3A%firstname%+%lastname%%0AORG%3ATLÜ+Haapsalu+Kolled%C5%BE%0ATITLE%3A%people_lists_tiitel%%0A%0ATEL;WORK%3A%people_lists_telefon%%0A%0ATEL;CELL%3A%people_lists_gsm%%0AEMAIL%3A%email%%0AEND%3AVCARD" />
 </div>			
 
-}}
+}}}
