@@ -59,6 +59,12 @@ function _initTheme() {
 
 add_action( 'after_setup_theme', '_initTheme' );
 
+add_filter( 'people_list_shortcode', 'contactsListFilter' );
+
+function contactsListFilter( $html ) {
+	return str_replace( '%3A+372', '%3A%2B372', $html );
+}
+
 //Reminder functions
 add_action( 'admin_menu', 'createReminderMenu' );
 
