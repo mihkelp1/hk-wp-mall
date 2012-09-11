@@ -366,6 +366,9 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
  */
 
 function loadAndRegisterCSS() {
+	wp_register_style( 'print-css', get_template_directory_uri(). '/styles_print.css', false, false, 'print' );
+	wp_enqueue_style( 'print-css' );
+	
 	if ( is_home() ) {
 		wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
 		wp_enqueue_style( 'jquery.bxSlider' );

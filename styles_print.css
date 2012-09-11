@@ -1,0 +1,22 @@
+/* Simple print media CSS
+ * Author: Raido  Kuli 2012
+ */
+
+.page-left-menu, .nav-menu-container, .header-menu-container, #footer-wrapper, .edit-link {
+	display: none;
+}
+
+.page-inside-content, #footer-sidebar {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+.page-header img {
+	margin-left: 0px;
+}
+
+body {
+	margin: 1.54cm;
+	font-size: 14pt !important;
+}
