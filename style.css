@@ -781,3 +781,40 @@ em {
 	margin-top: 40px;
 	list-style: none;
 }
+
+/* People list plugin styles */
+
+div.person .user-thumbnail {
+	float: left;
+	margin-right: 25px;
+	/* set tumbnail div line height to match person ( container height - image padding ) = 120
+	* this way we can user vertical-align: middle, to easily center the image
+	*/
+	line-height: 140px;
+}
+
+div.person .user-thumbnail img {
+	vertical-align: middle;
+	padding: 5px;
+	border: 1px solid #EFEFEF;
+}
+
+div.person .qr {
+	display:none;
+}
+
+div.person {
+	border-bottom: 1px solid #EFEFEF;
+	height: 150px;
+	/*top left bottom right*/
+	margin: 30px 0px 10px 0px;
+	cursor: pointer;
+}
+
+div.person .user-name {
+	font-weight: bold;
+}
+
+div.person:first-child {
+	margin-top: 20px;
+}

@@ -319,15 +319,13 @@ function createRemindersPage() {
  * Register and load some JavaScript
  */
 
-function loadAndRegisterJavaScripts() {
-	wp_enqueue_script( 'jquery' );
-	
+function loadAndRegisterJavaScripts() {	
 	if ( is_home() ) {
-		wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js' );
-		wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js' );
-		wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js');
+		wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js', array( 'jquery' ) );
+		wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js', array( 'jquery' ) );
+		wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js', array( 'jquery' ));
 		//Load home-script in footer, so ensure proper execution
-		wp_register_script( 'hk-home-script', get_template_directory_uri().'/js/home-page.js', array(), false, true );
+		wp_register_script( 'hk-home-script', get_template_directory_uri().'/js/home-page.js', array( 'jquery' ), false, true );
 		
 		wp_enqueue_script( 'jquery-easing' );
 		wp_enqueue_script( 'jquery-bxSlider' );
@@ -336,12 +334,14 @@ function loadAndRegisterJavaScripts() {
 	} else {
 		//If not home page, remove accordion menu wp_head action - this disables inserting unneed JavaScript and CSS.
 		remove_action('wp_head', 'a_image_menu_head');
+		wp_register_script( 'hk-general',  get_template_directory_uri().'/js/general.js', array( 'jquery' ) );
+		wp_enqueue_script( 'hk-general' );
 	}
 	
 	if ( is_page_template( 'landing-page.php' ) ) {
 		if ( has_youtube_video() ) {
-			wp_enqueue_script( 'jquery-ui-dialog' );
-			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js', array('swfobject') );
+			wp_enqueue_script( 'jquery-ui-dialog', array( 'jquery' ) );
+			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js', array( 'swfobject', 'jquery' ) );
 			wp_enqueue_script( 'landing-page-yt' );
 			
 			$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ) );
