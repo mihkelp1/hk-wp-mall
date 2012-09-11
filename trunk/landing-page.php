@@ -27,30 +27,32 @@ get_header(); ?>
 					?>
 					<?php the_content(); ?>
 					
-					<div class="landing-sais-button">
-						<a href="http://www.sais.ee/" title="SAIS"><img src="<?php echo getFileURL('/images/sais-button.png');?>"/></a>
-					</div>
-					<?php
-						do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
-					?>
-					<div class="landing-reminder-button" id="landing-reminder-button">
-						<div>Soovid õppida valitud erialal?</div>
-						<a href="#" id="subscribeReminder">TELLI MEELESPEA</a>
-					</div>
-					
-					<?php 
-						if ( has_youtube_video() ) {
-					?>
-						<div id="playerWrapper" style="display:none">
-							<div id="player"></div>
+					<div id="landing-meta">
+						<div class="landing-sais-button">
+							<a href="http://www.sais.ee/" title="SAIS"><img src="<?php echo getFileURL('/images/sais-button.png');?>"/></a>
 						</div>
-						<div class="landing-video-button" id="landing-video-button">
-							<div>Kuula mida tudengid arvavad.</div>
-							<a href="#" id="playLandingVideo">VAATA KLIPPI</a>
+						<?php
+							do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
+						?>
+						<div class="landing-reminder-button" id="landing-reminder-button">
+							<div>Soovid õppida valitud erialal?</div>
+							<a href="#" id="subscribeReminder">TELLI MEELESPEA</a>
 						</div>
-					<?php 
-						}
-					?>
+						
+						<?php 
+							if ( has_youtube_video() ) {
+						?>
+							<div id="playerWrapper" style="display:none">
+								<div id="player"></div>
+							</div>
+							<div class="landing-video-button" id="landing-video-button">
+								<div>Kuula mida tudengid arvavad.</div>
+								<a href="#" id="playLandingVideo">VAATA KLIPPI</a>
+							</div>
+						<?php 
+							}
+						?>
+					</div>
 				</div><!-- .entry-content -->
 			</article><!-- #post-<?php the_ID(); ?> -->
 		
