@@ -2,7 +2,7 @@
  * Author: Raido  Kuli 2012
  */
 
-.page-left-menu, .nav-menu-container, .header-menu-container, #footer-wrapper, .edit-link {
+.page-left-menu, .nav-menu-container, .header-menu-container, #footer-wrapper, .edit-link, .landing-nav-menu-wrapper, #landing-meta {
 	display: none;
 }
 
