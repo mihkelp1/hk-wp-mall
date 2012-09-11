@@ -16,6 +16,11 @@ Add your content here.  Format your content with:
 
 * Vajalikud lisa väljad profiilis: *
 
+  * Telefon
+  * GSM
+  * Faks
+  * Tiitel (ehk positsioon)
+
 {{{
 %people_lists_telefon%
 %people_lists_gsm%
