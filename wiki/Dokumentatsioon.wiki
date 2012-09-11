@@ -12,11 +12,9 @@ Add your content here.  Format your content with:
   * Headings, paragraphs, and lists
   * Automatic links to other wiki pages
 
-== People Lists mooduli seadistus ==
+=== People Lists moodul ===
 
-=== Template sisu ===
-
-Vajalikud lisa väljad profiilis:
+* Vajalikud lisa väljad profiilis: *
 
 {{{
 %people_lists_telefon%
