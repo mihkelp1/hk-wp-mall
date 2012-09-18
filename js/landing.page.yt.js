@@ -1,6 +1,7 @@
 var player;
 var player_was_paused = false;
 var is_ie7 = false;
+var posting = false;
 
 jQuery(document).ready(function($) {
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -37,12 +38,32 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#reminderForm').submit(function() {
-		var data = $(this).serialize();
-		$.post(landingPageMeta.ajaxUrl, data, function(response) {
-			alert(response.status);
-		},
-		'json'
-		);
+		if ( !posting ) {
+			posting = true;
+			var messageDiv = $(this).find('#hk-reminder-status');
+			var data = $(this).serialize();
+			var submit_btn = $(this).find('#hk-submit-btn');
+			
+			submit_btn.hide();
+			messageDiv.fadeIn('fast');
+			
+			setTimeout( function() {
+			$.post(landingPageMeta.ajaxUrl, data, function(response) {
+				messageDiv.find('img:first').hide();
+				messageDiv.find('span:first').html("Status response " + response.status );
+				//Reset status related stuff
+				setTimeout( function() {
+					$('#hk-reminder-status').hide();
+					$('#hk-reminder-status').find('img:first').show();
+					$('#hk-reminder-status').find('span:first').html("");
+					$('#hk-submit-btn').fadeIn('fast');
+					posting = false;
+				}, 4000);
+			},
+			'json'
+			);
+			}, 2500 );
+		}
 		return false;
 	});
 	
@@ -54,7 +75,10 @@ jQuery(document).ready(function($) {
 			minWidth: 380,
 			modal: true,
 			resizable: false,
-			draggable: false
+			draggable: false, 
+			beforeClose: function() {
+				$('#reminderForm')[0].reset();
+			}
 		});
 	});
 });
