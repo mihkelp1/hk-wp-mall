@@ -191,12 +191,7 @@ function printConfirmationEmail() {
  */
 
 function sanitizeSettings( $options ) {
-	return $options;
-	//TODO WHAT ARE ALLOWED CHARS IN BOS PASSWORD ?? DO WE NEED PASSWORD SANITIZE ?
-	$options['login-name'] = trim( strip_tags( $options['login-name'] ) );
-	if ( !get_settings_errors( 'dippler-settings' ) ) {
-		add_settings_error('dippler-settings', 'dippler_settings_updated', __('Your Dippler account settings are saved.'), 'updated');
-	}
+	//Not doing anything here
 	return $options;	
 }
 
@@ -272,7 +267,7 @@ function sentReminderHistory() {
 			
 		echo '<tr class="alternate">
 			<td class="name column-name">'.$item->count.'</td>
-			<td class="email column-email">'.$item->date.'</td></tr>';
+			<td class="email column-email">'.date_i18n(get_option('date_format'), strtotime($item->date) ).'</td></tr>';
 	}
 	echo '</tbody>';
 	echo '</table>';
