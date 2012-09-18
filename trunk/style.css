@@ -818,3 +818,11 @@ div.person .user-name {
 div.person:first-child {
 	margin-top: 20px;
 }
+
+/* HK reminder status */
+
+#hk-reminder-status {
+	margin-top: 11px;
+	color: #008CDD;
+	font-weight: bold;
+}

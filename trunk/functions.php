@@ -82,7 +82,9 @@ function reminder_shortcode( $atts ) {
 	echo '<input type="hidden" name="security_2_step" value="'.wp_create_nonce( $flag ).'" />';
 	echo '<input type="hidden" name="reminder_flag" value="'.$flag.'" />';
 	echo '<input type="email" name="reminder_email" id="reminder_email" class="visible" placeholder="E-post" style="width: 340px"/>';
-	echo '<p><input type="submit" value="Telli" style="float: right;" class="visible" /></p>';
+	echo '<p><div id="hk-reminder-status" style="display:none; float:right;"><span></span><img src="'.get_template_directory_uri().'/images/ajax-loader.gif" alt="AJAX Loader" /></div>';
+	echo '';
+	echo '<input type="submit" value="Telli" style="float: right;" class="visible" id="hk-submit-btn" /></p>';
 	echo '</form></div>';
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
