@@ -2,6 +2,18 @@ var player;
 var player_was_paused = false;
 var is_ie7 = false;
 var posting = false;
+var post_request;
+
+function reminderFormReset($) {
+	//Reset status related stuff
+	setTimeout( function() {
+		$('#hk-reminder-status').hide();
+		$('#hk-reminder-status').find('img:first').show();
+		$('#hk-reminder-status').find('span:first').html("");
+		$('#hk-submit-btn').fadeIn('fast');
+		posting = false;
+	}, 4000);
+}
 
 jQuery(document).ready(function($) {
 	// 2. This code loads the IFrame Player API code asynchronously.
@@ -38,31 +50,52 @@ jQuery(document).ready(function($) {
 	});
 	
 	$('#reminderForm').submit(function() {
+		var messageDiv = $(this).find('#hk-reminder-status');
+		//Set timeout for checking if still posting, probably something went wrong
+		//Timeout set to 15 seconds
+		setTimeout( function() {
+			if ( posting ) {
+				post_request.abort();
+				messageDiv.find('img:first').hide();
+				messageDiv.find('span:first').html(landingPageMeta.reminderGeneral);
+				//Init reminder form reset
+				reminderFormReset($);
+			}
+		}, 15000 );
 		if ( !posting ) {
 			posting = true;
-			var messageDiv = $(this).find('#hk-reminder-status');
 			var data = $(this).serialize();
 			var submit_btn = $(this).find('#hk-submit-btn');
 			
 			submit_btn.hide();
 			messageDiv.fadeIn('fast');
 			
-			setTimeout( function() {
-			$.post(landingPageMeta.ajaxUrl, data, function(response) {
+			post_request = $.post(landingPageMeta.ajaxUrl, data, function(response) {
 				messageDiv.find('img:first').hide();
-				messageDiv.find('span:first').html("Status response " + response.status );
-				//Reset status related stuff
-				setTimeout( function() {
-					$('#hk-reminder-status').hide();
-					$('#hk-reminder-status').find('img:first').show();
-					$('#hk-reminder-status').find('span:first').html("");
-					$('#hk-submit-btn').fadeIn('fast');
-					posting = false;
-				}, 4000);
+				var msg;
+				switch(response.status) {
+					case 1:
+						msg = landingPageMeta.reminderSuccess;
+						break;
+					case 2:
+						msg = landingPageMeta.reminderExist;
+						break;
+					case 3:
+						msg = landingPageMeta.reminderEmail;
+						break;
+					case 4:
+						msg = landingPageMeta.reminderHack;
+						break;
+					default:
+						msg = landingPageMeta.reminderGeneral;
+				}
+				
+				messageDiv.find('span:first').html(msg);
+				//Init reminder form reset
+				reminderFormReset($);
 			},
 			'json'
 			);
-			}, 2500 );
 		}
 		return false;
 	});
