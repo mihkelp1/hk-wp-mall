@@ -68,7 +68,7 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 
 <div id="main-container">
 	<header class="page-header">
-	<a href="<?php echo home_url(); ?>"><img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="TLÜ Haapsalu Kolledž" title="TLÜ Haapsalu Kolledž" /></a>
+	<a href="<?php echo home_url(); ?>"><img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" /></a>
 		<nav id="header-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container' ) ); ?>
 		</nav>

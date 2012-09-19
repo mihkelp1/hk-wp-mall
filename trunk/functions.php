@@ -14,20 +14,20 @@
  
 function _initTheme() {
  	register_nav_menus(
-		array( 'header-menu' => __( 'Header menu' ),
-			'nav-menu' => __( 'Navigation menu' ),
-			'footer-menu-left' => __('Footer left'),
-			'footer-menu-middle' => __('Footer middle'),
-			'footer-menu-right' => __('Footer right'),
-			'last-resort-menu' => __('General menu') )
+		array( 'header-menu' => __( 'Header menu', 'hk-wp-mall' ),
+			'nav-menu' => __( 'Navigation menu', 'hk-wp-mall' ),
+			'footer-menu-left' => __('Footer left', 'hk-wp-mall' ),
+			'footer-menu-middle' => __('Footer middle', 'hk-wp-mall' ),
+			'footer-menu-right' => __('Footer right', 'hk-wp-mall' ),
+			'last-resort-menu' => __('General menu', 'hk-wp-mall' ) )
 		 );
 		
 	register_sidebar(array(
-	  'name' => __( 'Footer sidebar' ),
+	  'name' => __( 'Footer sidebar', 'hk-wp-mall' ),
 	  'id' => 'footer-sidebar',
 	  'before_widget' => '<div id="%1$s" class="widget %2$s">',
 	  'after_widget'  => '</div>',
-	  'description' => __( 'Widgets in this area will be shown in the footer.' )
+	  'description' => __( 'Widgets in this area will be shown in the footer.', 'hk-wp-mall' )
 	));
 	
 	add_theme_support( 'post-thumbnails' );
@@ -81,7 +81,7 @@ function reminder_shortcode( $atts ) {
 	echo '<input type="hidden" name="security" value="'.wp_create_nonce('hk-reminder-nonce').'" />';
 	echo '<input type="hidden" name="security_2_step" value="'.wp_create_nonce( $flag ).'" />';
 	echo '<input type="hidden" name="reminder_flag" value="'.$flag.'" />';
-	echo '<input type="email" name="reminder_email" id="reminder_email" class="visible" placeholder="E-post" style="width: 340px"/>';
+	echo '<input type="email" name="reminder_email" id="reminder_email" class="visible" placeholder="'.__( 'Your email', 'hk-wp-mall' ).'" style="width: 340px"/>';
 	echo '<p><div id="hk-reminder-status" style="display:none; float:right;"><span></span><img src="'.get_template_directory_uri().'/images/ajax-loader.gif" alt="AJAX Loader" /></div>';
 	echo '';
 	echo '<input type="submit" value="'.__( 'Subscribe', 'hk-wp-mall' ).'" style="float: right;" class="visible" id="hk-submit-btn" /></p>';
@@ -137,12 +137,12 @@ function subscribeReminderFunc() {
 
 function createReminderMenu() {
 	//TODO fix permission, create custom permission instead of using read permission ??
-	add_menu_page( 'Meelespead', 'Meelespead', 'read', 'hk-reminders', 'createRemindersPage');
-	add_submenu_page( 'hk-reminders', 'Tellitud', 'Tellitud', 'read', 'hk-reminders', 'createRemindersPage');
-	add_submenu_page( 'hk-reminders', '', 'Saada teavitus', 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
-	add_submenu_page( 'hk-reminders', '', 'Ajalugu', 'manage_options', 'hk-reminders-history', 'sentReminderHistory');
-	add_options_page('Meelespea seaded','Meelespea seaded','manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
-	add_submenu_page( 'hk-reminders', '', 'Seaded', 'manage_options', 'options-general.php?page=hk-reminders-settings');
+	add_menu_page( __( 'Reminders', 'hk-wp-mall' ), __( 'Reminders', 'hk-wp-mall' ), 'read', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', __( 'Subscribed', 'hk-wp-mall' ), __( 'Subscribed', 'hk-wp-mall' ), 'read', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', '', __( 'Send reminder', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
+	add_submenu_page( 'hk-reminders', '', __( 'History', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-history', 'sentReminderHistory');
+	add_options_page('Meelespea seaded', __( 'Reminders', 'hk-wp-mall' ),'manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
+	add_submenu_page( 'hk-reminders', '', __( 'Settings', 'hk-wp-mall' ), 'manage_options', 'options-general.php?page=hk-reminders-settings');
 }
 
 add_action( 'admin_init', 'registerReminderSettings' );
@@ -176,12 +176,12 @@ function printModalWelcomeField() {
 
 function confirmEmailSubject() {
 	echo '<input name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 290px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
-    echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
+    echo '<p><span class="description">'.__( 'Enter confirmation email subject here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
 function printConfirmationEmail() {
 	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
-    echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
+    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
 
@@ -205,7 +205,7 @@ function createRemindersSettingsPage() {
 	echo '<form action="options.php" method="post">';
 	settings_fields( 'hk-reminders' );
 	do_settings_sections( 'hk-reminders' );
-	echo '<input name="Submit" type="submit" id="submit" class="button-primary" value="'.__( 'Save' ).'" />';
+	echo '<input name="Submit" type="submit" id="submit" class="button-primary" value="'.__( 'Save', 'hk-wp-mall' ).'" />';
 	echo '</form></div>';
 }
 
@@ -224,10 +224,10 @@ function checkForFlagDelete() {
 		}
 		
 		if ( $_POST['hk_action'] === 'send_email_reminder' ) {
+			//TODO add checks for empty title, body ?
 			$remindees = HK_Reminders::getAll();
-			$headers = sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
 			foreach( $remindees as $remindee ) {
-				$reminder_send_success = wp_mail( $remindee->email, $_POST['hk-reminder-subject'], $_POST['hk-reminder-body'], $headers );
+				$reminder_send_success = HK_Reminders::send_mail( $remindee->email, sanitize_text_field( $_POST['hk-reminder-subject'] ), sanitize_text_field( $_POST['hk-reminder-body'] ) );
 			}
 			HK_Reminders::addToHistory( count( $remindees ) );
 			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send'), admin_url('admin.php') ));
@@ -237,40 +237,41 @@ function checkForFlagDelete() {
 }
 
 function sendEmailNotice() {
+	//TODO add strings to language domain
 	echo '<div class="wrap">';
 	echo '<form action="" method="post">';
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
-	echo '<h2>Saada teavitus</h2>';
+	echo '<h2>'.__( 'Send reminder', 'hk-wp-mall').'</h2>';
 	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
 	echo '<p>Viimane teavitus saadeti '.formatDate( HK_Reminders::getLastSentDate() ).'</p>';
-	echo '<p>Subject</p>';
+	echo '<p>'.__('Subject', 'hk-wp-mall').'</p>';
 	echo '<input type="text" name="hk-reminder-subject" />';
-	echo '<p>Sisu</p>';
+	echo '<p>'.__('Message', 'hk-wp-mall').'</p>';
 	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
-	echo '<p><input type="submit" value="Saada" /></p>';
+	echo '<p><input type="submit" value="'.__('Send', 'hk-wp-mall').'" /></p>';
 	echo '</div>';
 }
 
 function sentReminderHistory() {
-	echo '<div id="wrap">';
-	echo '<h2>Ajalugu</h2>';
+	echo '<div class="wrap">';
+	echo '<h2>'.__( 'History', 'hk-wp-mall' ).'</h2>';
 	$history = HK_Reminders::getHistory();
 	
-	echo '<table class="wp-list-table widefat fixed users" cellspacing="0">';
+	echo '<table class="wp-list-table widefat fixed" cellspacing="0">';
 	echo '<thead><tr>
-				<th scope="col" id="name" class="manage-column column-role" style=""><span>Saadetud mitmele</span></th><th scope="col" id="role" class="manage-column column-role" style="">Kuupäev</th>	</tr>
+				<th scope="col" class="manage-column"><span>'.__( 'Number of people', 'hk-wp-mall' ).'</span></th><th scope="col" class="manage-column">'.__( 'Date', 'hk-wp-mall' ).'</th>	</tr>
 				</thead>';
 	echo '<tfoot><tr>
-			<th scope="col" id="name" class="manage-column column-role" style=""><span>Saadetud mitmele</span></th><th scope="col" id="role" class="manage-column column-role" style="">Kuupäev</th>	</tr>
+			<th scope="col" class="manage-column"><span>'.__( 'Number of people', 'hk-wp-mall' ).'</span></th><th scope="col" class="manage-column">'.__( 'Date', 'hk-wp-mall' ).'</th>	</tr>
 		</tfoot>';
 				
-	echo '<tbody id="the-list" class="list:user">';
+	echo '<tbody>';
 	
 	foreach( $history as $item ) {
 			
 		echo '<tr class="alternate">
-			<td class="name column-name">'.$item->count.'</td>
-			<td class="email column-email">'.formatDate( $item->date ).'</td></tr>';
+			<td>'.$item->count.'</td>
+			<td>'.formatDate( $item->date ).'</td></tr>';
 	}
 	echo '</tbody>';
 	echo '</table>';
@@ -284,27 +285,27 @@ function createRemindersPage() {
 	echo '<div class="wrap">';
 	echo '<form action="" method="post">';
 	echo '<input type="hidden" name="hk_action" value="remove_remindee" />';
-	echo '<h2>Meelespead</h2>';
+	echo '<h2>'.__( 'Remindees', 'hk-wp-mall' ).'</h2>';
 	
 	$current_flag = '';
 	$flags = $remindersHandler->fetchFlags();
 	foreach( $flags as $reminder ) {
 		if ( $current_flag != $reminder->flag ) {
 			echo '<h3>'.$reminder->flag.' - '.HK_Reminders::getCountByFlag( $reminder->flag ).'</h3>';
-			echo '<table class="wp-list-table widefat fixed users" cellspacing="0">';
+			echo '<table class="wp-list-table widefat fixed" cellspacing="0">';
 			echo '<thead><tr>
-				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" id="name" class="manage-column column-name sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=name&amp;order=asc"><span>Email</span><span class="sorting-indicator"></span></a></th><th scope="col" id="email" class="manage-column column-email sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=email&amp;order=asc"><span>Flag</span><span class="sorting-indicator"></span></a></th><th scope="col" id="role" class="manage-column column-role" style="">Date</th>	</tr>
+				<th scope="col" id="cb" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" class="manage-column"><span>'.__('Email', 'hk-wp-mall' ).'</span></th><th scope="col" class="manage-column"><span>'.__('Flag', 'hk-wp-mall' ).'</span></a></th><th scope="col" class="manage-column column-role" style="">'.__('Date', 'hk-wp-mall' ).'</th>	</tr>
 				</thead>';
 			echo '<tfoot><tr>
-				<th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" id="name" class="manage-column column-name sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=name&amp;order=asc"><span>Email</span><span class="sorting-indicator"></span></a></th><th scope="col" id="email" class="manage-column column-email sortable desc" style=""><a href="http://localhost/hkweb/wp-admin/users.php?orderby=email&amp;order=asc"><span>Flag</span><span class="sorting-indicator"></span></a></th><th scope="col" id="role" class="manage-column column-role" style="">Date</th>	</tr>
+				<th scope="col" class="manage-column column-cb check-column" style=""><input type="checkbox"></th><th scope="col" class="manage-column"><span>'.__('Email', 'hk-wp-mall' ).'</span></th><th scope="col" class="manage-column"><span>'.__('Flag', 'hk-wp-mall' ).'</span></th><th scope="col" class="manage-column column-role" style="">'.__('Date', 'hk-wp-mall' ).'</th>	</tr>
 				</tfoot>';
 				
 			echo '<tbody id="the-list" class="list:user">';
 		}
 		foreach( $remindersHandler->fetchByFlag( $reminder->flag ) as $remindee ) {
 			echo '<tr id="user-'.$remindee->id.'" class="alternate">
-				<th scope="row" class="check-column"><input type="checkbox" name="remindees[]" id="user_1" class="administrator" value="'.$remindee->id.'"></th><td class="name column-name">'.$remindee->email.'</td>
-				<td class="email column-email">'.$reminder->flag.'</td>
+				<th scope="row" class="check-column"><input type="checkbox" name="remindees[]" value="'.$remindee->id.'"></th><td>'.$remindee->email.'</td>
+				<td>'.$reminder->flag.'</td>
 				<td class="role column-role">'.formatDate( $remindee->date ).'</td></tr>';
 		}
 		if ( $current_flag != $reminder->flag ) {
@@ -470,9 +471,6 @@ function getArchiveLeftMenu() {
 
 /**
  * Prints HTML with meta information for the current post-date/time and author.
- * Create your own twentyeleven_posted_on to override in a child theme
- *
- * @since Twenty Eleven 1.0
  */
  
 function _posted_on() {
@@ -519,7 +517,7 @@ function landingPageImageSetup() {
 }
 
 function landingPageMetabox() {
-	//TODO HERE WILL BE YOUTUBE VIDEO EMBED, SAIS LINK, MENU SELECTION AND REMINDER FEATURE
+	//TODO add admin_scripts hook + CSS file
 	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hp-wp-mall' ).'</label> ';
 	echo '<input type="text" name="landing-yt-video" id="landing-yt-video" style="width: 400px" value="'.getLandingPageYT().'"/></p>';
 	
@@ -541,7 +539,8 @@ function landingPageMetabox() {
 	?>
 	<script type="text/javascript">
 				jQuery(document).ready(function($) {
-				$('#upload_logo_button').click(function() {
+				$('#upload_logo_button').click(function(e) {
+					e.preventDefault();
 					tb_show('Vali maandumislehe pilt', 'media-upload.php?referer=hk-landing-page&type=image&TB_iframe=true&post_id=0', false);
 					return false;
 				});			
@@ -562,8 +561,9 @@ function landingPageMetabox() {
 					tb_remove();
 				}
 				
-				$('#remove_landing_thumbnail').click(function() {
-					if ( confirm("Oled kindel?") ) {
+				$('#remove_landing_thumbnail').click(function(e) {
+					e.preventDefault();
+					if ( confirm("<?php _e( 'Are you sure?', 'hk-wp-mall') ?>") ) {
 						$('#imgURL').html("");
 						$('#landing-image-id').val(0);
 						$('#upload_logo_button').removeClass('hide-if-landing-thumbnail');
@@ -586,8 +586,8 @@ function landingPageMetabox() {
 			?>
 		</p>
 		
-		<a id="upload_logo_button" title="Vali maandumislehe pilt" class="<?php echo ( has_landing_thumbnail() ? 'hide-if-landing-thumbnail' : ''); ?>">Vali maandumislehe pilt</a>
-		<a id="remove_landing_thumbnail" title="Eemalda maandumislehe pilt" class="<?php echo ( has_landing_thumbnail() ? '' : 'hide-if-landing-thumbnail'); ?>">Eemalda pilt</a>
+		<a id="upload_logo_button" href="#" title="<?php _e( 'Pick landing page image', 'hk-wp-mall'); ?>" class="<?php echo ( has_landing_thumbnail() ? 'hide-if-landing-thumbnail' : ''); ?>"><?php _e( 'Pick landing page image', 'hk-wp-mall');?></a>
+		<a id="remove_landing_thumbnail" href="#" title="<?php _e( 'Remove landing page image', 'hk-wp-mall'); ?>" class="<?php echo ( has_landing_thumbnail() ? '' : 'hide-if-landing-thumbnail'); ?>"><?php _e( 'Remove landing page image', 'hk-wp-mall'); ?></a>
 		
 		<input type="hidden" name="landing-image-id" value="<?php echo the_landing_thumbnail_ID(); ?>" id="landing-image-id" />
 		

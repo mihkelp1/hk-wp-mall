@@ -15,7 +15,7 @@ get_header(); ?>
 				<header class="entry-header">
 					<h1 class="entry-title"><?php the_title(); ?></h1>
 					<div class="entry-meta">
-						<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
+						<?php edit_post_link( __( 'Edit', 'hk-wp-mall' ), '<span class="edit-link">', '</span>' ); ?>
 					</div><!-- .entry-meta -->
 				</header><!-- .entry-header -->
 			
@@ -35,8 +35,8 @@ get_header(); ?>
 							do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
 						?>
 						<div class="landing-reminder-button" id="landing-reminder-button">
-							<div>Soovid õppida valitud erialal?</div>
-							<a href="#" id="subscribeReminder">TELLI MEELESPEA</a>
+							<div><?php _e( 'Intrested in this curriculum ?', 'hk-wp-mall' ); ?></div>
+							<a href="#" id="subscribeReminder"><?php _e( 'SUBSCRIBE', 'hk-wp-mall' ); ?></a>
 						</div>
 						
 						<?php 
@@ -46,8 +46,8 @@ get_header(); ?>
 								<div id="player"></div>
 							</div>
 							<div class="landing-video-button" id="landing-video-button">
-								<div>Kuula mida tudengid arvavad.</div>
-								<a href="#" id="playLandingVideo">VAATA KLIPPI</a>
+								<div><?php _e( 'Listen to what others are saying.', 'hk-wp-mall' ); ?></div>
+								<a href="#" id="playLandingVideo"><?php _e( 'WATCH CLIP', 'hk-wp-mall' ); ?></a>
 							</div>
 						<?php 
 							}

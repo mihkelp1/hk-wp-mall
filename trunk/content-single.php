@@ -22,7 +22,7 @@
 			}
 		?>
 	<div class="entry-meta">
-		<?php edit_post_link( __( 'Edit', 'twentyeleven' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'hk-wp-mall' ), '<span class="edit-link">', '</span>' ); ?>
 	</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
@@ -57,7 +57,7 @@
 			/* translators: used between list items, there is a space after the comma */
 			$tag_list = get_the_tag_list( '', __( ', ', 'hk-wp-mall' ) );
 			if ( '' != $tag_list ) {
-				$utility_text = '<div class="tags-list">'.__('Tags: %1$s', 'hk-wp-template' ).'</div>';
+				$utility_text = '<div class="tags-list">'.__('Tags: %1$s', 'hk-wp-mall' ).'</div>';
 			}
 
 			printf(
