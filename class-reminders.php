@@ -95,6 +95,19 @@ class HK_Reminders {
 		}
 		return false;
 	}
+	
+	public static function getUnsubscribe( $md5_key ) {
+		global $wpdb;
+		if ( strlen( $md5_key ) == 32 ) {
+			return $wpdb->get_var( $wpdb->prepare( 'SELECT md5(email) FROM '.self::getTableName().' WHERE md5(email) = %s LIMIT 1', $md5_key ) );
+		}
+		return false;
+	}
+	
+	public static function doUnsubscribe( $md5_key ) {
+		global $wpdb;
+		return $wpdb->query( $wpdb->prepare( 'DELETE FROM '.self::getTableName().' WHERE md5(email) = %s', $md5_key ) );
+	}
 }
 
 ?>

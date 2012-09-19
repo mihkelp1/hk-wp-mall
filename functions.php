@@ -108,8 +108,11 @@ function subscribeReminderFunc() {
 			if ( is_email( $email ) ) {
 				$reminder_added = $remindersHandler->addReminder( $email, $flag );
 				if ( $reminder_added ) {
-					$headers = sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
-					$wp_send_success = wp_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), HK_Reminders::getSetting( 'confirmation-email' ), $headers );
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
+					$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+					$msg_content = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $email ) ), home_url() ).'">'.__( 'Unsubscribe', 'hk-wp-mall' ).'</a>', HK_Reminders::getSetting( 'confirmation-email' ) );
+					$wp_send_success = wp_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), $msg_content, $headers );
 					if ( $wp_send_success) {
 						//Subscribe success
 						$status = 1;
@@ -133,6 +136,7 @@ function subscribeReminderFunc() {
 	echo json_encode( array( 'status' => $status ) );
 	die;
 }
+
 
 function createReminderMenu() {
 	//TODO fix permission, create custom permission instead of using read permission ??
@@ -334,6 +338,19 @@ function loadAndRegisterJavaScripts() {
 		wp_enqueue_script( 'jquery-bxSlider' );
 		wp_enqueue_script( 'jquery-overflow' );
 		wp_enqueue_script( 'hk-home-script' );
+		
+		//Check for unsubscribe call
+		if ( isSet( $_GET['unsubscribe'] ) ) {
+			$exists = HK_Reminders::getUnsubscribe( $_GET['unsubscribe'] );
+			if ( $exists ) {
+				wp_register_script( 'hk-reminder-unsubscribe', get_template_directory_uri().'/js/hk-reminder-unsubscribe.js', array( 'jquery', 'jquery-ui-dialog') );
+				wp_enqueue_script( 'hk-reminder-unsubscribe' );
+				$info_array = array( 'reminderUnsubscribed' => __( 'You have been unsubcribed from the mailing list', 'hk-wp-mall' ),
+					'reminderClose' => __( 'Close', 'hk-wp-mall' ) );
+				wp_localize_script( 'hk-reminder-unsubscribe', 'hk', $info_array );
+				HK_Reminders::doUnsubscribe( $exists );
+			}
+		}
 	} else {
 		//If not home page, remove accordion menu wp_head action - this disables inserting unneed JavaScript and CSS.
 		remove_action('wp_head', 'a_image_menu_head');
@@ -374,11 +391,9 @@ function loadAndRegisterCSS() {
 		wp_enqueue_style( 'jquery.bxSlider' );
 	}
 	
-	if ( is_page_template( 'landing-page.php' ) ) {
-		if ( has_youtube_video() ) {
-			wp_register_style( 'jquery.ui.css', get_template_directory_uri(). '/css/ui-custom-theme/jquery-ui-1.8.23.custom.css' );
-			wp_enqueue_style( 'jquery.ui.css' );
-		}
+	if ( is_page_template( 'landing-page.php' ) || isSet( $_GET['unsubscribe'] ) ) {
+		wp_register_style( 'jquery.ui.css', get_template_directory_uri(). '/css/ui-custom-theme/jquery-ui-1.8.23.custom.css' );
+		wp_enqueue_style( 'jquery.ui.css' );
 	}
 }
 

@@ -760,7 +760,7 @@ em {
 	margin-top: 15px;
 }
 
-#hk-submit-btn {
+#hk-submit-btn, #hk-unsubscribe-close {
 	padding: 5px;
 	border: 1px solid #ccc;
 	background: transparent;
@@ -768,8 +768,15 @@ em {
 	border-radius: 5px;
 }
 
-#hk-submit-btn:hover {
+#hk-submit-btn:hover, #hk-unsubscribe-close:hover {
 	color: #008CDD;
+}
+
+#hk-unsubscribe-close {
+	margin: auto;
+	margin-top: 20px;
+	width: 100px;
+	display: block;
 }
 
 
