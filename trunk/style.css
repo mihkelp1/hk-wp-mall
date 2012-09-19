@@ -101,6 +101,7 @@ table {
 
 #main-container {
 	margin: auto;
+	min-width: 995px;
 }
 
 .page-header {
