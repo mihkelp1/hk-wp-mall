@@ -3,9 +3,11 @@ var player_was_paused = false;
 var is_ie7 = false;
 var posting = false;
 var post_request;
+var generalTimeout;
 
 function reminderFormReset($) {
 	//Reset status related stuff
+	clearTimeout(generalTimeout);
 	setTimeout( function() {
 		$('#hk-reminder-status').hide();
 		$('#hk-reminder-status').find('img:first').show();
@@ -51,18 +53,19 @@ jQuery(document).ready(function($) {
 	
 	$('#reminderForm').submit(function() {
 		var messageDiv = $(this).find('#hk-reminder-status');
-		//Set timeout for checking if still posting, probably something went wrong
-		//Timeout set to 15 seconds
-		setTimeout( function() {
-			if ( posting ) {
-				post_request.abort();
-				messageDiv.find('img:first').hide();
-				messageDiv.find('span:first').html(landingPageMeta.reminderGeneral);
-				//Init reminder form reset
-				reminderFormReset($);
-			}
-		}, 15000 );
 		if ( !posting ) {
+			//Set timeout for checking if still posting, probably something went wrong
+			//Timeout set to 15 seconds
+			generalTimeout = setTimeout( function() {
+				if ( posting ) {
+					post_request.abort();
+					messageDiv.find('img:first').hide();
+					messageDiv.find('span:first').html(landingPageMeta.reminderGeneral);
+					//Init reminder form reset
+					reminderFormReset($);
+				}
+			}, 15000 );
+		
 			posting = true;
 			var data = $(this).serialize();
 			var submit_btn = $(this).find('#hk-submit-btn');
