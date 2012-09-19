@@ -74,9 +74,6 @@ class HK_Reminders {
 	public static function getLastSentDate() {
 		global $wpdb;
 		$date = $wpdb->get_var( 'SELECT date FROM '.self::getHistoryTable().' ORDER BY id DESC LIMIT 1 ');
-		if ( $date )  {
-			return date_i18n(get_option('date_format'), strtotime($date) );
-		}
 		return $date;
 	}
 	
