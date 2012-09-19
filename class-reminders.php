@@ -104,10 +104,27 @@ class HK_Reminders {
 		return false;
 	}
 	
+	private static function getEmail( $md5_key ) {
+		global $wpdb;
+		return $wpdb->get_var( $wpdb->prepare( 'SELECT email FROM '.self::getTableName().' WHERE md5(email) = %s LIMIT 1', $md5_key ) );
+	}
+	
 	public static function doUnsubscribe( $md5_key ) {
 		global $wpdb;
+		if ( $email = self::getEmail( $md5_key ) ) {
+			self::send_mail( $email, __( 'You have been unsubcribed from the mailing list', 'hk-wp-mall' ), __( 'You have been unsubcribed from the mailing list', 'hk-wp-mall' ).'.' );
+		}
 		return $wpdb->query( $wpdb->prepare( 'DELETE FROM '.self::getTableName().' WHERE md5(email) = %s', $md5_key ) );
 	}
+	
+	public static function send_mail( $to, $subject, $message, $headers = false ) {
+		if ( !$headers ) {
+			$headers = "MIME-Version: 1.0" . "\r\n";
+			$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
+			$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+		}
+		return wp_mail( $to, $subject, $message, $headers );
+	}	
 }
 
 ?>

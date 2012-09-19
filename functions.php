@@ -107,12 +107,9 @@ function subscribeReminderFunc() {
 			//If is valid email proceed
 			if ( is_email( $email ) ) {
 				$reminder_added = $remindersHandler->addReminder( $email, $flag );
-				if ( $reminder_added ) {
-					$headers = "MIME-Version: 1.0" . "\r\n";
-					$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
-					$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+				if ( $reminder_added ) {				
 					$msg_content = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $email ) ), home_url() ).'">'.__( 'Unsubscribe', 'hk-wp-mall' ).'</a>', HK_Reminders::getSetting( 'confirmation-email' ) );
-					$wp_send_success = wp_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), $msg_content, $headers );
+					$wp_send_success = HK_Reminders::send_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), $msg_content );
 					if ( $wp_send_success) {
 						//Subscribe success
 						$status = 1;
