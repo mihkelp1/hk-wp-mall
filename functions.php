@@ -241,7 +241,7 @@ function sendEmailNotice() {
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>Saada teavitus</h2>';
 	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
-	echo '<p>Viimane teavitus saadeti '.HK_Reminders::getLastSentDate().'</p>';
+	echo '<p>Viimane teavitus saadeti '.formatDate( HK_Reminders::getLastSentDate() ).'</p>';
 	echo '<p>Subject</p>';
 	echo '<input type="text" name="hk-reminder-subject" />';
 	echo '<p>Sisu</p>';
@@ -269,7 +269,7 @@ function sentReminderHistory() {
 			
 		echo '<tr class="alternate">
 			<td class="name column-name">'.$item->count.'</td>
-			<td class="email column-email">'.date_i18n(get_option('date_format'), strtotime($item->date) ).'</td></tr>';
+			<td class="email column-email">'.formatDate( $item->date ).'</td></tr>';
 	}
 	echo '</tbody>';
 	echo '</table>';
@@ -304,7 +304,7 @@ function createRemindersPage() {
 			echo '<tr id="user-'.$remindee->id.'" class="alternate">
 				<th scope="row" class="check-column"><input type="checkbox" name="remindees[]" id="user_1" class="administrator" value="'.$remindee->id.'"></th><td class="name column-name">'.$remindee->email.'</td>
 				<td class="email column-email">'.$reminder->flag.'</td>
-				<td class="role column-role">'.$remindee->date.'</td></tr>';
+				<td class="role column-role">'.formatDate( $remindee->date ).'</td></tr>';
 		}
 		if ( $current_flag != $reminder->flag ) {
 				echo '</tbody>';
@@ -659,6 +659,18 @@ function removePostMetaboxes() {
     remove_meta_box( 'postcustom', 'page', 'normal' );
     remove_meta_box( 'commentstatusdiv', 'page', 'normal' );
     
+}
+
+/*
+ * Date formatter method
+ */
+ 
+function formatDate( $timestamp, $with_time = false ) {
+	if ( $with_time ) {
+		return date_i18n( get_option('time_format').' '.get_option('date_format'), strtotime( $timestmap ) );
+	} else {
+		return date_i18n( get_option('date_format'), strtotime( $timestmap ) );
+	}
 }
 
 ?>
