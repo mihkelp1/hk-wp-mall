@@ -349,7 +349,7 @@ function loadAndRegisterJavaScripts() {
 			
 			$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
 						'reminderSuccess' => __( 'You have successfully subscribed', 'hk-wp-mall' ), 'reminderExist' => __( 'You have already subscribed', 'hk-wp-mall'),
-						'reminderEmail' => __( 'Your email is no valid', 'hk-wp-mall' ), 'reminderHack' => __( 'Trying to hack ?', 'hk-wp-mall' ),
+						'reminderEmail' => __( 'Your email is not valid', 'hk-wp-mall' ), 'reminderHack' => __( 'Trying to hack ?', 'hk-wp-mall' ),
 						'reminderGeneral' => __( 'Something went wrong, try again', 'hk-wp-mall' ) );
 			wp_localize_script( 'landing-page-yt', 'landingPageMeta', $translation_array );
 		}
