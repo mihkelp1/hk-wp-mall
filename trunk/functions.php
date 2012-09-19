@@ -84,7 +84,7 @@ function reminder_shortcode( $atts ) {
 	echo '<input type="email" name="reminder_email" id="reminder_email" class="visible" placeholder="E-post" style="width: 340px"/>';
 	echo '<p><div id="hk-reminder-status" style="display:none; float:right;"><span></span><img src="'.get_template_directory_uri().'/images/ajax-loader.gif" alt="AJAX Loader" /></div>';
 	echo '';
-	echo '<input type="submit" value="Telli" style="float: right;" class="visible" id="hk-submit-btn" /></p>';
+	echo '<input type="submit" value="'.__( 'Subscribe', 'hk-wp-mall' ).'" style="float: right;" class="visible" id="hk-submit-btn" /></p>';
 	echo '</form></div>';
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
@@ -309,7 +309,7 @@ function createRemindersPage() {
 		if ( $current_flag != $reminder->flag ) {
 				echo '</tbody>';
 				echo '</table>';
-				echo '<input type="submit" name="" id="doaction2" class="button-secondary action" value="Delete">'; 
+				echo '<input type="submit" name="" id="doaction2" class="button-secondary action" value="'.__( 'Delete', 'hk-wp-mall' ).'">'; 
 		}
 	}
 	if ( empty( $flags ) ) {
