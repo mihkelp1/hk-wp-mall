@@ -352,9 +352,10 @@ function loadAndRegisterJavaScripts() {
 	} else {
 		//If not home page, remove accordion menu wp_head action - this disables inserting unneed JavaScript and CSS.
 		remove_action('wp_head', 'a_image_menu_head');
-		wp_register_script( 'hk-general',  get_template_directory_uri().'/js/general.js', array( 'jquery' ) );
-		wp_enqueue_script( 'hk-general' );
 	}
+	
+	wp_register_script( 'hk-general',  get_template_directory_uri().'/js/general.js', array( 'jquery' ) );
+	wp_enqueue_script( 'hk-general' );
 	
 	if ( is_page_template( 'landing-page.php' ) ) {
 		if ( has_youtube_video() ) {
