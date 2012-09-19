@@ -760,9 +760,30 @@ em {
 	margin-top: 15px;
 }
 
+#hk-submit-btn {
+	padding: 5px;
+	border: 1px solid #ccc;
+	background: transparent;
+	-moz-border--radius: 5px;
+	border-radius: 5px;
+}
+
+#hk-submit-btn:hover {
+	color: #008CDD;
+}
+
+
 #reminder_email {
 	border: 0px;
 	border-bottom: 1px solid #ccc;
+}
+
+/* HK reminder status */
+
+#hk-reminder-status {
+	margin-top: 20px;
+	color: #008CDD;
+	font-weight: bold;
 }
 
 .visible {
@@ -818,12 +839,4 @@ div.person .user-name {
 
 div.person:first-child {
 	margin-top: 20px;
-}
-
-/* HK reminder status */
-
-#hk-reminder-status {
-	margin-top: 11px;
-	color: #008CDD;
-	font-weight: bold;
 }
