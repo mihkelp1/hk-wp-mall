@@ -105,6 +105,7 @@ table {
 }
 
 .page-header {
+	position: relative;
 	min-height: 74px;
 	background: url('images/header-shadow.png') repeat-x bottom;
 }
