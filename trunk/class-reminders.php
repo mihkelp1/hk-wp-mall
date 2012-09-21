@@ -112,7 +112,7 @@ class HK_Reminders {
 	public static function doUnsubscribe( $md5_key ) {
 		global $wpdb;
 		if ( $email = self::getEmail( $md5_key ) ) {
-			self::send_mail( $email, __( 'You have been unsubcribed from the mailing list', 'hk-wp-mall' ), __( 'You have been unsubcribed from the mailing list', 'hk-wp-mall' ).'.' );
+			self::send_mail( $email, self::getSetting( 'confirmation-email-unsubject' ), self::getSetting( 'confirmation-unemail' ) );
 		}
 		return $wpdb->query( $wpdb->prepare( 'DELETE FROM '.self::getTableName().' WHERE md5(email) = %s', $md5_key ) );
 	}
@@ -123,9 +123,11 @@ class HK_Reminders {
 			$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
 			$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLU Haapsalu College', 'hk-wp-mall' ) );
 		}
+		$message = '<img src="'.getFileURL( '/images/college-logo.png' ).'" alt=""/><p style="margin-top: 20px">'.$message.'</p>';
+		$message .= self::getSetting( 'confirmation-email-footer' );
 		$message = nl2br( $message );
 		return wp_mail( $to, $subject, $message, $headers );
-	}	
+	}
 }
 
 ?>
