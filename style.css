@@ -848,3 +848,15 @@ div.person .user-name {
 div.person:first-child {
 	margin-top: 20px;
 }
+
+/* Last resort menu spacer 
+ * Used on single pages
+ */
+ 
+.last-resort-menu-spacer {
+	border-top: 2px solid #EFEFEF;
+	height: 2px;
+	margin-top: 10px;
+	margin-bottom: 8px;
+	margin-left: 8px;
+}
