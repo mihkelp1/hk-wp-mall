@@ -161,6 +161,13 @@ function registerReminderSettings() {
 	add_settings_field( 'confirmation-email-subject', __( "Subject", 'hk-wp-mall' ), 'confirmEmailSubject', 'hk-reminders', 'hk-reminders-confirm-email', array( 'label_for' => 'confirmation-email-subject' ) );
 	add_settings_field( 'confirmation-email', __( "Body", 'hk-wp-mall' ), 'printConfirmationEmail', 'hk-reminders', 'hk-reminders-confirm-email', array( 'label_for' => 'confirmation-email' ) );
 
+	add_settings_section( 'hk-reminders-confirm-unsubscribe', '', 'confirmUnTitle', 'hk-reminders' );
+	add_settings_field( 'confirmation-email-unsubject', __( "Subject", 'hk-wp-mall' ), 'confirmEmailUnSubject', 'hk-reminders', 'hk-reminders-confirm-unsubscribe', array( 'label_for' => 'confirmation-email-unsubject' ) );
+	add_settings_field( 'confirmation-email-unbody', __( "Body", 'hk-wp-mall' ), 'printConfirmationUnEmail', 'hk-reminders', 'hk-reminders-confirm-unsubscribe', array( 'label_for' => 'confirmation-unemail' ) );
+	
+	add_settings_section( 'hk-reminders-confirm-general', '', 'confirmGeneral', 'hk-reminders' );	
+	add_settings_field( 'confirmation-email-footer', __( "Footer", 'hk-wp-mall' ), 'printConfirmationEmailFooter', 'hk-reminders', 'hk-reminders-confirm-general', array( 'label_for' => 'confirmation-email-footer' ) );
+
 }
 
 /**
@@ -175,6 +182,14 @@ function confirmTitle() {
 	echo '<h3>'.__( 'Confirmation email', 'hk-wp-mall' ).'</h3>';
 }
 
+function confirmUnTitle() {
+	echo '<h3>'.__( 'Unsubscribe email', 'hk-wp-mall' ).'</h3>';
+}
+
+function confirmGeneral() {
+	echo '<h3>'.__( 'E-mail general', 'hk-wp-mall' ).'</h3>';
+}
+
 function printModalWelcomeField() {
 	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('modal-welcome-text').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
@@ -185,8 +200,26 @@ function confirmEmailSubject() {
     echo '<p><span class="description">'.__( 'Enter confirmation email subject here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
+/* Unsubscribe email config fields */
+function printConfirmationUnEmail() {
+	echo '<textarea name="hk-reminders[confirmation-unemail]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-unemail').'</textarea>';
+    echo '<p><span class="description">'.__( 'Enter unsubscribe email body here to be sent out to unsubscribed user.', 'hk-wp-mall' ).'</span></p>';
+}
+
+function confirmEmailUnSubject() {
+	echo '<input name="hk-reminders[confirmation-email-unsubject]" id="confirmation-email-subject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-unsubject').'" />';
+    echo '<p><span class="description">'.__( 'Enter unsubscribe email subject here to be sent out to unsubscribed user.', 'hk-wp-mall' ).'</span></p>';
+}
+
+/* Subscribe email body field */
 function printConfirmationEmail() {
 	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
+    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
+}
+
+/* Email footer field */
+function printConfirmationEmailFooter() {
+	echo '<textarea name="hk-reminders[confirmation-email-footer]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email-footer').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
 }
 
