@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Haapsalu Kolledži veeb WP\n"
-"POT-Creation-Date: 2012-09-21 13:06+0200\n"
-"PO-Revision-Date: 2012-09-21 13:06+0200\n"
+"POT-Creation-Date: 2012-09-21 15:34+0200\n"
+"PO-Revision-Date: 2012-09-21 15:34+0200\n"
 "Last-Translator: Raido Kuli <kuli@hk.tlu.ee>\n"
 "Language-Team: Raido  Kuli <raido357@gmail.com>\n"
 "Language: Estonia\n"
@@ -113,13 +113,17 @@ msgstr "Meelespead"
 msgid "Subscribed"
 msgstr "Tellinud"
 
-#: ../functions.php:148 ../functions.php:282
+#: ../functions.php:148 ../functions.php:285
 msgid "Send reminder"
 msgstr "Saada teavitus"
 
-#: ../functions.php:149 ../functions.php:295
+#: ../functions.php:149 ../functions.php:298
 msgid "History"
 msgstr "Ajalugu"
+
+#: ../functions.php:150 ../functions.php:243
+msgid "Reminders settings"
+msgstr "Meelespea seaded"
 
 #: ../functions.php:151
 msgid "Settings"
@@ -129,7 +133,7 @@ msgstr "Seaded"
 msgid "Modal welcome text"
 msgstr "Hüpikakna sisu"
 
-#: ../functions.php:161 ../functions.php:165 ../functions.php:285
+#: ../functions.php:161 ../functions.php:165 ../functions.php:288
 msgid "Subject"
 msgstr "Pealkiri"
 
@@ -189,117 +193,117 @@ msgstr ""
 msgid "Enter email footer content here."
 msgstr "Sisesta siia e-kirja jaluse sisu."
 
-#: ../functions.php:243
-msgid "Reminders settings"
-msgstr "Meelespea seaded"
-
 #: ../functions.php:247
 msgid "Save"
 msgstr "Salvesta"
 
-#: ../functions.php:283
+#: ../functions.php:286
 #, php-format
 msgid "E-mail will be sent to <strong>%s subscribers</strong>"
 msgstr "E-kiri saadetakse <strong>%s tellinule</strong>"
 
-#: ../functions.php:284
+#: ../functions.php:287
 msgid "Last e-mail was sent on "
 msgstr "Viimane teavitus saadeti"
 
-#: ../functions.php:287
+#: ../functions.php:290
 msgid "Message"
 msgstr "Sisu"
 
-#: ../functions.php:289
+#: ../functions.php:292
 msgid "Send"
 msgstr "Saada"
 
-#: ../functions.php:300 ../functions.php:303
+#: ../functions.php:303 ../functions.php:306
 msgid "Number of people"
 msgstr "Mitmele"
 
-#: ../functions.php:300 ../functions.php:303 ../functions.php:335
-#: ../functions.php:338
+#: ../functions.php:303 ../functions.php:306 ../functions.php:338
+#: ../functions.php:341
 msgid "Date"
 msgstr "Kuupäev"
 
-#: ../functions.php:326
+#: ../functions.php:329
 msgid "Remindees"
 msgstr "Tellijad"
 
-#: ../functions.php:335 ../functions.php:338
+#: ../functions.php:338 ../functions.php:341
 msgid "Email"
 msgstr "E-post"
 
-#: ../functions.php:335 ../functions.php:338
+#: ../functions.php:338 ../functions.php:341
 msgid "Flag"
 msgstr "Lipp"
 
-#: ../functions.php:352
+#: ../functions.php:355
 msgid "Delete"
 msgstr "Kustuta"
 
-#: ../functions.php:356
+#: ../functions.php:359
 msgid "No subscriptions."
 msgstr "Ühtegi tellimust."
 
-#: ../functions.php:384
+#: ../functions.php:387
 msgid "You have been unsubcribed from the mailing list"
 msgstr "Olete meelespea nimekirjast eemaldatud"
 
-#: ../functions.php:385
+#: ../functions.php:388
 msgid "Close"
 msgstr "Sulge"
 
-#: ../functions.php:405
+#: ../functions.php:408
 msgid "You have successfully subscribed"
 msgstr "Meelespea tellitud"
 
-#: ../functions.php:405
+#: ../functions.php:408
 msgid "You have already subscribed"
 msgstr "Oled juba meelespea tellinud"
 
-#: ../functions.php:406
+#: ../functions.php:409
 msgid "Your email is not valid"
 msgstr "E-posti aadress on vigane"
 
-#: ../functions.php:406
+#: ../functions.php:409
 msgid "Trying to hack ?"
 msgstr "Pikad näpud ?"
 
-#: ../functions.php:407
+#: ../functions.php:410
 msgid "Something went wrong, try again"
 msgstr "Süsteemiviga, proovige uuesti"
 
-#: ../functions.php:534
-msgid "Landing page"
-msgstr "Maandumisleht"
-
-#: ../functions.php:542
-msgid "Add to landing page"
-msgstr "Lisa maandumislehele"
-
-#: ../functions.php:560
-msgid "Youtube URL"
-msgstr "Youtube aadress"
-
-#: ../functions.php:564
-msgid "Pick a landing page menu"
-msgstr "Vali maandumislehe menüü"
-
-#: ../functions.php:566
-msgid "Disabled"
-msgstr "Keelatud"
-
-#: ../functions.php:605
+#: ../functions.php:429
 msgid "Are you sure?"
 msgstr "Kas oled kindel ?"
 
-#: ../functions.php:628
+#: ../functions.php:430
+msgid "Pick a landing page image"
+msgstr "Vali maandumislehe pilt"
+
+#: ../functions.php:552
+msgid "Landing page"
+msgstr "Maandumisleht"
+
+#: ../functions.php:560
+msgid "Add to landing page"
+msgstr "Lisa maandumislehele"
+
+#: ../functions.php:578
+msgid "Youtube URL"
+msgstr "Youtube aadress"
+
+#: ../functions.php:582
+msgid "Pick a landing page menu"
+msgstr "Vali maandumislehe menüü"
+
+#: ../functions.php:584
+msgid "Disabled"
+msgstr "Keelatud"
+
+#: ../functions.php:611
 msgid "Pick landing page image"
 msgstr "Lisa pilt"
 
-#: ../functions.php:629
+#: ../functions.php:612
 msgid "Remove landing page image"
 msgstr "Eemalda pilt"
 
