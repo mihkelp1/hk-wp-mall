@@ -202,25 +202,25 @@ function confirmEmailSubject() {
 
 /* Unsubscribe email config fields */
 function printConfirmationUnEmail() {
-	echo '<textarea name="hk-reminders[confirmation-unemail]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-unemail').'</textarea>';
+	echo '<textarea name="hk-reminders[confirmation-unemail]" id="confirmation-unemail" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-unemail').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter unsubscribe email body here to be sent out to unsubscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
 function confirmEmailUnSubject() {
-	echo '<input name="hk-reminders[confirmation-email-unsubject]" id="confirmation-email-subject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-unsubject').'" />';
+	echo '<input name="hk-reminders[confirmation-email-unsubject]" id="confirmation-email-unsubject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-unsubject').'" />';
     echo '<p><span class="description">'.__( 'Enter unsubscribe email subject here to be sent out to unsubscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
 /* Subscribe email body field */
 function printConfirmationEmail() {
-	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
+	echo '<textarea name="hk-reminders[confirmation-email]" id="confirmation-email" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
 }
 
 /* Email footer field */
 function printConfirmationEmailFooter() {
-	echo '<textarea name="hk-reminders[confirmation-email-footer]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email-footer').'</textarea>';
-    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
+	echo '<textarea name="hk-reminders[confirmation-email-footer]" id="confirmation-email-footer" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email-footer').'</textarea>';
+    echo '<p><span class="description">'.__( 'Enter email footer content here.', 'hk-wp-mall' ).'</span></p>';
 }
 
 
