@@ -418,6 +418,33 @@ function loadAndRegisterJavaScripts() {
 
 add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
 
+
+/**
+ * Register scripts and css loading for admin side
+ */
+
+function adminScriptsCSS( $hook ) {
+	//Load only on post.php page
+	if ( $hook == 'post.php' ) {
+		$post = get_post(get_the_ID());
+		//Load only if dealing with landing page
+		if ( $post->page_template == 'landing-page.php' ) {
+			//Load admin scripts
+			wp_register_script( 'hk-admin-scripts', get_template_directory_uri().'/js/admin-scripts.js', array( 'jquery' ) );
+			wp_enqueue_script( 'hk-admin-scripts' );
+			$translation_array = array( 'areYouSure' => __('Are you sure?', 'hk-wp-mall'),
+				'pickLandingImage' => __('Pick a landing page image', 'hk-wp-mall'));
+			wp_localize_script( 'hk-admin-scripts', 'hkAdmin', $translation_array );
+			
+			//Load some admin css styles
+			wp_register_style( 'hk-admin-css', get_template_directory_uri(). '/admin-styles.css' );
+			wp_enqueue_style( 'hk-admin-css' );
+		}
+	}
+}
+
+add_action( 'admin_enqueue_scripts', 'adminScriptsCSS' );
+
 /**
  * Register and load styles
  */
@@ -559,8 +586,7 @@ function landingPageImageSetup() {
 }
 
 function landingPageMetabox() {
-	//TODO add admin_scripts hook + CSS file
-	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hp-wp-mall' ).'</label> ';
+	echo '<p><label for="landing-yt-video" />'.__( 'Youtube URL', 'hk-wp-mall' ).'</label> ';
 	echo '<input type="text" name="landing-yt-video" id="landing-yt-video" style="width: 400px" value="'.getLandingPageYT().'"/></p>';
 	
 	echo '<p>';
@@ -579,47 +605,6 @@ function landingPageMetabox() {
 	echo '</p>';
 	
 	?>
-	<script type="text/javascript">
-				jQuery(document).ready(function($) {
-				$('#upload_logo_button').click(function(e) {
-					e.preventDefault();
-					tb_show('Vali maandumislehe pilt', 'media-upload.php?referer=hk-landing-page&type=image&TB_iframe=true&post_id=0', false);
-					return false;
-				});			
-				window.send_to_editor = function(html) {
-					var html = $(html);
-					var image = $(html);
-					if ( html.prop('tagName') != 'IMG' ) {
-						image = html.find('img:first');
-					}
-					var image_url = image.attr('src');
-					var image_id = image.attr('class').match(/\d+/gi);
-					$('#imgURL').html(html);
-					$('#landing-image-id').val(image_id);
-					if ( image.length > 0 ) {
-						$('#upload_logo_button').addClass('hide-if-landing-thumbnail');
-						$('#remove_landing_thumbnail').removeClass('hide-if-landing-thumbnail');
-					}
-					tb_remove();
-				}
-				
-				$('#remove_landing_thumbnail').click(function(e) {
-					e.preventDefault();
-					if ( confirm("<?php _e( 'Are you sure?', 'hk-wp-mall') ?>") ) {
-						$('#imgURL').html("");
-						$('#landing-image-id').val(0);
-						$('#upload_logo_button').removeClass('hide-if-landing-thumbnail');
-						$(this).addClass('hide-if-landing-thumbnail');
-					}
-				});
-			});
-
-		</script>
-		<style type="text/css">
-			.hide-if-landing-thumbnail {
-				display:none;
-			}
-		</style>
 		<p id="imgURL">
 			<?php
 				if ( has_landing_thumbnail() ) {
