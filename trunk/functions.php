@@ -176,17 +176,17 @@ function confirmTitle() {
 }
 
 function printModalWelcomeField() {
-	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('modal-welcome-text').'</textarea>';
+	echo '<textarea name="hk-reminders[modal-welcome-text]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('modal-welcome-text').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter welcome text here to be displayed in the subscribe to list modal popup.', 'hk-wp-mall' ).'</span></p>';
 }
 
 function confirmEmailSubject() {
-	echo '<input name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 290px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
+	echo '<input name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
     echo '<p><span class="description">'.__( 'Enter confirmation email subject here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
 function printConfirmationEmail() {
-	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
+	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
     echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
 }
 
@@ -250,9 +250,9 @@ function sendEmailNotice() {
 	echo '<p>'.sprintf( __( 'E-mail will be sent to <strong>%s subscribers</strong>', 'hk-wp-mall' ), HK_Reminders::getCountByFlag() ).'</p>';
 	echo '<p>'.__( 'Last e-mail was sent on ', 'hk-wp-mall' ).' <strong>'.formatDate( HK_Reminders::getLastSentDate() ).'</strong></p>';
 	echo '<p><strong>'.__('Subject', 'hk-wp-mall').'</strong></p>';
-	echo '<input type="text" name="hk-reminder-subject" />';
+	echo '<input type="text" name="hk-reminder-subject" style="width: 583px;" />';
 	echo '<p><strong>'.__('Message', 'hk-wp-mall').'</strong></p>';
-	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
+	echo '<textarea name="hk-reminder-body" cols="80" rows="8"></textarea>';
 	echo '<p><input type="submit" value="'.__('Send', 'hk-wp-mall').'" /></p>';
 	echo '</div>';
 }
