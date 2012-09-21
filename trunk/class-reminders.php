@@ -123,6 +123,7 @@ class HK_Reminders {
 			$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
 			$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLU Haapsalu College', 'hk-wp-mall' ) );
 		}
+		$message = nl2br( $message );
 		return wp_mail( $to, $subject, $message, $headers );
 	}	
 }
