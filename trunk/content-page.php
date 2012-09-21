@@ -18,7 +18,7 @@
 				'date_format'  => get_option('date_format'),
 				'child_of'     => $child_of,
 				'title_li'     => '',
-				'echo'         => 1,
+				'echo'         => 0,
 				'sort_column'  => 'menu_order, post_title',
 				'post_type'    => 'page',
 				'post_status'  => 'publish' 
@@ -28,7 +28,13 @@
 			?>
 			<li class="<?php if ( get_the_ID() == $child_of ) { echo 'current_page_item'; } ?>"><a href="<?php echo get_permalink($child_of);?>" title="<?php echo get_the_title($child_of);?>"><?php echo get_the_title($child_of);?></a></li>
 			<?php
-			wp_list_pages( $args );
+			$menu_str = wp_list_pages( $args );
+			if ( empty( $menu_str ) ) {
+				echo '<div class="last-resort-menu-spacer"></div>';
+				wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container' ) );
+			} else {
+				echo $menu_str;
+			}
 			echo '</ul>';
 		?>
 
