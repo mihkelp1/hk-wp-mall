@@ -263,10 +263,13 @@ function checkForFlagDelete() {
 		}
 		
 		if ( $_POST['hk_action'] === 'send_email_reminder' ) {
-			//TODO add checks for empty title, body ?
-			$remindees = HK_Reminders::getAll();
-			foreach( $remindees as $remindee ) {
-				$reminder_send_success = HK_Reminders::send_mail( $remindee->email, sanitize_text_field( $_POST['hk-reminder-subject'] ), sanitize_text_field( $_POST['hk-reminder-body'] ) );
+			$subject = sanitize_text_field( $_POST['hk-reminder-subject'] );
+			$body = sanitize_text_field( $_POST['hk-reminder-body'] );
+			if ( !empty( $subject ) && !empty( $body ) ) {
+				$remindees = HK_Reminders::getAll();
+				foreach( $remindees as $remindee ) {
+					$reminder_send_success = HK_Reminders::send_mail( $remindee->email, $subject, $body );
+				}
 			}
 			HK_Reminders::addToHistory( count( $remindees ) );
 			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send'), admin_url('admin.php') ));
