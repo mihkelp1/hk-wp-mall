@@ -237,16 +237,15 @@ function checkForFlagDelete() {
 }
 
 function sendEmailNotice() {
-	//TODO add strings to language domain
 	echo '<div class="wrap">';
 	echo '<form action="" method="post">';
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>'.__( 'Send reminder', 'hk-wp-mall').'</h2>';
-	echo '<p>Kiri saadetakse '.HK_Reminders::getCountByFlag().'-le teavituse tellijale </p>';
-	echo '<p>Viimane teavitus saadeti '.formatDate( HK_Reminders::getLastSentDate() ).'</p>';
-	echo '<p>'.__('Subject', 'hk-wp-mall').'</p>';
+	echo '<p>'.sprintf( __( 'E-mail will be sent to <strong>%s subscribers</strong>', 'hk-wp-mall' ), HK_Reminders::getCountByFlag() ).'</p>';
+	echo '<p>'.__( 'Last e-mail was sent on ', 'hk-wp-mall' ).' <strong>'.formatDate( HK_Reminders::getLastSentDate() ).'</strong></p>';
+	echo '<p><strong>'.__('Subject', 'hk-wp-mall').'</strong></p>';
 	echo '<input type="text" name="hk-reminder-subject" />';
-	echo '<p>'.__('Message', 'hk-wp-mall').'</p>';
+	echo '<p><strong>'.__('Message', 'hk-wp-mall').'</strong></p>';
 	echo '<textarea name="hk-reminder-body" cols="60" rows="8"></textarea>';
 	echo '<p><input type="submit" value="'.__('Send', 'hk-wp-mall').'" /></p>';
 	echo '</div>';
