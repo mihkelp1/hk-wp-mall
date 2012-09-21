@@ -13,6 +13,10 @@
  */
  
 function _initTheme() {
+	//Load textdomain file for site language
+	load_theme_textdomain( 'hk-wp-mall', get_template_directory() . '/languages' );
+	
+	//Register nav menus
  	register_nav_menus(
 		array( 'header-menu' => __( 'Header menu', 'hk-wp-mall' ),
 			'nav-menu' => __( 'Navigation menu', 'hk-wp-mall' ),
@@ -71,7 +75,7 @@ add_action( 'admin_menu', 'createReminderMenu' );
 function reminder_shortcode( $atts ) {
 	extract( shortcode_atts( array(
 		'flag' => '-',
-		'text' => _( 'Normal text, default' )
+		'text' => ''
 	), $atts ) );
 	
 	echo '<div id="reminder-wrapper" style="display:none;">';
@@ -108,7 +112,7 @@ function subscribeReminderFunc() {
 			if ( is_email( $email ) ) {
 				$reminder_added = $remindersHandler->addReminder( $email, $flag );
 				if ( $reminder_added ) {				
-					$msg_content = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $email ) ), home_url() ).'">'.__( 'Unsubscribe', 'hk-wp-mall' ).'</a>', HK_Reminders::getSetting( 'confirmation-email' ) );
+					$msg_content = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $email ) ), home_url() ).'">'.__( 'click here', 'hk-wp-mall' ).'</a>', HK_Reminders::getSetting( 'confirmation-email' ) );
 					$wp_send_success = HK_Reminders::send_mail( $email, HK_Reminders::getSetting( 'confirmation-email-subject' ), $msg_content );
 					if ( $wp_send_success) {
 						//Subscribe success
@@ -181,7 +185,7 @@ function confirmEmailSubject() {
 
 function printConfirmationEmail() {
 	echo '<textarea name="hk-reminders[confirmation-email]" id="modal-welcome-text" cols="40" rows="6">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
-    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
+    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
 }
 
 
@@ -474,7 +478,7 @@ function getArchiveLeftMenu() {
  */
  
 function _posted_on() {
-	printf( __( '<div class="posted-on"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></div>', 'hk-wp-mall' ),
+	printf( '<div class="posted-on"><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a></div>',
 		esc_url( get_day_link( get_the_date('Y'), get_the_date('m'), get_the_date('d') ) ),
 		esc_attr( get_the_time() ),
 		esc_attr( get_the_date( 'c' ) ),
