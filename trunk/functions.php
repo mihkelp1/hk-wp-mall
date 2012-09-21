@@ -147,7 +147,7 @@ function createReminderMenu() {
 	add_submenu_page( 'hk-reminders', __( 'Subscribed', 'hk-wp-mall' ), __( 'Subscribed', 'hk-wp-mall' ), 'read', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', '', __( 'Send reminder', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
 	add_submenu_page( 'hk-reminders', '', __( 'History', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-history', 'sentReminderHistory');
-	add_options_page('Meelespea seaded', __( 'Reminders', 'hk-wp-mall' ),'manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
+	add_options_page(__ ('Reminders settings', 'hp-wp-mall'), __( 'Reminders', 'hk-wp-mall' ),'manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
 	add_submenu_page( 'hk-reminders', '', __( 'Settings', 'hk-wp-mall' ), 'manage_options', 'options-general.php?page=hk-reminders-settings');
 }
 
