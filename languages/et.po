@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Haapsalu Kolledži veeb WP\n"
-"POT-Creation-Date: 2012-09-21 15:34+0200\n"
-"PO-Revision-Date: 2012-09-21 15:34+0200\n"
+"POT-Creation-Date: 2012-09-21 16:21+0200\n"
+"PO-Revision-Date: 2012-09-21 16:21+0200\n"
 "Last-Translator: Raido Kuli <kuli@hk.tlu.ee>\n"
 "Language-Team: Raido  Kuli <raido357@gmail.com>\n"
 "Language: Estonia\n"
@@ -48,7 +48,7 @@ msgstr "Valitud arhiivis ei leitud postitusi. Proovige otsingut."
 msgid "TLU Haapsalu College"
 msgstr "TLÜ Haapsalu Kolledž"
 
-#: ../content-page.php:41 ../content-single.php:25 ../landing-page.php:18
+#: ../content-page.php:47 ../content-single.php:25 ../landing-page.php:18
 msgid "Edit"
 msgstr "Muuda"
 
@@ -271,39 +271,39 @@ msgstr "Pikad näpud ?"
 msgid "Something went wrong, try again"
 msgstr "Süsteemiviga, proovige uuesti"
 
-#: ../functions.php:429
+#: ../functions.php:435
 msgid "Are you sure?"
 msgstr "Kas oled kindel ?"
 
-#: ../functions.php:430
+#: ../functions.php:436
 msgid "Pick a landing page image"
 msgstr "Vali maandumislehe pilt"
 
-#: ../functions.php:552
+#: ../functions.php:564
 msgid "Landing page"
 msgstr "Maandumisleht"
 
-#: ../functions.php:560
+#: ../functions.php:572
 msgid "Add to landing page"
 msgstr "Lisa maandumislehele"
 
-#: ../functions.php:578
+#: ../functions.php:589
 msgid "Youtube URL"
 msgstr "Youtube aadress"
 
-#: ../functions.php:582
+#: ../functions.php:593
 msgid "Pick a landing page menu"
 msgstr "Vali maandumislehe menüü"
 
-#: ../functions.php:584
+#: ../functions.php:595
 msgid "Disabled"
 msgstr "Keelatud"
 
-#: ../functions.php:611
+#: ../functions.php:616
 msgid "Pick landing page image"
 msgstr "Lisa pilt"
 
-#: ../functions.php:612
+#: ../functions.php:617
 msgid "Remove landing page image"
 msgstr "Eemalda pilt"
 
