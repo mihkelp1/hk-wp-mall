@@ -121,7 +121,7 @@ class HK_Reminders {
 		if ( !$headers ) {
 			$headers = "MIME-Version: 1.0" . "\r\n";
 			$headers .= "Content-type:text/html;charset=utf-8" . "\r\n";
-			$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLÜ Haapsalu Kolledž', 'hk-wp-mall' ) );
+			$headers .= sprintf( 'From: %s <no-reply@hk.tlu.ee>' . "\r\n", __( 'TLU Haapsalu College', 'hk-wp-mall' ) );
 		}
 		return wp_mail( $to, $subject, $message, $headers );
 	}	
