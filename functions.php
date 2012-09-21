@@ -93,7 +93,9 @@ function reminder_shortcode( $atts ) {
 }
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
 
+/* Enable reminders subscription ajax calls for both logged not logged in users */
 add_action('wp_ajax_nopriv_subscribe_reminder', 'subscribeReminderFunc');
+add_action('wp_ajax_subscribe_reminder', 'subscribeReminderFunc');
 
 function subscribeReminderFunc() {
 	header('Cache-Control: no-cache, must-revalidate');
