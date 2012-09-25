@@ -250,7 +250,7 @@ footer.page-footer {
 #slider1 li {
 	height: 70px;
 	width: 205px;
-	background: url('images/news-shadow.png') no-repeat right;
+	background: url('images/news-shadow.png') no-repeat right 20px;
 	padding: 10px;
 }
 
@@ -412,7 +412,7 @@ strong {
 }
 
 .news-notice-content {
-	font-size: 0.8em;
+	font-size: 0.75em;
 	line-height: 1.4em;
 	float:left;
 	width: 164px;
@@ -430,6 +430,7 @@ strong {
 
 #slider1 li {
 	float: left;
+	font-size: 0.95em;
 }
 
 #slider1 li a {
