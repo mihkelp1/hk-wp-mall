@@ -823,7 +823,7 @@ em {
 	list-style: none;
 }
 
-.widget_archive {
+.widget_archive select {
 	width: 94%
 	margin-bottom: 0px;
 }
