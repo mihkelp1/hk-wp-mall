@@ -825,6 +825,9 @@ em {
 
 .page-left-menu .widget_archive select {
 	width: 94%;
+}
+
+.page-left-menu .widget_archive {
 	margin-bottom: 0px;
 }
 
