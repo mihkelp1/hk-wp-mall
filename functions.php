@@ -426,9 +426,9 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
 function adminScriptsCSS( $hook ) {
 	//Load only on post.php page
 	if ( $hook == 'post.php' ) {
-		$post = get_post(get_the_ID());
+		var_dump("admin test ".editorInLandingPage() );
 		//Load only if dealing with landing page
-		if ( $post->page_template == 'landing-page.php' ) {
+		if ( editorInLandingPage() ) {
 			//Load admin scripts
 			wp_register_script( 'hk-admin-scripts', get_template_directory_uri().'/js/admin-scripts.js', array( 'jquery' ) );
 			wp_enqueue_script( 'hk-admin-scripts' );
