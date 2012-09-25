@@ -476,7 +476,7 @@ strong {
 	display: none; 
 }
 
-.page-left-menu li.current_page_item  ul.children { 
+.page-left-menu li.current_page_item  ul.children, .page-left-menu li.current_page.parent  ul.children { 
 	display: block; 
 }
 
