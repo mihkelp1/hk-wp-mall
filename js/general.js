@@ -31,9 +31,12 @@ jQuery(document).ready(function($){
 	
 	$('.header-menu-container li:nth-child(5)').bind('click', function() {
 		var pos = $(this).position();
+		var pos2 = $('#header-menu').position();
+		var width = pos.left - pos2.left;
 		if ( !search_esc_closed ) {
 			$('div.#rollout-searchform').css({
-				'right': $(document).width() - pos.left - $(this).outerWidth()
+				'right': $(document).width() - pos.left - $(this).outerWidth(),
+				'width': width
 			});
 			$('div.#rollout-searchform').animate({
 				'width' : 'show'
