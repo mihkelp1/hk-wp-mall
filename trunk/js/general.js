@@ -35,7 +35,7 @@ jQuery(document).ready(function($){
 		var width = pos.left - pos2.left;
 		if ( !search_esc_closed ) {
 			$('div.#rollout-searchform').css({
-				'right': $(document).width() - pos.left - $(this).outerWidth(),
+				'right': $(document).width() - pos.left - $(this).outerWidth() - 9,
 				'width': width
 			});
 			$('div.#rollout-searchform').animate({
