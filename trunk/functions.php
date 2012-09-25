@@ -399,17 +399,15 @@ function loadAndRegisterJavaScripts() {
 	wp_enqueue_script( 'hk-general' );
 	
 	if ( is_page_template( 'landing-page.php' ) ) {
-		if ( has_youtube_video() ) {
-			wp_enqueue_script( 'jquery-ui-dialog', array( 'jquery' ) );
-			wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js', array( 'swfobject', 'jquery' ) );
-			wp_enqueue_script( 'landing-page-yt' );
-			
-			$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
-						'reminderSuccess' => __( 'You have successfully subscribed', 'hk-wp-mall' ), 'reminderExist' => __( 'You have already subscribed', 'hk-wp-mall'),
-						'reminderEmail' => __( 'Your email is not valid', 'hk-wp-mall' ), 'reminderHack' => __( 'Trying to hack ?', 'hk-wp-mall' ),
-						'reminderGeneral' => __( 'Something went wrong, try again', 'hk-wp-mall' ) );
-			wp_localize_script( 'landing-page-yt', 'landingPageMeta', $translation_array );
-		}
+		wp_enqueue_script( 'jquery-ui-dialog', array( 'jquery' ) );
+		wp_register_script( 'landing-page-yt', get_template_directory_uri().'/js/landing.page.yt.js', array( 'swfobject', 'jquery' ) );
+		wp_enqueue_script( 'landing-page-yt' );
+		
+		$translation_array = array( 'videoId' => getLandingPageYT( true ), 'ajaxUrl' => admin_url( 'admin-ajax.php' ),
+					'reminderSuccess' => __( 'You have successfully subscribed', 'hk-wp-mall' ), 'reminderExist' => __( 'You have already subscribed', 'hk-wp-mall'),
+					'reminderEmail' => __( 'Your email is not valid', 'hk-wp-mall' ), 'reminderHack' => __( 'Trying to hack ?', 'hk-wp-mall' ),
+					'reminderGeneral' => __( 'Something went wrong, try again', 'hk-wp-mall' ) );
+		wp_localize_script( 'landing-page-yt', 'landingPageMeta', $translation_array );
 	}
 	
 	//Load some styles too
