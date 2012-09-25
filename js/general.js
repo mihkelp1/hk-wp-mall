@@ -31,11 +31,12 @@ jQuery(document).ready(function($){
 	
 	$('.header-menu-container li:nth-child(5)').bind('click', function() {
 		var pos = $(this).position();
-		var pos2 = $('#header-menu').position();
-		var width = pos.left - pos2.left;
+		var parent_pos = $('#header-menu').position();
+		var width = pos.left - parent_pos.left; // We get total width for our searchform
+		var right = $(document).width() - pos.left - $(this).outerWidth() - 9; //How many pixels from the right side
 		if ( !search_esc_closed ) {
 			$('div.#rollout-searchform').css({
-				'right': $(document).width() - pos.left - $(this).outerWidth() - 9,
+				'right': right,
 				'width': width
 			});
 			$('div.#rollout-searchform').animate({
