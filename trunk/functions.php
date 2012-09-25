@@ -426,7 +426,6 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
 function adminScriptsCSS( $hook ) {
 	//Load only on post.php page
 	if ( $hook == 'post.php' ) {
-		var_dump("admin test ".editorInLandingPage() );
 		//Load only if dealing with landing page
 		if ( editorInLandingPage() ) {
 			//Load admin scripts
