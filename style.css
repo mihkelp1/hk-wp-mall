@@ -365,6 +365,10 @@ strong {
 	background: url('images/nav-border-bottom.png') bottom no-repeat;
 }
 
+.nav-menu-container .menu {
+	padding-left: 25px;
+}
+
 .nav-menu-container li {
 	float: left;
 	background: url('images/nav-border.png') right repeat-y;
@@ -857,7 +861,7 @@ div.person:first-child {
 	margin-top: 20px;
 }
 
-/* Last resort menu spacer 
+/* Last resort 	 spacer 
  * Used on single pages
  */
  
