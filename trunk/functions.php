@@ -527,7 +527,7 @@ function getNewsSlider() {
  
 function getArchiveLeftMenu() {
 	the_widget('WP_Widget_Calendar');
-	the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 0, 'title' => ' ' ) );
+	the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 1, 'title' => ' ' ) );
 	the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
 	echo '<div class="widget">';
 	wp_list_categories('feed_image='.get_bloginfo('template_directory').'/images/rss.png&children=0&exclude=1&show_count&title_li=<h2 class="feeds-title"></h2>');
