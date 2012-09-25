@@ -823,6 +823,11 @@ em {
 	list-style: none;
 }
 
+.widget_archive {
+	width: 94%
+	margin-bottom: 0px;
+}
+
 /* People list plugin styles */
 
 div.person .user-thumbnail {
