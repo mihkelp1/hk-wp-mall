@@ -30,7 +30,11 @@ jQuery(document).ready(function($){
 	});
 	
 	$('.header-menu-container li:nth-child(5)').bind('click', function() {
+		var pos = $(this).position();
 		if ( !search_esc_closed ) {
+			$('div.#rollout-searchform').css({
+				'right': $(document).width() - pos.left - $(this).outerWidth()
+			});
 			$('div.#rollout-searchform').animate({
 				'width' : 'show'
 			}, 'fast', function() {
