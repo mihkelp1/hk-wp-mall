@@ -472,6 +472,14 @@ strong {
 	color: #000;
 }
 
+.page-left-menu ul.children { 
+	display: none; 
+}
+
+.page-left-menu li.current_page_item  ul.children { 
+	display: block; 
+}
+
 .page-left-menu .widget {
 	margin-bottom: 25px;
 }
