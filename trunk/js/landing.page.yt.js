@@ -135,7 +135,7 @@ function init_YT_Player() {
 		  playerVars: {
 			showinfo: 0,
 			modestbranding: 1,
-			version: 3,
+			version: 2,
 			rel: 0,
 			theme: 'light',
 			autohide: 1
