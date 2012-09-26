@@ -130,8 +130,8 @@ function init_YT_Player() {
     } else {
     	//Otherwise use more modern iFrame API
     	player = new YT.Player('player', {
-		  height: '390',
-		  width: '693',
+		  height: '315',
+		  width: '560',
 		  playerVars: {
 			showinfo: 0,
 			modestbranding: 1,
