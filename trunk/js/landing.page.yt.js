@@ -27,8 +27,8 @@ jQuery(document).ready(function($) {
 	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
 		$('#playerWrapper').dialog({
-			width: 680,
-			minWidth: 680,
+			width: 733,
+			minWidth: 733,
 			minHeight: 450,
 			modal: true,
 			resizable: false,
@@ -126,12 +126,12 @@ function init_YT_Player() {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
 		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
-                       "player", "640", "390", "8", null, null, params, atts);
+                       "player", "693", "390", "8", null, null, params, atts);
     } else {
     	//Otherwise use more modern iFrame API
     	player = new YT.Player('player', {
 		  height: '390',
-		  width: '640',
+		  width: '693',
 		  playerVars: {
 			showinfo: 0,
 			modestbranding: 1,
