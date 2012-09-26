@@ -126,17 +126,14 @@ function init_YT_Player() {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
 		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=1&showinfo=0&modestbranding=1&rel=0&theme=light",
-                       "player", "853", "510", "8", null, null, params, atts);
+                       "player", "640", "360", "8", null, null, params, atts);
     } else {
     	//Otherwise use more modern iFrame API
     	player = new YT.Player('player', {
-		  height: '480',
-		  width: '853',
+		  height: '360',
+		  width: '640',
 		  playerVars: {
-			showinfo: 0,
-			rel: 0,
-			theme: 'light',
-			autohide: 1
+			
 		  },
 		  events: {
 			'onReady': onPlayerReady
