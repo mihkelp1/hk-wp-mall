@@ -125,8 +125,8 @@ function init_YT_Player() {
 	if ( is_ie7 ) {
 		var params = { allowScriptAccess: "always" };
 		var atts = { id: "yt_player" };
-		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&showinfo=0&modestbranding=1&rel=0&theme=light",
-                       "player", "693", "390", "8", null, null, params, atts);
+		swfobject.embedSWF("http://www.youtube.com/v/"+landingPageMeta.videoId+"?enablejsapi=1&playerapiid=ytplayer&version=3&autohide=0&showinfo=0&modestbranding=1&rel=0&theme=light",
+                       "player", "693", "420", "8", null, null, params, atts);
     } else {
     	//Otherwise use more modern iFrame API
     	player = new YT.Player('player', {
@@ -137,7 +137,7 @@ function init_YT_Player() {
 			modestbranding: 1,
 			rel: 0,
 			theme: 'light',
-			autohide: 1
+			autohide: 0
 		  },
 		  events: {
 			'onReady': onPlayerReady,
