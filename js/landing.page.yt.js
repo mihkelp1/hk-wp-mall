@@ -133,7 +133,7 @@ function init_YT_Player() {
 		  height: '360',
 		  width: '640',
 		  playerVars: {
-			
+			showinfo: 0
 		  },
 		  events: {
 			'onReady': onPlayerReady
