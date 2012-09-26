@@ -130,7 +130,7 @@ function init_YT_Player() {
     } else {
     	//Otherwise use more modern iFrame API
     	player = new YT.Player('player', {
-		  height: '510',
+		  height: '480',
 		  width: '853',
 		  playerVars: {
 			showinfo: 0,
@@ -153,5 +153,5 @@ function onYouTubePlayerReady(playerId) {
 
 /* This method is called by Youtube iFrame API */
 function onPlayerReady(event) {
-	player.loadVideoById( landingPageMeta.videoId, 3 );
+	player.loadVideoById( landingPageMeta.videoId );
 }
