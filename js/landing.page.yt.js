@@ -27,9 +27,9 @@ jQuery(document).ready(function($) {
 	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
 		$('#playerWrapper').dialog({
-			width: 733,
-			minWidth: 733,
-			minHeight: 450,
+			width: 753,
+			minWidth: 753,
+			minHeight: 500,
 			modal: true,
 			resizable: false,
 			draggable: false,
