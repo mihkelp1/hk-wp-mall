@@ -153,5 +153,5 @@ function onYouTubePlayerReady(playerId) {
 
 /* This method is called by Youtube iFrame API */
 function onPlayerReady(event) {
-	player.loadVideoById( landingPageMeta.videoId, 2 );
+	player.loadVideoById( landingPageMeta.videoId );
 }
