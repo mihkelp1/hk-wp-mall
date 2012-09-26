@@ -158,12 +158,15 @@ function onPlayerReady(event) {
 	player.loadVideoById( landingPageMeta.videoId, 4);
 }
 
+var hack_done = false;
+
 function onPlayerStateChange(event) {
-	if (event.data == YT.PlayerState.PLAYING) {
+	if (event.data == YT.PlayerState.PLAYING && !hack_done ) {
 		player.pauseVideo();
         
         setTimeout(function() {
           player.playVideo();
         }, 4000);
+        hack_done = true;
     }
 }
