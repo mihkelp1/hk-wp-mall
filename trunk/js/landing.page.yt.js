@@ -27,9 +27,9 @@ jQuery(document).ready(function($) {
 	$('#landing-video-button').bind('click', function(event) {
 		event.preventDefault();
 		$('#playerWrapper').dialog({
-			width: 753,
-			minWidth: 753,
-			minHeight: 500,
+			width: 725,
+			minWidth: 725,
+			minHeight: 450,
 			modal: true,
 			resizable: false,
 			draggable: false,
@@ -135,10 +135,10 @@ function init_YT_Player() {
 		  playerVars: {
 			showinfo: 0,
 			modestbranding: 1,
-			version: 2,
 			rel: 0,
 			theme: 'light',
-			autohide: 1
+			autohide: 1,
+			controls: 0
 		  },
 		  events: {
 			'onReady': onPlayerReady
