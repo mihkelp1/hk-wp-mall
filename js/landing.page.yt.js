@@ -132,13 +132,11 @@ function init_YT_Player() {
     	player = new YT.Player('player', {
 		  height: '390',
 		  width: '693',
-		  videoId: landingPageMeta.videoId,
 		  playerVars: {
 			showinfo: 0,
 			modestbranding: 1,
 			rel: 0,
-			theme: 'light',
-			autohide: 1
+			theme: 'light'
 		  },
 		  events: {
 			'onReady': onPlayerReady,
@@ -155,18 +153,5 @@ function onYouTubePlayerReady(playerId) {
 
 /* This method is called by Youtube iFrame API */
 function onPlayerReady(event) {
-	//event.target.loadVideoById( landingPageMeta.videoId, 4);
-}
-
-var hack_done = false;
-
-function onPlayerStateChange(event) {
-	if (event.data == YT.PlayerState.PLAYING && !hack_done ) {
-		player.pauseVideo();
-        
-        setTimeout(function() {
-          player.playVideo();
-        }, 4000);
-        hack_done = true;
-    }
+	event.target.loadVideoById( landingPageMeta.videoId, 4);
 }
