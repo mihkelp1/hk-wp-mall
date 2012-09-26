@@ -137,7 +137,7 @@ function init_YT_Player() {
 			modestbranding: 1,
 			rel: 0,
 			theme: 'light',
-			autohide: 0
+			autohide: 1
 		  },
 		  events: {
 			'onReady': onPlayerReady,
