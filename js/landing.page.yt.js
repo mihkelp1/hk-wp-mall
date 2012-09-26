@@ -134,7 +134,6 @@ function init_YT_Player() {
 		  width: '693',
 		  playerVars: {
 			showinfo: 0,
-			modestbranding: 1,
 			rel: 0,
 			theme: 'light',
 			autohide: 1
