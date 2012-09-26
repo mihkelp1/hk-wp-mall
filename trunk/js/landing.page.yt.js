@@ -141,7 +141,6 @@ function init_YT_Player() {
 		  },
 		  events: {
 			'onReady': onPlayerReady,
-			'onStateChange': onPlayerStateChange
 		  }
 		});
 	}
@@ -155,7 +154,7 @@ function onYouTubePlayerReady(playerId) {
 
 /* This method is called by Youtube iFrame API */
 function onPlayerReady(event) {
-	player.loadVideoById( landingPageMeta.videoId, 4);
+	event.target.loadVideoById( landingPageMeta.videoId, 4);
 }
 
 var hack_done = false;
