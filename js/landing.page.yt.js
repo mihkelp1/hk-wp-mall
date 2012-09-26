@@ -160,8 +160,10 @@ function onPlayerReady(event) {
 
 function onPlayerStateChange(event) {
 	if (event.data == YT.PlayerState.PLAYING) {
-          setTimeout(function() {
-          	player.playVideo();
-          }, 4000);
+		player.pauseVideo();
+        
+        setTimeout(function() {
+          player.playVideo();
+        }, 4000);
     }
 }
