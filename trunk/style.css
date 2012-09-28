@@ -906,3 +906,16 @@ div.person:first-child {
 .entry-content p img {
 	padding: 10px;
 }
+
+/* Tables styles in content */
+
+.entry-content td {
+	border: 1px solid #ccc;
+	padding: 4px;
+}
+
+.entry-content table {
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
