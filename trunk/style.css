@@ -866,7 +866,7 @@ div.person .user-name {
 }
 
 div.person:first-child {
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 
 /* Last resort 	 spacer 
@@ -885,4 +885,24 @@ div.person:first-child {
 
 .sitetree-list .children {
 	margin: 0px;
+}
+
+/* Image alignment styles */
+
+.alignright {
+	float: right;
+}
+
+.aligncenter {
+	display:block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.alignleft {
+	float: left;
+}
+
+.entry-content p img {
+	padding: 10px;
 }
