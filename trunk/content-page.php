@@ -25,9 +25,12 @@
 			);
 			
 			echo '<ul class="parent-pages">';
-			?>
-			<li class="<?php if ( get_the_ID() == $child_of ) { echo 'current_page_item'; } ?>"><a href="<?php echo get_permalink($child_of);?>" title="<?php echo get_the_title($child_of);?>"><?php echo get_the_title($child_of);?></a></li>
-			<?php
+			$page = get_page( $child_of );
+			if ( $page && !empty( $page->post_content ) ) {
+				?>
+				<li class="<?php if ( get_the_ID() == $child_of ) { echo 'current_page_item'; } ?>"><a href="<?php echo get_permalink($child_of);?>" title="<?php echo get_the_title($child_of);?>"><?php echo get_the_title($child_of);?></a></li>
+				<?php
+			}
 			$menu_str = wp_list_pages( $args );
 			if ( empty( $menu_str ) ) {
 				echo '<div class="last-resort-menu-spacer"></div>';
