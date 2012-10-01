@@ -951,3 +951,8 @@ td {
 }
 
 /* End of Facebook */
+
+/* Link color inside content div */
+.entry-content a {
+	color: #008cdd;
+}
