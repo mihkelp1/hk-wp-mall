@@ -37,9 +37,17 @@
 			/* A sidebar in the footer? Yep. You can can customize
 			 * your footer with three columns of widgets.
 			 */
-			if ( ! is_404() )
 				get_sidebar( 'footer' );
-		?>
+			?>
+			<!-- Facebook plugin -->
+			<div id="likebox-frame">
+			<script src="http://connect.facebook.net/et_EE/all.js#xfbml=1" type="text/javascript"></script>
+			<script type="text/javascript">
+			//<![CDATA[
+				document.write('<fb:like-box href="http://www.facebook.com/kolledz" width="952" height="180" show_faces="true" stream="false" header="false"></fb:like-box>');
+			//]]>
+			</script>
+			<!-- Facebook plugin end -->	
 	</div>
 	
 <!-- Close "main-conteiner" -->
