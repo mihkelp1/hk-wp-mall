@@ -663,7 +663,8 @@ strong {
 }
 
 .entry-content ul {
-	margin: 20px 0px 20px 0px;
+	margin-top: 20px;
+/*	margin: 20px 0px 20px 0px;*/
 }
 
 .entry-content ul li {
