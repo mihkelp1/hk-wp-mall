@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Haapsalu Kolledži veeb WP\n"
-"POT-Creation-Date: 2012-09-21 16:21+0200\n"
-"PO-Revision-Date: 2012-09-27 18:03+0200\n"
+"POT-Creation-Date: 2012-10-04 20:50+0200\n"
+"PO-Revision-Date: 2012-10-04 20:50+0200\n"
 "Last-Translator: Raido Kuli <kuli@hk.tlu.ee>\n"
 "Language-Team: Raido  Kuli <raido357@gmail.com>\n"
 "Language: Estonia\n"
@@ -48,7 +48,7 @@ msgstr "Valitud arhiivis ei leitud postitusi. Proovige otsingut."
 msgid "TLU Haapsalu College"
 msgstr "TLÜ Haapsalu Kolledž"
 
-#: ../content-page.php:47 ../content-single.php:25 ../landing-page.php:18
+#: ../content-page.php:50 ../content-single.php:25 ../landing-page.php:18
 msgid "Edit"
 msgstr "Muuda"
 
@@ -61,126 +61,130 @@ msgstr ","
 msgid "Tags: %1$s"
 msgstr "Sildid: %1$s"
 
-#: ../functions.php:21
+#: ../footer.php:26
+msgid "News"
+msgstr "Uudised"
+
+#: ../functions.php:23
 msgid "Header menu"
 msgstr "Päise menüü"
 
-#: ../functions.php:22
+#: ../functions.php:24
 msgid "Navigation menu"
 msgstr "Navigatsioon"
 
-#: ../functions.php:23
+#: ../functions.php:25
 msgid "Footer left"
 msgstr "Jalus vasak"
 
-#: ../functions.php:24
+#: ../functions.php:26
 msgid "Footer middle"
 msgstr "Jalus keskel"
 
-#: ../functions.php:25
+#: ../functions.php:27
 msgid "Footer right"
 msgstr "Jalus paremal"
 
-#: ../functions.php:26
+#: ../functions.php:28
 msgid "General menu"
 msgstr "Üldmenüü"
 
-#: ../functions.php:30
+#: ../functions.php:32
 msgid "Footer sidebar"
 msgstr "Jaluse külgpaan"
 
-#: ../functions.php:34
+#: ../functions.php:36
 msgid "Widgets in this area will be shown in the footer."
 msgstr "Moodulid selles alas kuvatakse lehe jaluses."
 
-#: ../functions.php:88
+#: ../functions.php:90
 msgid "Your email"
 msgstr "E-posti aadress"
 
-#: ../functions.php:91
+#: ../functions.php:93
 msgid "Subscribe"
 msgstr "Liitu"
 
-#: ../functions.php:117
+#: ../functions.php:119
 msgid "click here"
 msgstr "vajuta siia"
 
-#: ../functions.php:146 ../functions.php:150
+#: ../functions.php:148 ../functions.php:152
 msgid "Reminders"
 msgstr "Meelespead"
 
-#: ../functions.php:147
+#: ../functions.php:149
 msgid "Subscribed"
 msgstr "Tellinud"
 
-#: ../functions.php:148 ../functions.php:285
+#: ../functions.php:150 ../functions.php:287
 msgid "Send reminder"
 msgstr "Saada teavitus"
 
-#: ../functions.php:149 ../functions.php:298
+#: ../functions.php:151 ../functions.php:300
 msgid "History"
 msgstr "Ajalugu"
 
-#: ../functions.php:150 ../functions.php:243
+#: ../functions.php:152 ../functions.php:245
 msgid "Reminders settings"
 msgstr "Meelespea seaded"
 
-#: ../functions.php:151
+#: ../functions.php:153
 msgid "Settings"
 msgstr "Seaded"
 
-#: ../functions.php:159
+#: ../functions.php:161
 msgid "Modal welcome text"
 msgstr "Hüpikakna sisu"
 
-#: ../functions.php:161 ../functions.php:165 ../functions.php:288
+#: ../functions.php:163 ../functions.php:167 ../functions.php:290
 msgid "Subject"
 msgstr "Pealkiri"
 
-#: ../functions.php:162 ../functions.php:166
+#: ../functions.php:164 ../functions.php:168
 msgid "Body"
 msgstr "Sisu"
 
-#: ../functions.php:169
+#: ../functions.php:171
 msgid "Footer"
 msgstr "Jalus"
 
-#: ../functions.php:178
+#: ../functions.php:180
 msgid "Subscribe popup"
 msgstr "Hüpikaken"
 
-#: ../functions.php:182
+#: ../functions.php:184
 msgid "Confirmation email"
 msgstr "Kinnituskiri"
 
-#: ../functions.php:186
+#: ../functions.php:188
 msgid "Unsubscribe email"
 msgstr "Meelespea nimekirjast eemaldatud"
 
-#: ../functions.php:190
+#: ../functions.php:192
 msgid "E-mail general"
 msgstr "Üldine"
 
-#: ../functions.php:195
+#: ../functions.php:197
 msgid ""
 "Enter welcome text here to be displayed in the subscribe to list modal popup."
 msgstr "Sisesta siia meelespea hüpikakna sisu."
 
-#: ../functions.php:200
+#: ../functions.php:202
 msgid ""
 "Enter confirmation email subject here to be sent out to subscribed user."
 msgstr "Sisesta siia meelespea kinnituskirja pealkiri."
 
-#: ../functions.php:206
+#: ../functions.php:208
 msgid "Enter unsubscribe email body here to be sent out to unsubscribed user."
 msgstr "Sisesta siia meelespea nimekirjast eemdaldatud kinnituskirja pealkiri."
 
-#: ../functions.php:211
+#: ../functions.php:213
 msgid ""
 "Enter unsubscribe email subject here to be sent out to unsubscribed user."
 msgstr "Sisesta siia meelespea nimekirjast eemaldatud kinnituskirja sisu."
 
-#: ../functions.php:217
+#: ../functions.php:219
 msgid ""
 "Enter confirmation email body here to be sent out to subscribed user. "
 "<strong>{unsubscribe_link}</strong> will be replaced with link titled "
@@ -189,121 +193,125 @@ msgstr ""
 "Sisesta siia meelespea kinnitusekirja sisu. <strong>{unsubscribe_link}</"
 "strong> asendatakse lingiga <strong>\"vajuta siia\"</strong>."
 
-#: ../functions.php:223
+#: ../functions.php:225
 msgid "Enter email footer content here."
 msgstr "Sisesta siia e-kirja jaluse sisu."
 
-#: ../functions.php:247
+#: ../functions.php:249
 msgid "Save"
 msgstr "Salvesta"
 
-#: ../functions.php:286
+#: ../functions.php:288
 #, php-format
 msgid "E-mail will be sent to <strong>%s subscribers</strong>"
 msgstr "E-kiri saadetakse <strong>%s tellinule</strong>"
 
-#: ../functions.php:287
+#: ../functions.php:289
 msgid "Last e-mail was sent on "
 msgstr "Viimane teavitus saadeti"
 
-#: ../functions.php:290
+#: ../functions.php:292
 msgid "Message"
 msgstr "Sisu"
 
-#: ../functions.php:292
+#: ../functions.php:294
 msgid "Send"
 msgstr "Saada"
 
-#: ../functions.php:303 ../functions.php:306
+#: ../functions.php:305 ../functions.php:308
 msgid "Number of people"
 msgstr "Mitmele"
 
-#: ../functions.php:303 ../functions.php:306 ../functions.php:338
-#: ../functions.php:341
+#: ../functions.php:305 ../functions.php:308 ../functions.php:340
+#: ../functions.php:343
 msgid "Date"
 msgstr "Kuupäev"
 
-#: ../functions.php:329
+#: ../functions.php:331
 msgid "Remindees"
 msgstr "Tellijad"
 
-#: ../functions.php:338 ../functions.php:341
+#: ../functions.php:340 ../functions.php:343
 msgid "Email"
 msgstr "E-post"
 
-#: ../functions.php:338 ../functions.php:341
+#: ../functions.php:340 ../functions.php:343
 msgid "Flag"
 msgstr "Lipp"
 
-#: ../functions.php:355
+#: ../functions.php:357
 msgid "Delete"
 msgstr "Kustuta"
 
-#: ../functions.php:359
+#: ../functions.php:361
 msgid "No subscriptions."
 msgstr "Ühtegi tellimust."
 
-#: ../functions.php:387
+#: ../functions.php:389
 msgid "You have been unsubcribed from the mailing list"
 msgstr "Olete meelespea nimekirjast eemaldatud"
 
-#: ../functions.php:388
+#: ../functions.php:390
 msgid "Close"
 msgstr "Sulge"
 
-#: ../functions.php:408
+#: ../functions.php:409
 msgid "You have successfully subscribed"
 msgstr "Oled edukalt infolistiga liitunud"
 
-#: ../functions.php:408
+#: ../functions.php:409
 msgid "You have already subscribed"
 msgstr "Oled juba infolistiga liitunud"
 
-#: ../functions.php:409
+#: ../functions.php:410
 msgid "Your email is not valid"
 msgstr "E-posti aadress on vigane"
 
-#: ../functions.php:409
+#: ../functions.php:410
 msgid "Trying to hack ?"
 msgstr "Pikad näpud ?"
 
-#: ../functions.php:410
+#: ../functions.php:411
 msgid "Something went wrong, try again"
 msgstr "Süsteemiviga, proovige uuesti"
 
-#: ../functions.php:435
+#: ../functions.php:434
 msgid "Are you sure?"
 msgstr "Kas oled kindel ?"
 
-#: ../functions.php:436
+#: ../functions.php:435
 msgid "Pick a landing page image"
 msgstr "Vali maandumislehe pilt"
 
-#: ../functions.php:564
+#: ../functions.php:525
+msgid "Read more"
+msgstr "Loe kõiki uudiseid"
+
+#: ../functions.php:569
 msgid "Landing page"
 msgstr "Maandumisleht"
 
-#: ../functions.php:572
+#: ../functions.php:577
 msgid "Add to landing page"
 msgstr "Lisa maandumislehele"
 
-#: ../functions.php:589
+#: ../functions.php:594
 msgid "Youtube URL"
 msgstr "Youtube aadress"
 
-#: ../functions.php:593
+#: ../functions.php:598
 msgid "Pick a landing page menu"
 msgstr "Vali maandumislehe menüü"
 
-#: ../functions.php:595
+#: ../functions.php:600
 msgid "Disabled"
 msgstr "Keelatud"
 
-#: ../functions.php:616
+#: ../functions.php:621
 msgid "Pick landing page image"
 msgstr "Lisa pilt"
 
-#: ../functions.php:617
+#: ../functions.php:622
 msgid "Remove landing page image"
 msgstr "Eemalda pilt"
 
