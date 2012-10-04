@@ -7,7 +7,7 @@ Version: 0.7
 License: GNU General Public License
 License URI: license.txt
 Tags: none-for-now
-Text Domain: hk-college
+Text Domain: hk-wp-mall
 */
 
 
@@ -665,7 +665,7 @@ strong {
 }
 
 .entry-content ul {
-	/* No styles */
+	margin-bottom: 10px;
 }
 
 /* Entry content li ul child elements dont need margin */
