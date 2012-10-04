@@ -1,0 +1,339 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Haapsalu Kolledži veeb WP\n"
+"POT-Creation-Date: 2012-09-21 16:21+0200\n"
+"PO-Revision-Date: 2012-09-27 18:03+0200\n"
+"Last-Translator: Raido Kuli <kuli@hk.tlu.ee>\n"
+"Language-Team: Raido  Kuli <raido357@gmail.com>\n"
+"Language: Estonia\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.3\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../404.php:16
+msgid "This is somewhat embarrassing, isn&rsquo;t it?"
+msgstr "Lehekülge ei leitud"
+
+#: ../404.php:20
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching, or one of the links, can help."
+msgstr ""
+"Otsitud lehekülge ei leitud. Ehk on abi viidetest all pool või otsingust."
+
+#: ../404.php:24
+msgid "Recent news"
+msgstr "Hiljutised uudised"
+
+#: ../404.php:25
+msgid "Tags"
+msgstr "Sildid"
+
+#: ../archive.php:54 ../search.php:47
+msgid "Nothing Found"
+msgstr "Midagi ei leitud"
+
+#: ../archive.php:58
+msgid ""
+"Apologies, but no results were found for the requested archive. Perhaps "
+"searching will help find a related post."
+msgstr "Valitud arhiivis ei leitud postitusi. Proovige otsingut."
+
+#: ../class-reminders.php:124
+msgid "TLU Haapsalu College"
+msgstr "TLÜ Haapsalu Kolledž"
+
+#: ../content-page.php:47 ../content-single.php:25 ../landing-page.php:18
+msgid "Edit"
+msgstr "Muuda"
+
+#: ../content-single.php:58
+msgid ", "
+msgstr ","
+
+#: ../content-single.php:60
+#, php-format
+msgid "Tags: %1$s"
+msgstr "Sildid: %1$s"
+
+#: ../functions.php:21
+msgid "Header menu"
+msgstr "Päise menüü"
+
+#: ../functions.php:22
+msgid "Navigation menu"
+msgstr "Navigatsioon"
+
+#: ../functions.php:23
+msgid "Footer left"
+msgstr "Jalus vasak"
+
+#: ../functions.php:24
+msgid "Footer middle"
+msgstr "Jalus keskel"
+
+#: ../functions.php:25
+msgid "Footer right"
+msgstr "Jalus paremal"
+
+#: ../functions.php:26
+msgid "General menu"
+msgstr "Üldmenüü"
+
+#: ../functions.php:30
+msgid "Footer sidebar"
+msgstr "Jaluse külgpaan"
+
+#: ../functions.php:34
+msgid "Widgets in this area will be shown in the footer."
+msgstr "Moodulid selles alas kuvatakse lehe jaluses."
+
+#: ../functions.php:88
+msgid "Your email"
+msgstr "E-posti aadress"
+
+#: ../functions.php:91
+msgid "Subscribe"
+msgstr "Liitu"
+
+#: ../functions.php:117
+msgid "click here"
+msgstr "vajuta siia"
+
+#: ../functions.php:146 ../functions.php:150
+msgid "Reminders"
+msgstr "Meelespead"
+
+#: ../functions.php:147
+msgid "Subscribed"
+msgstr "Tellinud"
+
+#: ../functions.php:148 ../functions.php:285
+msgid "Send reminder"
+msgstr "Saada teavitus"
+
+#: ../functions.php:149 ../functions.php:298
+msgid "History"
+msgstr "Ajalugu"
+
+#: ../functions.php:150 ../functions.php:243
+msgid "Reminders settings"
+msgstr "Meelespea seaded"
+
+#: ../functions.php:151
+msgid "Settings"
+msgstr "Seaded"
+
+#: ../functions.php:159
+msgid "Modal welcome text"
+msgstr "Hüpikakna sisu"
+
+#: ../functions.php:161 ../functions.php:165 ../functions.php:288
+msgid "Subject"
+msgstr "Pealkiri"
+
+#: ../functions.php:162 ../functions.php:166
+msgid "Body"
+msgstr "Sisu"
+
+#: ../functions.php:169
+msgid "Footer"
+msgstr "Jalus"
+
+#: ../functions.php:178
+msgid "Subscribe popup"
+msgstr "Hüpikaken"
+
+#: ../functions.php:182
+msgid "Confirmation email"
+msgstr "Kinnituskiri"
+
+#: ../functions.php:186
+msgid "Unsubscribe email"
+msgstr "Meelespea nimekirjast eemaldatud"
+
+#: ../functions.php:190
+msgid "E-mail general"
+msgstr "Üldine"
+
+#: ../functions.php:195
+msgid ""
+"Enter welcome text here to be displayed in the subscribe to list modal popup."
+msgstr "Sisesta siia meelespea hüpikakna sisu."
+
+#: ../functions.php:200
+msgid ""
+"Enter confirmation email subject here to be sent out to subscribed user."
+msgstr "Sisesta siia meelespea kinnituskirja pealkiri."
+
+#: ../functions.php:206
+msgid "Enter unsubscribe email body here to be sent out to unsubscribed user."
+msgstr "Sisesta siia meelespea nimekirjast eemdaldatud kinnituskirja pealkiri."
+
+#: ../functions.php:211
+msgid ""
+"Enter unsubscribe email subject here to be sent out to unsubscribed user."
+msgstr "Sisesta siia meelespea nimekirjast eemaldatud kinnituskirja sisu."
+
+#: ../functions.php:217
+msgid ""
+"Enter confirmation email body here to be sent out to subscribed user. "
+"<strong>{unsubscribe_link}</strong> will be replaced with link titled "
+"<strong>\"click here\"</strong>."
+msgstr ""
+"Sisesta siia meelespea kinnitusekirja sisu. <strong>{unsubscribe_link}</"
+"strong> asendatakse lingiga <strong>\"vajuta siia\"</strong>."
+
+#: ../functions.php:223
+msgid "Enter email footer content here."
+msgstr "Sisesta siia e-kirja jaluse sisu."
+
+#: ../functions.php:247
+msgid "Save"
+msgstr "Salvesta"
+
+#: ../functions.php:286
+#, php-format
+msgid "E-mail will be sent to <strong>%s subscribers</strong>"
+msgstr "E-kiri saadetakse <strong>%s tellinule</strong>"
+
+#: ../functions.php:287
+msgid "Last e-mail was sent on "
+msgstr "Viimane teavitus saadeti"
+
+#: ../functions.php:290
+msgid "Message"
+msgstr "Sisu"
+
+#: ../functions.php:292
+msgid "Send"
+msgstr "Saada"
+
+#: ../functions.php:303 ../functions.php:306
+msgid "Number of people"
+msgstr "Mitmele"
+
+#: ../functions.php:303 ../functions.php:306 ../functions.php:338
+#: ../functions.php:341
+msgid "Date"
+msgstr "Kuupäev"
+
+#: ../functions.php:329
+msgid "Remindees"
+msgstr "Tellijad"
+
+#: ../functions.php:338 ../functions.php:341
+msgid "Email"
+msgstr "E-post"
+
+#: ../functions.php:338 ../functions.php:341
+msgid "Flag"
+msgstr "Lipp"
+
+#: ../functions.php:355
+msgid "Delete"
+msgstr "Kustuta"
+
+#: ../functions.php:359
+msgid "No subscriptions."
+msgstr "Ühtegi tellimust."
+
+#: ../functions.php:387
+msgid "You have been unsubcribed from the mailing list"
+msgstr "Olete meelespea nimekirjast eemaldatud"
+
+#: ../functions.php:388
+msgid "Close"
+msgstr "Sulge"
+
+#: ../functions.php:408
+msgid "You have successfully subscribed"
+msgstr "Oled edukalt infolistiga liitunud"
+
+#: ../functions.php:408
+msgid "You have already subscribed"
+msgstr "Oled juba infolistiga liitunud"
+
+#: ../functions.php:409
+msgid "Your email is not valid"
+msgstr "E-posti aadress on vigane"
+
+#: ../functions.php:409
+msgid "Trying to hack ?"
+msgstr "Pikad näpud ?"
+
+#: ../functions.php:410
+msgid "Something went wrong, try again"
+msgstr "Süsteemiviga, proovige uuesti"
+
+#: ../functions.php:435
+msgid "Are you sure?"
+msgstr "Kas oled kindel ?"
+
+#: ../functions.php:436
+msgid "Pick a landing page image"
+msgstr "Vali maandumislehe pilt"
+
+#: ../functions.php:564
+msgid "Landing page"
+msgstr "Maandumisleht"
+
+#: ../functions.php:572
+msgid "Add to landing page"
+msgstr "Lisa maandumislehele"
+
+#: ../functions.php:589
+msgid "Youtube URL"
+msgstr "Youtube aadress"
+
+#: ../functions.php:593
+msgid "Pick a landing page menu"
+msgstr "Vali maandumislehe menüü"
+
+#: ../functions.php:595
+msgid "Disabled"
+msgstr "Keelatud"
+
+#: ../functions.php:616
+msgid "Pick landing page image"
+msgstr "Lisa pilt"
+
+#: ../functions.php:617
+msgid "Remove landing page image"
+msgstr "Eemalda pilt"
+
+#: ../landing-page.php:38
+msgid "Intrested in this curriculum ?"
+msgstr "Soovid õppida valitud erialal ?"
+
+#: ../landing-page.php:39
+msgid "SUBSCRIBE"
+msgstr "LIITU INFOLISTIGA"
+
+#: ../landing-page.php:49
+msgid "Listen to what others are saying."
+msgstr "Kuula, mida vilistlased arvavad."
+
+#: ../landing-page.php:50
+msgid "WATCH CLIP"
+msgstr "VAATA KLIPPI"
+
+#: ../search.php:22
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Otsingu tulemused: %s"
+
+#: ../search.php:51
+msgid ""
+"Sorry, but nothing matched your search criteria. Please try again with some "
+"different keywords."
+msgstr "Sisestatud otsingule ei leitud ühtegi vastet. Proovige uuesti."
+
+#: ../searchform.php:7
+msgid "Search"
+msgstr "Otsi"
