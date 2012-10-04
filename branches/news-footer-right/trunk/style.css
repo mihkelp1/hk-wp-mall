@@ -171,7 +171,7 @@ table {
 	/*border-left: 1px solid red;
 	border-right: 1px solid red;*/
 	width: 962px;
-	min-height: 517px;
+	min-height: 420px;
 	margin: auto;
 }
 
@@ -179,7 +179,7 @@ table {
 	background: url('images/footer.png') repeat-x;
 	height: 288px;
 	padding-top: 92px;
-	margin-top: -50px;
+	margin-top: -20px;
 }
 
 footer.page-footer {
@@ -220,11 +220,15 @@ footer.page-footer {
 
 .footer-right-menu {
 	width: 220px;
+	padding-right: 22px;
+}
+
+.footer-news-list {
+	width: 250px;
 }
 
 
 .footer-menus-wrapper {
-	width: 670px;
 	height: 230px;
 	float:left;
 }
@@ -543,6 +547,7 @@ strong {
 
 .content-home .aim a {
 	background-position: left 0px;
+	background-color: transparent !important;
 }
 
 .content-home .aim {
@@ -731,7 +736,7 @@ em {
 	background: url('images/video-button-hover.png') 0 25px no-repeat;
 }
 
-.landing-video-button a {
+.entry-content .landing-video-button a {
 	text-decoration: none;
 	font-size: 1.4em;
 	color: #FFF;
@@ -770,7 +775,7 @@ em {
 	background: url('images/reminder-button-hover.png') 0 25px no-repeat;
 }
 
-.landing-reminder-button a {
+.entry-content .landing-reminder-button a {
 	text-decoration: none;
 	font-size: 1.4em;
 	color: #FFF;

@@ -6,6 +6,8 @@
  * By Raido Kuli 2012
  */
 
+//TODO clean up slider files, styles, js and so on
+//TODO remove footer banner styles
 
 /**
  * Register 4 menus for using on the page
@@ -497,9 +499,9 @@ if ( !function_exists( 'wp_nav_menu_title' ) ) {
  * Build news list
  */
 
-function getNewsSlider() {
+function getLatestNews() {
 	$args = array(
-		'numberposts'     => 20,
+		'numberposts'     => 4,
 		'orderby'         => 'post_date',
 		'order'           => 'DESC',
 		'post_type'       => 'post',
@@ -507,14 +509,20 @@ function getNewsSlider() {
 	$posts = get_posts( $args );
 	
 	if ( $posts ) {
-		echo '<ul id="slider1">';
+		echo '<ul id="latest-news-footer">';
 		foreach( $posts as $post ) {
 			$notice_class = 'news-icon';
 			if ( in_category( 'teated', $post ) ) {
 				$notice_class = 'notice-icon';
 			}
-			echo '<li><a href="'.get_permalink( $post->ID ).'" title="'.$post->post_title.'"><div class="news-image '.$notice_class.'"></div><div class="news-notice-content">'.$post->post_title.'</div></a></li>';
+			echo '<li><a href="'.get_permalink( $post->ID ).'" title="'.$post->post_title.'">'.$post->post_title.'</a></li>';
 		}
+		// Get the ID of a given category
+   		$category_id = get_cat_ID( 'Uudised' );
+
+		// Get the URL of this category
+		$category_link = get_category_link( $category_id );
+		echo '<li style="margin-top: 20px; float: right;"><a href="'.$category_link.'">'.__( 'Read more', 'hk-wp-mall').' &#187;</a></li>';
 		echo '</ul>';
 	} else {
 		return false;

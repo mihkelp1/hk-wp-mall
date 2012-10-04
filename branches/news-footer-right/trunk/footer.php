@@ -18,18 +18,17 @@
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-middle' ); ?></h2>
 					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-middle', 'container_class' => 'footer-menu-container-middle' ) ); ?>
 				</nav>
-				<nav class="footer-nav-menu footer-nav-menu-padding footer-right-menu no-border">
+				<nav class="footer-nav-menu footer-nav-menu-padding footer-right-menu">
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-right' ); ?></h2>
 					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right' ) ); ?>
 				</nav>
+				<nav class="footer-nav-menu footer-nav-menu-padding footer-news-list no-border">
+					<h2 class="menu-title"><?php _e( 'News', 'hk-wp-mall' ); ?></h2>
+					<?php 
+						getLatestNews();
+					?>
+				</nav>
 			</div>
-		<div id="footer-banner">
-			<?php 
-				if ( function_exists( 'wp_bannerize' ) ) {
-					wp_bannerize( 'random=1&limit=1' ); 
-				}
-			?>
-		</div>
 		</footer>
 	</div>
 	<div id="sidebar-wrapper">
