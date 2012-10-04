@@ -350,10 +350,12 @@ footer.entry-meta {
 	font-size: 0.85em;
 	line-height: 1.7em;
 	margin-bottom: 20px;
+	padding-top: 20px;
 }
 
 .entry-content p {
-	padding: 20px 0px 6px 0px;
+	padding-bottom: 13px;
+	padding-top: 10px;
 }
 
 strong {
@@ -663,9 +665,15 @@ strong {
 }
 
 .entry-content ul {
-	margin-top: 20px;
-/*	margin: 20px 0px 20px 0px;*/
+	/* No styles */
 }
+
+/* Entry content li ul child elements dont need margin */
+
+.entry-content ul li ul {
+	margin: 0px;
+}
+
 
 .entry-content ul li {
 	background: url('images/list-bulletin.png') left 6px no-repeat;
