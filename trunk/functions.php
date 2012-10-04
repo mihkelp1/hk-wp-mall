@@ -534,11 +534,43 @@ function getLatestNews() {
  */
  
 function getArchiveLeftMenu() {
-	the_widget( 'WP_Widget_Archives', array('count' => 0 , 'dropdown' => 1, 'title' => ' ' ) );
+	?>
+	
+	<?php
 	the_widget('WP_Widget_Calendar');
+	
+	echo '<div class="widget entry-content" style="margin-top: -20px">';
+	echo '<ul>';
+	wp_get_archives( 'type=yearly&show_post_count=1' );
+	echo '<ul>';
+	echo '</div>';
+	
 	the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
+	
 	echo '<div class="widget">';
 	wp_list_categories('feed_image='.get_bloginfo('template_directory').'/images/rss.png&children=0&exclude=1&show_count&title_li=<h2 class="feeds-title"></h2>');
+	echo '</div>';
+}
+
+/**
+ * Print pagination HTML for archives
+ */
+ 
+function getPaginationHTML() {
+	global $wp_query;
+	
+	echo '<div class="pagination">';
+	echo '<div class="pagination-align">';
+	$big = 999999999; // need an unlikely integer
+	echo paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'end_size' => 2,
+		'mid_size' => 3,
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages
+	) );
+	echo '</div>';
 	echo '</div>';
 }
 

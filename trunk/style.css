@@ -685,6 +685,7 @@ strong {
 	background: url('images/list-bulletin.png') left 6px no-repeat;
 	padding: 2px 10px 2px 22px
 }
+
 .landing-page {
 	margin-top: 37px;
 }
@@ -967,7 +968,7 @@ td {
 /* End of Facebook */
 
 /* Link color inside content div */
-.entry-content a {
+.entry-content a, .pagination a {
 	color: #008cdd;
 }
 
@@ -977,4 +978,16 @@ td {
 
 .single-latest-news ul {
 	margin-top: 20px;
+}
+
+.tag-title {
+	float: left;
+}
+
+.pagination {
+	margin-bottom: 10px;
+}
+
+.pagination-align {
+	float: right;
 }
