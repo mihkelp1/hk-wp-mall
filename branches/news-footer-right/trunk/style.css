@@ -596,7 +596,7 @@ strong {
 	text-decoration: none;
 }
 
-.widget a:hover, .entry-meta a:hover, #nav-single a:hover {
+.widget a:hover, .entry-meta a:hover, #nav-single a:hover, .pagination a:hover {
 	color: #0F66CE;
 }
 
@@ -986,6 +986,10 @@ td {
 
 .pagination {
 	margin-bottom: 10px;
+}
+
+.pagination a {
+	text-decoration: none;
 }
 
 .pagination-align {
