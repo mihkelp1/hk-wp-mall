@@ -72,3 +72,9 @@
 			?>
 	</footer><!-- .entry-meta -->
 </article><!-- #post-<?php the_ID(); ?> -->
+
+<?php if ( is_single() ) {
+	echo '<div class="entry-content single-latest-news">';
+	the_widget( 'WP_Widget_Recent_Posts', array( 'title' =>  __('Recent news', 'hk-wp-mall'), 'number' => 10 ), array('before_title' => '<h2 class="entry-title">', 'after_title' => '</h2>') );
+	echo '</div>';
+}
