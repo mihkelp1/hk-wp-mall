@@ -528,16 +528,19 @@ function getNewsSlider() {
  
 function getArchiveLeftMenu() {
 	the_widget('WP_Widget_Calendar');
+        
 	echo '<div class="widget entry-content" style="margin-top: -20px">';
 	echo '<ul>';
 	wp_get_archives( 'type=yearly&show_post_count=1' );
-	echo '<ul>';
+	echo '</ul>';
 	echo '</div>';
 	
 	the_widget( 'WP_Widget_Tag_Cloud', array( 'title' => ' ' ) );
 	
 	echo '<div class="widget">';
+	echo '<ul>';
 	wp_list_categories('feed_image='.get_bloginfo('template_directory').'/images/rss.png&children=0&exclude=1&show_count&title_li=<h2 class="feeds-title"></h2>');
+	echo '</ul>';
 	echo '</div>';
 }
 
