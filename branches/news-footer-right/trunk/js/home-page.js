@@ -4,7 +4,7 @@ $('div.aim').find('a:nth-child(-n+4)').each(function() {
 	//IF IE 9 > and other browsers
 	if (jQuery.support.leadingWhitespace) {
 		var old_bg = $(this).css('background-image');
-		$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall/images/home-nav-shadow.png") right -10px no-repeat,'+ old_bg + 'no-repeat' });
+		$(this).css({'background' : 'url("wp-content/themes/hk-wp-mall-news-right/images/home-nav-shadow.png") right -10px no-repeat,'+ old_bg + 'no-repeat' });
 	}
 	
 });

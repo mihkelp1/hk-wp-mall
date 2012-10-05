@@ -29,10 +29,7 @@
 	<div class="entry-content">
 		<?php
 			if ( has_post_thumbnail() ) {
-				if ( is_search() ) {
-					the_post_thumbnail( 'medium' );
-				} else {
-					the_post_thumbnail();
+					the_post_thumbnail('medium');
 				}
 			} 
 		?>

@@ -75,7 +75,7 @@ a:hover {
 	color: #FFF;
 	text-transform:uppercase;
 	font-size: 0.96em;
-	padding: 2px 0px 15px 0px;
+	padding: 2px 0px 10px 0px;
 }
 
 ol, ul {
@@ -179,7 +179,7 @@ table {
 	background: url('images/footer.png') repeat-x;
 	height: 288px;
 	padding-top: 92px;
-	margin-top: -20px;
+	margin-top: -65px;
 }
 
 footer.page-footer {
@@ -195,7 +195,7 @@ footer.page-footer {
 	width: 165px;
 	height: 240px;
 	line-height: 1.3em;
-	padding-top: 10px;
+	padding-top: 0px;
 	padding-bottom: 10px;
 	overflow: hidden;
 	vertical-align: top;
@@ -546,13 +546,13 @@ strong {
 
 /* Homepage image accordion menu */
 
+
 .content-home .aim a {
 	background-position: left 0px;
 	background-color: transparent !important;
 }
 
 .content-home .aim {
-	margin-top: 25px !important;
 	width: 1005px !important; 
 	left: -30px;
 }
@@ -574,11 +574,11 @@ strong {
 	font-weight: normal;
 	font-size: 1em;
 	height: auto;
-	bottom: 15px;
+	bottom: 30px;
 	left: 20px;
 	text-align: center;
 	width: 157px;
-	margin-top: 50px;
+	margin-top: 20px;
 	padding: 2px;
 	
 }
@@ -588,7 +588,7 @@ strong {
 }
 
 .content-home .aim a:last-child span {
-	bottom: -3px;
+	bottom: 12px;
 }
 
 .widget a, .entry-meta a, #nav-single a {
