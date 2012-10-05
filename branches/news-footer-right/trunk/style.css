@@ -1007,3 +1007,8 @@ td {
 	font-weight: bold;
 	font-size: 1.1em;
 }
+
+/* TODO make language independent close label for lightbox */
+#jqlb_closelabel {
+	/*background-image: url('images/closelabel.gif') !important;*/
+}
