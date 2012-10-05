@@ -11,6 +11,19 @@
 
 require_once( 'class-menu-walker.php' );
 
+/* Disable some dashboard widgets */
+
+function disable_dashboard_widgets() {
+        remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+        remove_meta_box( 'dashboard_secondary', 'dashboard', 'side' );
+        remove_meta_box( 'dashboard_plugins', 'dashboard', 'normal' );
+} 
+
+add_action('wp_dashboard_setup', 'disable_dashboard_widgets' );
+
+/* EOF Hook into the 'wp_dashboard_setup' action to register our function */
+
+
 /*
  * Disable some permissions and pages we dont need
  */
