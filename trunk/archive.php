@@ -19,7 +19,7 @@ get_header(); ?>
 			<?php if ( have_posts() ) : ?>
 
 				<header class="content-news-header">
-					<h1 class="page-title">
+					<div class="tag-title">
 						<?php if ( is_day() ) : ?>
 							<?php echo '<span>' . get_the_date() . '</span>'; ?>
 						<?php elseif ( is_month() ) : ?>
@@ -31,7 +31,8 @@ get_header(); ?>
 								single_tag_title();
 							?>
 						<?php endif; ?>
-					</h1>
+					</div>
+					<?php getPaginationHTML(); ?>
 				</header>
 
 				<?php /* Start the Loop */ ?>
@@ -45,8 +46,9 @@ get_header(); ?>
 						get_template_part( 'content', 'single' );
 					?>
 
-				<?php endwhile; ?>
-
+				<?php endwhile;
+					getPaginationHTML();
+				?>
 			<?php else : ?>
 
 				<article id="post-0" class="post no-results not-found">
