@@ -534,9 +534,6 @@ function getLatestNews() {
  */
  
 function getArchiveLeftMenu() {
-	?>
-	
-	<?php
 	the_widget('WP_Widget_Calendar');
 	
 	echo '<div class="widget entry-content" style="margin-top: -20px">';
