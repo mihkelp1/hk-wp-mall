@@ -11,6 +11,34 @@
 
 require_once( 'class-menu-walker.php' );
 
+/*
+ * Disable some permissions and pages we dont need
+ */
+
+function give_editor_role_permissions() {
+        if(current_user_can('edit_others_posts')) {
+                global $wp_roles;
+                $wp_roles->add_cap('editor','edit_theme_options' );
+                $wp_roles->add_cap('editor', 'manage_options' );
+                $wp_roles->remove_cap('editor', 'edit_themes' );
+                $wp_roles->remove_cap('editor', 'manage_links' );
+        }
+}
+
+add_action('admin_init', 'give_editor_role_permissions', 10, 0);
+
+add_action( 'admin_menu', 'removeMenuPages' );
+
+function removeMenuPages() {
+	remove_menu_page('link-manager.php');
+	if ( !is_super_admin() ) {
+		remove_menu_page('tools.php');
+	}
+}
+
+
+/* EOF */
+
 /**
  * Register 4 menus for using on the page
  *
