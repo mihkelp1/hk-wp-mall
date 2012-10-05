@@ -11,7 +11,7 @@ get_header(); ?>
 
 <div class="main-content content-search">
 	<div class="page-left-menu">
-		<?php wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container' ) ); ?>
+		<?php wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container', 'fallback_cb' => false ) ); ?>
 	</div>
 	
 	<div class="page-inside-content">
