@@ -34,7 +34,7 @@
 			$menu_str = wp_list_pages( $args );
 			if ( empty( $menu_str ) ) {
 				echo '<div class="last-resort-menu-spacer"></div>';
-				wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container', 'fallback_cb' => false ) );
+				wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker()  ) );
 			} else {
 				echo $menu_str;
 			}

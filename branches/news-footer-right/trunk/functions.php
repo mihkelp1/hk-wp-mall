@@ -9,6 +9,8 @@
 //TODO clean up slider files, styles, js and so on
 //TODO remove footer banner styles
 
+require_once( 'class-menu-walker.php' );
+
 /**
  * Register 4 menus for using on the page
  *
@@ -663,7 +665,7 @@ function getLandingPageMenu( $page_id, $id_only = false ) {
 		return $menu_id;
 	}
 	if ( $menu_id ) {
-		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false ) );
+		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
 	}
 }
 
