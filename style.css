@@ -732,7 +732,7 @@ em {
 	background: url('images/video-button-hover.png') 0 25px no-repeat;
 }
 
-.landing-video-button a {
+.entry-content .landing-video-button a {
 	text-decoration: none;
 	font-size: 1.4em;
 	color: #FFF;
@@ -771,7 +771,7 @@ em {
 	background: url('images/reminder-button-hover.png') 0 25px no-repeat;
 }
 
-.landing-reminder-button a {
+.entry-content .landing-reminder-button a {
 	text-decoration: none;
 	font-size: 1.4em;
 	color: #FFF;
