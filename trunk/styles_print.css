@@ -28,3 +28,18 @@ body {
 .posted-on {
 	float: none;
 }
+
+a:link, a:visited {
+	background: transparent;
+	color: #000;
+	text-decoration: underline;
+}
+
+.entry-content a:link:after, .entry-content a:visited:after {
+   content: " (" attr(href) ") ";
+   font-size: 90%;
+}
+
+.entry-content a[href^="/"]:after {
+   content: " (http://www.hk.tlu.ee" attr(href) ") ";
+}
