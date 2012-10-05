@@ -193,7 +193,7 @@ footer.page-footer {
 	display: inline-block;
 	border-right: 1px solid #FFF;
 	width: 165px;
-	height: 240px;
+	height: 260px;
 	line-height: 1.3em;
 	padding-top: 0px;
 	padding-bottom: 10px;
@@ -321,7 +321,7 @@ ul.children li a:hover {
 	padding-left: 25px;
 	display: inline-block;
 	width: 690px;
-	padding-bottom: 25px;
+	padding-bottom: 45px;
 }
 
 .entry-title {
@@ -561,7 +561,7 @@ strong {
 }
 
 .content-home .aim a, .content-home .aim {
-	height: 405px !important;
+	height: 385px !important;
 	margin-bottom: 5px;
 }
 
@@ -577,11 +577,10 @@ strong {
 	font-weight: normal;
 	font-size: 1em;
 	height: auto;
-	bottom: 30px;
+	bottom: 15px;
 	left: 20px;
 	text-align: center;
 	width: 157px;
-	margin-top: 20px;
 	padding: 2px;
 	
 }
@@ -591,7 +590,7 @@ strong {
 }
 
 .content-home .aim a:last-child span {
-	bottom: 12px;
+	bottom: -2px;
 }
 
 .widget a, .entry-meta a, #nav-single a {
