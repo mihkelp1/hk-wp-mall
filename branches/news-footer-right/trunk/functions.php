@@ -511,18 +511,9 @@ function getLatestNews() {
 	if ( $posts ) {
 		echo '<ul id="latest-news-footer">';
 		foreach( $posts as $post ) {
-			$notice_class = 'news-icon';
-			if ( in_category( 'teated', $post ) ) {
-				$notice_class = 'notice-icon';
-			}
 			echo '<li><a href="'.get_permalink( $post->ID ).'" title="'.$post->post_title.'">'.$post->post_title.'</a></li>';
 		}
-		// Get the ID of a given category
-   		$category_id = get_cat_ID( 'Uudised' );
-
-		// Get the URL of this category
-		$category_link = get_category_link( $category_id );
-		echo '<li style="margin-top: 20px; float: right;"><a href="'.$category_link.'">'.__( 'Read more', 'hk-wp-mall').' &#187;</a></li>';
+		echo '<li style="margin-top: 20px; float: right;"><a href="'.get_year_link('').'">'.__( 'Read more', 'hk-wp-mall').' &#187;</a></li>';
 		echo '</ul>';
 	} else {
 		return false;
