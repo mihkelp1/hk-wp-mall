@@ -2,7 +2,9 @@
 
 class isDraftMenuWalker extends Walker_Nav_Menu {
 
-  function start_el(&$output, $item, $depth, $args) {
+	/* Override start_el method */
+	
+	function start_el(&$output, $item, $depth, $args) {
 	   global $wp_query;
 	   if ( !$this->isObjectDraft( $item->object_id ) ) {
 		   	$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
@@ -31,6 +33,17 @@ class isDraftMenuWalker extends Walker_Nav_Menu {
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 	}
+	
+	/* Override end_el method */
+	
+	function end_el(&$output, $item, $depth, $args) {
+		global $wp_query;
+		if ( !$this->isObjectDraft( $item->object_id ) ) {
+			$output .= apply_filters( 'walker_nav_menu_end_el', $item_output, $item, $depth, $args );
+		}
+	
+	}
+
 	
 	private function isObjectDraft( $object_id ) {
 		$page = get_page( $object_id );
