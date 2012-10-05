@@ -31,7 +31,7 @@
 			if ( has_post_thumbnail() ) {
 				$url = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 				echo '<a href="'.$url.'" rel="lightbox['.$post->ID.']" title="'.$post->post_title.'">';
-					the_post_thumbnail('medium');
+				the_post_thumbnail('medium');
 				echo '</a>';
 			} 
 		?>
