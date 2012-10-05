@@ -8,7 +8,7 @@ get_header(); ?>
 <div class="main-content content-404">
 
 	<div class="page-left-menu">
-		<?php wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container', 'fallback_cb' => false ) ); ?>
+		<?php wp_nav_menu( array( 'theme_location' => 'last-resort-menu', 'container_class' => 'last-resort-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) ); ?>
 	</div>
 	<div class="page-inside-content">
 		<article id="post-0" class="post error404 not-found">

@@ -64,7 +64,7 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 	<header class="page-header">
 	<a href="<?php echo home_url(); ?>"><img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" /></a>
 		<nav id="header-menu">
-			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container', 'fallback_cb' => false ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) ); ?>
 		</nav>
 		<div id="rollout-searchform" style="display:none;">
 			<?php get_search_form(); ?>
@@ -74,5 +74,5 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 	<div id="page-content">
 	
 		<?php if ( !is_home() && !is_page_template( 'landing-page.php' ) ) { ?>
-			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container', 'fallback_cb' => false ) ); ?>
+			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) ); ?>
 		<?php } ?>
