@@ -12,15 +12,15 @@
 			<div class="footer-menus-wrapper">
 				<nav class="footer-nav-menu">
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-left' ); ?></h2>
-					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-left', 'container_class' => 'footer-menu-container-left' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-left', 'container_class' => 'footer-menu-container-left', 'fallback_cb' => false ) ); ?>
 				</nav>
 				<nav class="footer-nav-menu footer-nav-menu-padding footer-nav-menu-middle">
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-middle' ); ?></h2>
-					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-middle', 'container_class' => 'footer-menu-container-middle' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-middle', 'container_class' => 'footer-menu-container-middle', 'fallback_cb' => false ) ); ?>
 				</nav>
 				<nav class="footer-nav-menu footer-nav-menu-padding footer-right-menu">
 					<h2 class="menu-title"><?php echo wp_nav_menu_title( 'footer-menu-right' ); ?></h2>
-					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu-right', 'container_class' => 'footer-menu-container-right', 'fallback_cb' => false ) ); ?>
 				</nav>
 				<nav class="footer-nav-menu footer-nav-menu-padding footer-news-list no-border">
 					<h2 class="menu-title"><?php _e( 'News', 'hk-wp-mall' ); ?></h2>

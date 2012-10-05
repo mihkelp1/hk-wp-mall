@@ -520,6 +520,7 @@ function getLatestNews() {
 	}
 }
 
+
 /**
  * Output Archive left menu
  */
@@ -662,7 +663,7 @@ function getLandingPageMenu( $page_id, $id_only = false ) {
 		return $menu_id;
 	}
 	if ( $menu_id ) {
-		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu' ) );
+		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false ) );
 	}
 }
 
