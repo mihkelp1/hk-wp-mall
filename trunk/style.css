@@ -344,11 +344,13 @@ ul.children li a:hover {
 footer.entry-meta {
 	margin-bottom: 20px;
 	float: none;
+	clear:both;
 }
 
 .posted-on {
 	margin-top: 10px;
 	float:right;
+	clear:both;
 }
 
 .entry-content {
