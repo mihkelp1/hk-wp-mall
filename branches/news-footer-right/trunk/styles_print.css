@@ -20,3 +20,11 @@ body {
 	margin: 1.54cm;
 	font-size: 14pt !important;
 }
+
+.pagination, #likebox-frame {
+	display: none;
+}
+
+.posted-on {
+	float: none;
+}
