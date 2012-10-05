@@ -73,6 +73,6 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 	
 	<div id="page-content">
 	
-		<?php if ( !is_home() && !is_page_template( 'landing-page.php' ) ) { ?>
+		<?php if ( !is_home() ) { ?>
 			<?php wp_nav_menu( array( 'theme_location' => 'nav-menu', 'container_class' => 'nav-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker()  ) ); ?>
 		<?php } ?>
