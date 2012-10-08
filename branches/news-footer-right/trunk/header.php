@@ -2,6 +2,7 @@
 /**
  * The Header for our theme.
  */
+ 
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -55,6 +56,13 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 </script>
 <![endif]-->
 
+<?php 
+ if ( get_bloginfo('language') == 'et' ) {
+ 	echo '<style type="text/css">';
+ 	echo '#jqlb_closelabel { background-image: url("'.getFileUrl('/images/lightbox-close-et.png').'"); }';
+ 	echo '</style>';
+ }
+?>
 
 </head>
 
