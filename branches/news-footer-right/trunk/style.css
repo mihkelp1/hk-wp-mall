@@ -995,13 +995,19 @@ td {
 
 #latest-news-footer li a {
 	display: inline-block;
-	width: 90%;
+	width: 95%;
 }
 
 #latest-news-footer li:last-child {
 	margin-top: 10px; 
-	float: right;
+	text-align: right;
+	width: 100%;
 }
+
+#latest-news-footer li:last-child:before {
+	content: '';
+}
+
 
 .tag-title {
 	float: left;
