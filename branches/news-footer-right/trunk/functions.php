@@ -556,7 +556,7 @@ function getLatestNews() {
 		foreach( $posts as $post ) {
 			echo '<li><a href="'.get_permalink( $post->ID ).'" title="'.$post->post_title.'">'.$post->post_title.'</a></li>';
 		}
-		echo '<li style="margin-top: 20px; float: right;"><a href="'.get_year_link('').'">'.__( 'Read more', 'hk-wp-mall').' &#187;</a></li>';
+		echo '<li><a href="'.get_year_link('').'">'.__( 'Read more', 'hk-wp-mall').' &#187;</a></li>';
 		echo '</ul>';
 	} else {
 		return false;
