@@ -336,16 +336,25 @@ function checkForFlagDelete() {
 		
 		if ( $_POST['hk_action'] === 'send_email_reminder' ) {
 			$subject = sanitize_text_field( $_POST['hk-reminder-subject'] );
+			HK_Reminders::storeTitle( $subject );
 			$body = strip_tags( $_POST['hk-reminder-body'] );
+			HK_Reminders::storeBody( $body );
+			$status_code = 1;
 			if ( !empty( $subject ) && !empty( $body ) ) {
 				$remindees = HK_Reminders::getAll();
 				foreach( $remindees as $remindee ) {
 					$msg_out = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $remindee->email ) ), home_url() ).'">'.__( 'click here', 'hk-wp-mall' ).'</a>', $body );
 					$reminder_send_success = HK_Reminders::send_mail( $remindee->email, $subject, $msg_out );
 				}
+				HK_Reminders::addToHistory( count( $remindees ) );
 			}
-			HK_Reminders::addToHistory( count( $remindees ) );
-			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send', 'hk_msg' => 1), admin_url('admin.php') ));
+			if ( empty( $subject ) ) {
+				$status_code = 2;
+			}
+			if ( empty( $body ) ) {
+				$status_code = 3;
+			}
+			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send', 'hk_msg' => $status_code ), admin_url('admin.php') ));
 			die;
 		}
 	}
@@ -359,21 +368,35 @@ function sendEmailNotice() {
 			case 1:
 				$msg = __('Reminder email sent', 'hk-wp-mall');
 				break;
+			case 2:
+				$msg = __('Title is empty', 'hk-wp-mall');
+				break;
+			case 3:
+				$msg = __('Body is empty', 'hk-wp-mall');
+				break;
 		}
 		if ( $msg ) {
 			echo '<div class="updated">';
 			echo '<p><strong>'.$msg.'</strong></p></div>';
 		}
 	}
-	echo '<form action="" method="post">';
+	echo '<form id="hk-reminder-send" action="" method="post">';
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>'.__( 'Send reminder', 'hk-wp-mall').'</h2>';
 	echo '<p>'.sprintf( __( 'E-mail will be sent to <strong>%s subscribers</strong>', 'hk-wp-mall' ), HK_Reminders::getCountByFlag() ).'</p>';
 	echo '<p>'.__( 'Last e-mail was sent on ', 'hk-wp-mall' ).' <strong>'.formatDate( HK_Reminders::getLastSentDate() ).'</strong></p>';
+	echo '<p><strong>'.__( 'Last sent email content and title is kept by the system', 'hk-wp-mall').'</strong></p>';
 	echo '<p><strong>'.__('Subject', 'hk-wp-mall').'</strong></p>';
-	echo '<input type="text" name="hk-reminder-subject" style="width: 583px;" />';
+	echo '<input type="text" name="hk-reminder-subject" style="width: 583px;" value="'.HK_Reminders::getTitle().'" />';
 	echo '<p><strong>'.__('Message', 'hk-wp-mall').'</strong></p>';
-	echo '<textarea name="hk-reminder-body" cols="80" rows="8">'.__("Dear ...\n\n You would like you inform...\n\n Do unsubcribe from the list {unsubscribe_link}", 'hk-wp-mall').'</textarea>';
+	echo '<textarea name="hk-reminder-body" cols="80" rows="8">';
+	
+	if ( $body = HK_Reminders::getBody() ) {
+		echo $body;
+	} else {
+		echo __("Dear ...\n\nYou would like you inform...\n\nDo unsubcribe from the list {unsubscribe_link}", 'hk-wp-mall');
+	}
+	echo '</textarea>';
 	echo '<p><span class="description">'.__( 'Available shortcodes: <strong>{unsubscribe_link}</strong> - will be replaced with unsubcribe link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).' ';
 	echo __( '<strong>Footer</strong> is added to the outgoing message <strong>automatically.</strong>', 'hk-wp-mall' );
 	echo '</span></p>';
@@ -509,23 +532,18 @@ add_action( 'wp_enqueue_scripts', 'loadAndRegisterJavaScripts' );
  * Register scripts and css loading for admin side
  */
 
-function adminScriptsCSS( $hook ) {
-	//Load only on post.php page
-	if ( $hook == 'post.php' ) {
-		//Load only if dealing with landing page
-		if ( editorInLandingPage() ) {
-			//Load admin scripts
-			wp_register_script( 'hk-admin-scripts', get_template_directory_uri().'/js/admin-scripts.js', array( 'jquery' ) );
-			wp_enqueue_script( 'hk-admin-scripts' );
-			$translation_array = array( 'areYouSure' => __('Are you sure?', 'hk-wp-mall'),
-				'pickLandingImage' => __('Pick a landing page image', 'hk-wp-mall'));
-			wp_localize_script( 'hk-admin-scripts', 'hkAdmin', $translation_array );
-			
-			//Load some admin css styles
-			wp_register_style( 'hk-admin-css', get_template_directory_uri(). '/admin-styles.css' );
-			wp_enqueue_style( 'hk-admin-css' );
-		}
-	}
+function adminScriptsCSS( $hook ) {	
+	wp_register_script( 'hk-admin-scripts', get_template_directory_uri().'/js/admin-scripts.js', array( 'jquery' ) );
+	wp_enqueue_script( 'hk-admin-scripts' );
+	
+	$translation_array = array( 'areYouSure' => __('Are you sure?', 'hk-wp-mall'),
+				'pickLandingImage' => __('Pick a landing page image', 'hk-wp-mall'),
+				'isLandingPage' => editorInLandingPage() ? 'true' : 'false' );
+	wp_localize_script( 'hk-admin-scripts', 'hkAdmin', $translation_array );
+	
+	//Load some admin css styles
+	wp_register_style( 'hk-admin-css', get_template_directory_uri(). '/admin-styles.css' );
+	wp_enqueue_style( 'hk-admin-css' );
 }
 
 add_action( 'admin_enqueue_scripts', 'adminScriptsCSS' );
