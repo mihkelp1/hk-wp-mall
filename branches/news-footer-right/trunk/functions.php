@@ -477,14 +477,10 @@ function createRemindersPage() {
 
 function loadAndRegisterJavaScripts() {	
 	if ( is_home() ) {
-		wp_register_script( 'jquery-easing', get_template_directory_uri().'/js/jquery.bxSlider/jquery.easing.1.3.js', array( 'jquery' ) );
-		wp_register_script( 'jquery-bxSlider', get_template_directory_uri().'/js/jquery.bxSlider/jquery.bxSlider.min.js', array( 'jquery' ) );
 		wp_register_script( 'jquery-overflow', get_template_directory_uri().'/js/jquery.hoverflow.min.js', array( 'jquery' ));
 		//Load home-script in footer, so ensure proper execution
 		wp_register_script( 'hk-home-script', get_template_directory_uri().'/js/home-page.js', array( 'jquery' ), false, true );
 		
-		wp_enqueue_script( 'jquery-easing' );
-		wp_enqueue_script( 'jquery-bxSlider' );
 		wp_enqueue_script( 'jquery-overflow' );
 		wp_enqueue_script( 'hk-home-script' );
 		
@@ -554,11 +550,6 @@ add_action( 'admin_enqueue_scripts', 'adminScriptsCSS' );
 function loadAndRegisterCSS() {
 	wp_register_style( 'print-css', get_template_directory_uri(). '/styles_print.css', false, false, 'print' );
 	wp_enqueue_style( 'print-css' );
-	
-	if ( is_home() ) {
-		wp_register_style( 'jquery.bxSlider', get_template_directory_uri(). '/js/jquery.bxSlider/bx_styles/bx_styles.css' );
-		wp_enqueue_style( 'jquery.bxSlider' );
-	}
 	
 	if ( is_page_template( 'landing-page.php' ) || isSet( $_GET['unsubscribe'] ) ) {
 		wp_register_style( 'jquery.ui.css', get_template_directory_uri(). '/css/ui-custom-theme/jquery-ui-1.8.23.custom.css' );
