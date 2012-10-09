@@ -34,10 +34,6 @@ get_header(); ?>
 						<?php
 							do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
 						?>
-						<div class="landing-reminder-button" id="landing-reminder-button">
-							<div><?php _e( 'Intrested in this curriculum ?', 'hk-wp-mall' ); ?></div>
-							<a href="#" id="subscribeReminder"><?php _e( 'SUBSCRIBE', 'hk-wp-mall' ); ?></a>
-						</div>
 						
 						<?php 
 							if ( has_youtube_video() ) {

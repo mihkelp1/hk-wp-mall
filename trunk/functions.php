@@ -118,6 +118,11 @@ function contactsListFilter( $html ) {
 add_action( 'admin_menu', 'createReminderMenu' );
 
 function reminder_shortcode( $atts ) {
+	//If not enabled, bail out
+	if ( !HK_Reminders::isEnabled() ) {
+		return;
+	}
+	
 	extract( shortcode_atts( array(
 		'flag' => '-',
 		'text' => ''
@@ -135,7 +140,15 @@ function reminder_shortcode( $atts ) {
 	echo '';
 	echo '<input type="submit" value="'.__( 'Subscribe', 'hk-wp-mall' ).'" style="float: right;" class="visible" id="hk-submit-btn" />';
 	echo '</form></div>';
+	
+	?>
+	<div class="landing-reminder-button" id="landing-reminder-button">
+		<div><?php _e( 'Intrested in this curriculum ?', 'hk-wp-mall' ); ?></div>
+		<a href="#" id="subscribeReminder"><?php _e( 'SUBSCRIBE', 'hk-wp-mall' ); ?></a>
+	</div>
+	<?php
 }
+
 add_shortcode( 'hk_reminder', 'reminder_shortcode' );
 
 /* Enable reminders subscription ajax calls for both logged not logged in users */
@@ -200,6 +213,9 @@ add_action( 'admin_init', 'registerReminderSettings' );
 
 function registerReminderSettings() {
 	register_setting( 'hk-reminders', 'hk-reminders', 'sanitizeSettings' );
+	
+	add_settings_section( 'hk-reminders-enable', '', 'enableDisableHeader', 'hk-reminders' );
+	add_settings_field( 'hk-reminders-config', __( "Enable reminders", 'hk-wp-mall' ), 'printEnableDisableField', 'hk-reminders', 'hk-reminders-enable', array( 'label_for' => 'hk-reminders-enabled' ) );
 	add_settings_section( 'hk-reminders-modal', '', 'accountSettingsHeader', 'hk-reminders' );
 	add_settings_field( 'modal-welcome-text', __( "Modal welcome text", 'hk-wp-mall' ), 'printModalWelcomeField', 'hk-reminders', 'hk-reminders-modal', array( 'label_for' => 'modal-welcome-text' ) );
 	add_settings_section( 'hk-reminders-confirm-email', '', 'confirmTitle', 'hk-reminders' );
@@ -218,6 +234,17 @@ function registerReminderSettings() {
 /**
  * Print account settings section header
  */
+ 
+function enableDisableHeader() {
+	echo '<h3>'.__( 'Enable reminders', 'hk-wp-mall' ).'</h3>';
+}
+
+function printEnableDisableField() {
+	$value = HK_Reminders::getSetting('enabled');
+	echo '<input type="hidden" name="hk-reminders[enabled]" value="0" />';
+	echo '<input type="checkbox" name="hk-reminders[enabled]" id="hk-reminders-enabled" style="width: 572px" value="1" '.( $value == 1 ? 'checked' : '' ).' />';
+    echo '<p><span class="description">'.__( 'Enable or disable reminders functionality.', 'hk-wp-mall' ).'</span></p>';
+}
  
 function accountSettingsHeader() {
 	echo '<h3>'.__( 'Subscribe popup', 'hk-wp-mall' ).'</h3>';
@@ -241,7 +268,7 @@ function printModalWelcomeField() {
 }
 
 function confirmEmailSubject() {
-	echo '<input name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
+	echo '<input type="text" name="hk-reminders[confirmation-email-subject]" id="confirmation-email-subject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-subject').'" />';
     echo '<p><span class="description">'.__( 'Enter confirmation email subject here to be sent out to subscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 
@@ -252,7 +279,7 @@ function printConfirmationUnEmail() {
 }
 
 function confirmEmailUnSubject() {
-	echo '<input name="hk-reminders[confirmation-email-unsubject]" id="confirmation-email-unsubject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-unsubject').'" />';
+	echo '<input type="text" name="hk-reminders[confirmation-email-unsubject]" id="confirmation-email-unsubject" style="width: 572px" value="'.HK_Reminders::getSetting('confirmation-email-unsubject').'" />';
     echo '<p><span class="description">'.__( 'Enter unsubscribe email subject here to be sent out to unsubscribed user.', 'hk-wp-mall' ).'</span></p>';
 }
 

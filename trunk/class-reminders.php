@@ -128,6 +128,10 @@ class HK_Reminders {
 		$message = nl2br( $message );
 		return wp_mail( $to, $subject, $message, $headers );
 	}
+	
+	public static function isEnabled() {
+		return (bool) self::getSetting( 'enabled' );
+	}
 }
 
 ?>
