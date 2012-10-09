@@ -286,7 +286,7 @@ function confirmEmailUnSubject() {
 /* Subscribe email body field */
 function printConfirmationEmail() {
 	echo '<textarea name="hk-reminders[confirmation-email]" id="confirmation-email" cols="80" rows="8">'.HK_Reminders::getSetting('confirmation-email').'</textarea>';
-    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
+    echo '<p><span class="description">'.__( 'Enter confirmation email body here to be sent out to subscribed user. <strong>{unsubscribe_link}</strong> will be replaced with unsubscribe link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).'</span></p>';
 }
 
 /* Email footer field */
@@ -336,11 +336,12 @@ function checkForFlagDelete() {
 		
 		if ( $_POST['hk_action'] === 'send_email_reminder' ) {
 			$subject = sanitize_text_field( $_POST['hk-reminder-subject'] );
-			$body = sanitize_text_field( $_POST['hk-reminder-body'] );
+			$body = strip_tags( $_POST['hk-reminder-body'] );
 			if ( !empty( $subject ) && !empty( $body ) ) {
 				$remindees = HK_Reminders::getAll();
 				foreach( $remindees as $remindee ) {
-					$reminder_send_success = HK_Reminders::send_mail( $remindee->email, $subject, $body );
+					$msg_out = str_replace( '{unsubscribe_link}', '<a href="'.add_query_arg( array('unsubscribe' => md5( $remindee->email ) ), home_url() ).'">'.__( 'click here', 'hk-wp-mall' ).'</a>', $body );
+					$reminder_send_success = HK_Reminders::send_mail( $remindee->email, $subject, $msg_out );
 				}
 			}
 			HK_Reminders::addToHistory( count( $remindees ) );
@@ -360,7 +361,10 @@ function sendEmailNotice() {
 	echo '<p><strong>'.__('Subject', 'hk-wp-mall').'</strong></p>';
 	echo '<input type="text" name="hk-reminder-subject" style="width: 583px;" />';
 	echo '<p><strong>'.__('Message', 'hk-wp-mall').'</strong></p>';
-	echo '<textarea name="hk-reminder-body" cols="80" rows="8"></textarea>';
+	echo '<textarea name="hk-reminder-body" cols="80" rows="8">'.__("Dear ...\r\n\r\n You would like you inform...\r\n\r\n Do unsubcribe from the list {unsubscribe_link}").'</textarea>';
+	echo '<p><span class="description">'.__( 'Available shortcodes: <strong>{unsubscribe_link}</strong> - will be replaced with unsubcribe link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).' ';
+	echo __( '<strong>Footer</strong> is added to the outgoing message <strong>automatically.</strong>', 'hk-wp-mall' );
+	echo '</span></p>';
 	echo '<p><input type="submit" value="'.__('Send', 'hk-wp-mall').'" /></p>';
 	echo '</div>';
 }
