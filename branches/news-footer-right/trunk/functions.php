@@ -345,7 +345,7 @@ function checkForFlagDelete() {
 				}
 			}
 			HK_Reminders::addToHistory( count( $remindees ) );
-			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send'), admin_url('admin.php') ));
+			header('Location: '.add_query_arg( array( 'page' => 'hk-reminders-send', 'hk_msg' => 1), admin_url('admin.php') ));
 			die;
 		}
 	}
@@ -353,6 +353,18 @@ function checkForFlagDelete() {
 
 function sendEmailNotice() {
 	echo '<div class="wrap">';
+	if ( isSet($_GET['hk_msg']) ) {
+		$msg = false;
+		switch( intval( $_GET['hk_msg'] ) ) {
+			case 1:
+				$msg = __('Reminder email sent', 'hk-wp-mall');
+				break;
+		}
+		if ( $msg ) {
+			echo '<div class="updated">';
+			echo '<p><strong>'.$msg.'</strong></p></div>';
+		}
+	}
 	echo '<form action="" method="post">';
 	echo '<input type="hidden" name="hk_action" value="send_email_reminder" />';
 	echo '<h2>'.__( 'Send reminder', 'hk-wp-mall').'</h2>';
