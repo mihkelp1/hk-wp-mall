@@ -782,4 +782,24 @@ function formatDate( $timestamp, $with_time = false ) {
 	}
 }
 
+/*
+ * the_author and the_author_email filters
+ *
+ * we only need one author which is TLU Haapsalu College - kolledz@hk.tlu.ee
+ *
+ * This ensures no matter who creates post, it will be served like college is the author.
+ */
+
+add_filter( 'the_author', 'override_author', 10, 1 );
+
+function override_author( $author ) {
+	return __('TLU Haapsalu College', 'hk-wp-mall' );
+}
+
+add_filter( 'the_author_email', 'override_author_email', 10, 1 );
+
+function override_author_email( $author_email ) {
+	return 'kolledz@hk.tlu.ee';
+}
+
 ?>
