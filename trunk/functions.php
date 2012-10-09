@@ -200,9 +200,8 @@ function subscribeReminderFunc() {
 
 
 function createReminderMenu() {
-	//TODO fix permission, create custom permission instead of using read permission ??
-	add_menu_page( __( 'Reminders', 'hk-wp-mall' ), __( 'Reminders', 'hk-wp-mall' ), 'read', 'hk-reminders', 'createRemindersPage');
-	add_submenu_page( 'hk-reminders', __( 'Subscribed', 'hk-wp-mall' ), __( 'Subscribed', 'hk-wp-mall' ), 'read', 'hk-reminders', 'createRemindersPage');
+	add_menu_page( __( 'Reminders', 'hk-wp-mall' ), __( 'Reminders', 'hk-wp-mall' ), 'edit_others_posts', 'hk-reminders', 'createRemindersPage');
+	add_submenu_page( 'hk-reminders', __( 'Subscribed', 'hk-wp-mall' ), __( 'Subscribed', 'hk-wp-mall' ), 'edit_others_posts', 'hk-reminders', 'createRemindersPage');
 	add_submenu_page( 'hk-reminders', '', __( 'Send reminder', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-send', 'sendEmailNotice');
 	add_submenu_page( 'hk-reminders', '', __( 'History', 'hk-wp-mall' ), 'manage_options', 'hk-reminders-history', 'sentReminderHistory');
 	add_options_page(__ ('Reminders settings', 'hp-wp-mall'), __( 'Reminders', 'hk-wp-mall' ),'manage_options','hk-reminders-settings', 'createRemindersSettingsPage');
