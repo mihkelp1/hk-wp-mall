@@ -361,7 +361,7 @@ function sendEmailNotice() {
 	echo '<p><strong>'.__('Subject', 'hk-wp-mall').'</strong></p>';
 	echo '<input type="text" name="hk-reminder-subject" style="width: 583px;" />';
 	echo '<p><strong>'.__('Message', 'hk-wp-mall').'</strong></p>';
-	echo '<textarea name="hk-reminder-body" cols="80" rows="8">'.__("Dear ...\r\n\r\n You would like you inform...\r\n\r\n Do unsubcribe from the list {unsubscribe_link}").'</textarea>';
+	echo '<textarea name="hk-reminder-body" cols="80" rows="8">'.__("Dear ...\n\n You would like you inform...\n\n Do unsubcribe from the list {unsubscribe_link}", 'hk-wp-mall').'</textarea>';
 	echo '<p><span class="description">'.__( 'Available shortcodes: <strong>{unsubscribe_link}</strong> - will be replaced with unsubcribe link titled <strong>"click here"</strong>.', 'hk-wp-mall' ).' ';
 	echo __( '<strong>Footer</strong> is added to the outgoing message <strong>automatically.</strong>', 'hk-wp-mall' );
 	echo '</span></p>';
