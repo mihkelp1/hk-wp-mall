@@ -132,6 +132,22 @@ class HK_Reminders {
 	public static function isEnabled() {
 		return (bool) self::getSetting( 'enabled' );
 	}
+	
+	public static function storeTitle( $title ) {
+		update_option( 'hk-reminders-stored-title', $title );
+	}
+	
+	public static function getTitle() {
+		return get_option( 'hk-reminders-stored-title' );
+	}
+	
+	public static function storeBody( $body ) {
+		update_option( 'hk-reminders-stored-body', $body );
+	}
+	
+	public static function getBody() {
+		return get_option( 'hk-reminders-stored-body' );
+	}
 }
 
 ?>
