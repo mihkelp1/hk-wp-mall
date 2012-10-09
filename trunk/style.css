@@ -332,6 +332,7 @@ footer.entry-meta {
 }
 
 .entry-content {
+	text-align: justify;
 	font-size: 0.85em;
 	line-height: 1.7em;
 	margin-bottom: 20px;
