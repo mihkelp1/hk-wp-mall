@@ -6,8 +6,6 @@
  * By Raido Kuli 2012
  */
 
-//TODO clean up slider files, styles, js and so on
-//TODO remove footer banner styles
 
 require_once( 'class-menu-walker.php' );
 
@@ -25,7 +23,7 @@ add_action('wp_dashboard_setup', 'disable_dashboard_widgets' );
 
 
 /*
- * Disable some permissions and pages we dont need
+ * Disable some permissions and remove pages we dont need
  */
 
 function give_editor_role_permissions() {
@@ -33,6 +31,8 @@ function give_editor_role_permissions() {
                 global $wp_roles;
                 $wp_roles->add_cap('editor','edit_theme_options' );
                 $wp_roles->add_cap('editor', 'manage_options' );
+                $wp_roles->add_cap('editor', 'list_users' );
+                $wp_roles->add_cap('editor', 'edit_users' );
                 $wp_roles->remove_cap('editor', 'edit_themes' );
                 $wp_roles->remove_cap('editor', 'manage_links' );
         }
