@@ -79,4 +79,14 @@ jQuery(document).ready(function($){
 			$(this).focus();
 		}
 	});
+	
+	/**
+	 * Open external links in the new tab
+	 *
+	 * Only applies to links in the .entry-content divs
+	 */
+	 
+	$(".entry-content a").filter(function() {
+   		return this.hostname && this.hostname !== location.hostname;
+	}).attr('target', '_blank');
 });
