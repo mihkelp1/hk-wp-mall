@@ -17,6 +17,7 @@ get_header(); ?>
 
 			<header class="search-results-header">
 				<h1 class="entry-title"><?php printf( __( 'Search Results for: %s', 'hk-wp-mall' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+				<?php getPaginationHTML() ?>
 				<div class="entry-content">
 					<?php get_search_form(); ?>
 				</div><!-- .entry-content -->
@@ -36,6 +37,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
+			<?php getPaginationHTML() ?>
 
 		<?php else : ?>
 
