@@ -853,4 +853,15 @@ function override_author_email( $author_email ) {
 	return 'kolledz@hk.tlu.ee';
 }
 
+/**
+ * This method returns language with country
+ */
+
+function getFBLanguage() {
+	if ( get_bloginfo('language') == 'et' ) {
+		return 'et_EE';
+	}
+	return 'en_US';
+}
+
 ?>
