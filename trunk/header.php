@@ -17,7 +17,7 @@
 	// Add the blog name.
 	bloginfo( 'name' );
 	?></title>
-
+<meta name="description" content="<?php bloginfo('description'); ?>" />
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu+Condensed&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <link href="<?php bloginfo('rss2_url'); ?>" rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' )?>" />
 <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
