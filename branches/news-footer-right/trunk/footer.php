@@ -40,7 +40,7 @@
 			?>
 			<!-- Facebook plugin -->
 			<div id="likebox-frame">
-			<script src="http://connect.facebook.net/et_EE/all.js#xfbml=1" type="text/javascript"></script>
+			<script src="http://connect.facebook.net/<?php echo getFBLanguage(); ?>/all.js#xfbml=1" type="text/javascript"></script>
 			<script type="text/javascript">
 			//<![CDATA[
 				document.write('<fb:like-box href="http://www.facebook.com/kolledz" width="952" height="180" show_faces="true" stream="false" header="false"></fb:like-box>');
