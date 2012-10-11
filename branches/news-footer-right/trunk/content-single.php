@@ -9,7 +9,7 @@
 		<?php
 			if ( is_search() ) {
 		?>
-			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="search-article-header"><h1 class="entry-title"><?php the_title(); ?></h1></a>
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>" class="search-article-header"><h1 class="entry-title"><?php the_parentTitle( $post ); the_title(); ?></h1></a>
 		<?php
 			} else {
 		?>
