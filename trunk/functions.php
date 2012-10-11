@@ -864,4 +864,41 @@ function getFBLanguage() {
 	return 'en_US';
 }
 
+/**
+ * Filter search query
+ *
+ */
+
+function searchFilter( $query ) {
+    if ($query->is_search) {
+        $query->set( 'orderby', 'title' );
+        $query->set( 'order', 'asc' );
+    }
+    return $query;
+}
+
+add_filter( 'pre_get_posts', 'searchFilter', 10, 1 );
+
+/**
+ * Get post parent title
+ */
+
+function getParentTitle( $post ) {
+	if ( $post ) {
+		if ( $post->post_parent > 0 ) {
+			$parent = get_post( $post->post_parent );
+			if ( $parent ) {
+				return $parent->post_title;
+			}
+		}
+	}
+	return '';
+}
+
+function the_parentTitle( $post ) {
+	$parent_title = getParentTitle( $post );
+	if ( !empty( $parent_title ) ) {
+		echo getParentTitle( $post ).' &#8250; ';
+	}
+}
 ?>
