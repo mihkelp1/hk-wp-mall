@@ -239,6 +239,15 @@ footer.page-footer {
 	min-height: 20px;
 }
 
+#footer-sidebar div, #footer-sidebar a {
+	float: left;
+	margin-right: 5px;
+}
+
+#footer-sidebar img {
+	width: 16px;
+}
+
 #sidebar-wrapper {
 	width: 952px;
 	margin: auto;

@@ -19,5 +19,6 @@
 <?php if ( is_active_sidebar( 'footer-sidebar' ) ) : ?>
 <div id="footer-sidebar" class="widget-area" role="complementary">
 	<?php dynamic_sidebar( 'footer-sidebar' ); ?>
+	<a href="http://www.facebook.com/kolledz"><img src="<?php echo getFileURL('/images/f_logo.png'); ?>"/></a>
 </div><!-- #first .widget-area -->
 <?php endif; ?>
