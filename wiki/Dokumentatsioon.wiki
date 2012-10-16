@@ -22,7 +22,7 @@ http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2011.19.1
 
 === Media Upload Types moodul ===
 
-On vajalik, et saaks lubada doc, ppt, docx jt. faililaiendite ülelaadimine meedia teegi kaudu. Antud moodul *lisab funktsioone "Seaded->Meedia"* lehele.
+On vajalik, et saaks lubada doc, ppt, docx jt. faililaiendite ülelaadimine meedia teegi kaudu. Antud moodul *lisab funktsioone "Seaded->Meedia"* lehele. Vajalikud faililaiendid, mis tuleb lubada:
 
 {{{
 doc	application/msword
