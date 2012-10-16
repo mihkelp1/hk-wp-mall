@@ -1,4 +1,9 @@
-#summary Disainimalli dokumentatsioon
+#summary Paigaldus dokumentatsioon
+
+ # Paigalda Wordpress ja loo võrgustik - [http://codex.wordpress.org/Create_A_Network Create a network]
+ # Paigalda avalehel toodud lisamoodulid
+ # Loo alam lehekülg/blog/site "en" - http://www.hk.tlu.ee/en/
+ # Impordi XML formaadis sisu või taasta sisu MySQL tõmmisest.
 
 === People Lists moodul ===
 
