@@ -10,6 +10,7 @@ _Antud juhend eeldab Wordpress platvormiga eelnevat kogemust._
  # Impordi XML formaadis sisu või taasta sisu MySQL tõmmisest.
 
 === Üldised Wordpressi seadistused ===
+ * Seadista üldinfo kodulehe kohta asukohas "Seaded -> Üldine" - Lühikirjelduse/description välja kasutatakse <description meta tag-is>.
 
 *Kirjutus (Writing) seadistused*
 
