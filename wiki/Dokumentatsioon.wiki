@@ -7,6 +7,8 @@
  # Loo alam lehekülg/blog/site "en" - http://www.hk.tlu.ee/en/
  # Impordi XML formaadis sisu või taasta sisu MySQL tõmmisest.
 
+*Antud juhend eeldab Wordpressi platvormiga eelnevat kogemust*
+
 === People Lists moodul ===
 
 * Vajalikud lisa väljad profiilis: *
