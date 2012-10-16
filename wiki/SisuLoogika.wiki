@@ -1,5 +1,11 @@
 #summary Teema sisu üleehituse loogika.
 
+== Üldine ==
+
+ * Lähenemisnurk on eriala põhine.
+ * Postitused = Uudised
+ * Lehed ja alamlehed võrduvad kogu ülejäänud struktuur
+
 == Lehed ja alamlehed ==
 
 Lehte struktuur visuaalsel küljel on kahe tasandiline -
@@ -15,7 +21,7 @@ http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2014.34.4
  * -- Pealeht
  * --- Alamleht
 
-See on vajalik selleks, et kõik sisseastujale mõeldud lehed oleks sisseastuja loogilisesplokis.
+See on vajalik selleks, et näiteks kõik kolledžist mõeldud lehed oleks kolledžist loogilisesplokis.
 
 http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2014.39.44.png
 
