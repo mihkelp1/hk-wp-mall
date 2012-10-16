@@ -2,12 +2,36 @@
 
 === Alustuseks ===
 
+_Antud juhend eeldab Wordpress platvormiga eelnevat kogemust._
+
  # Paigalda Wordpress ja loo võrgustik - [http://codex.wordpress.org/Create_A_Network Create a network]
  # Paigalda avalehel toodud lisamoodulid
  # Loo alam lehekülg/blog/site "en" - http://www.hk.tlu.ee/en/
  # Impordi XML formaadis sisu või taasta sisu MySQL tõmmisest.
 
-_Antud juhend eeldab Wordpressi platvormiga eelnevat kogemust._
+=== Üldised Wordpressi seadistused ===
+
+*Kirjutus (Writing) seadistused*
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2011.15.12.png
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2011.19.12.png
+
+
+=== Media Upload Types moodul ===
+
+On vajalik, et saaks lubada doc, ppt, docx jt. faililaiendite ülelaadimine meedia teegi kaudu. Antud moodul *lisab funktsioone "Seaded->Meedia"* lehele.
+
+{{{
+doc	application/msword
+xlt	application/vnd.ms-excel
+xls	application/vnd.ms-excel
+ppt	application/vnd.ms-powerpoint
+pot	application/vnd.ms-powerpoint
+pptx	application/vnd.openxmlformats-officedocument.presentationml.presentation
+potx	application/vnd.openxmlformats-officedocument.presentationml.template
+		
+
+}}}
 
 === People Lists moodul ===
 
