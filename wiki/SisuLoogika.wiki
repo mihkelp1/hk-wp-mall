@@ -1,5 +1,12 @@
 #summary Teema sisu üleehituse loogika.
 
+== Menüüd ==
+
+Kokku on teemas defineeritud 6 menüü asukohta.
+ * Avalehel 5
+ * 1 üldmenuu
+
+
 === Avaleht ===
 
 Kasutab 5-te menüüd (Wordpress-i menüüd). 
@@ -10,6 +17,34 @@ Kasutab 5-te menüüd (Wordpress-i menüüd).
  # Jalus keskel
  # Jalus pareml
 
-*Uudiste tulb ei ole seotud kuidagi menüüdega*
+*Uudiste tulp ei ole seotud kuidagi menüüdega*
 
-Seda mida nendes menüüdes kuvatakse saab määrata asukohast *"Välimus -> Menüüd"*
+Seda mida nendes menüüdes kuvatakse saab määrata asukohast *"Välimus -> Menüüd"*. 
+
+Vaata ka ametlikut dokumentatsiooni - http://codex.wordpress.org/WordPress_Menu_User_Guide
+
+=== Maandumisleht (Landing page) ===
+
+Igale maandumislehele saab määrata individuaalse menüü. Seda saab teha lehe muutmisel. Teksti redaktori all asub kohe maandumislehega seotud väljad, kus kohal saab ka menüüd valida.
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2012.55.49.png
+
+=== Üldmenüü / 404 vealehe menüü ===
+
+Kogu teema peale on üks üldmenüü, mida kuvatakse ainult lehtedel nagu:
+
+ * Otsingu tulemused
+ * 404 vealeht
+ * Või üksikute lehtede korral, millel puuduvad alamlehed
+
+*Näited:*
+
+*_Üksik leht_*
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2012.59.34.png
+
+----
+
+*Otsing / 404 *
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2012.59.45.png
