@@ -1,0 +1,15 @@
+#summary Teema sisu üleehituse loogika.
+
+=== Avaleht ===
+
+Kasutab 5-te menüüd (Wordpress-i menüüd). 
+
+ # Üleval mustal alal
+ # Erialade menüü
+ # Jalus vasakul
+ # Jalus keskel
+ # Jalus pareml
+
+*Uudiste tulb ei ole seotud kuidagi menüüdega*
+
+Seda mida nendes menüüdes kuvatakse saab määrata asukohast *"Välimus -> Menüüd"*
