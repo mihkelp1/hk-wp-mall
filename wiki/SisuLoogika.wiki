@@ -1,10 +1,29 @@
 #summary Teema sisu üleehituse loogika.
 
+== Lehed ja alamlehed ==
+
+Lehte struktuur visuaalsel küljel on kahe tasandiline -
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2014.34.42.png
+
+ * - Pealeht
+ * -- Alamleht
+
+*Administraatori vaates on tegu aga kolmetasemelise struktuuriga*
+
+ * - Jaotuseleht - selle all on mõeldud näiteks "Ühiskonnale", "Sisseastujale" jt.
+ * -- Pealeht
+ * --- Alamleht
+
+See on vajalik selleks, et kõik sisseastujale mõeldud lehed oleks sisseastuja loogilisesplokis.
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-16%20at%2014.39.44.png
+
 == Menüüd ==
 
 Kokku on teemas defineeritud 6 menüü asukohta.
  * Avalehel 5
- * 1 üldmenuu
+ * 1 üldmenüü
 
 
 === Avaleht ===
