@@ -1,5 +1,7 @@
 #summary Paigaldus dokumentatsioon
 
+=== Alustuseks ===
+
  # Paigalda Wordpress ja loo võrgustik - [http://codex.wordpress.org/Create_A_Network Create a network]
  # Paigalda avalehel toodud lisamoodulid
  # Loo alam lehekülg/blog/site "en" - http://www.hk.tlu.ee/en/
