@@ -47,7 +47,6 @@ potx	application/vnd.openxmlformats-officedocument.presentationml.template
 {{{
 %people_lists_telefon%
 %people_lists_gsm%
-%people_lists_faks%
 %people_lists_tiitel%
 }}}
 
