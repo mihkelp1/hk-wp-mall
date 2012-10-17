@@ -50,3 +50,18 @@ Vaata: [http://code.google.com/p/hk-wp-mall/wiki/SisuLoogika Struktuuri loogika]
  # Vajuta "Avalda" või "Uuenda" olenevalt, kas lõid uue lehe või muutsid olemasolevat
 
 _NB! Peameeles, et üle 3 taseme ei saa luua._
+
+*Lehte järjekorra muutmine*
+
+Lehtede/alam lehtede järjekorda saab muuta lihtsalt neist kinnivõttes ja üksteisest mööda lohistades.
+
+ # Ava kõigi lehtede nimikiri - vali vasakust menüüst "Lehed" ja kliki sellel
+ # Kuvatakse kõiki lehti, nüüd kui liikuda konkreetse lehe reale, tekib "rist".
+ # Võta lehest kinni ja lohista soovitud asukohta.
+ # Tehtud, muudatused salvestatakse automaatselt.
+
+=== Kasutajate haldamine ===
+
+Kasutajaid saab hallata ainult võrgustiku administraator (super admin), kasutajate lisamiseks ja muutmiseks pöörduda IT-osakonna poole.
+
+
