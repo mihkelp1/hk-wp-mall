@@ -1,0 +1,3 @@
+#summary Infot administraatorile
+
+*Accordion Image Menu moodul on kergelt modifitseeritud, seda pluginat mitte uuendada või avalehel erialade kuvamine enam ei toimi.*
