@@ -36,3 +36,18 @@ Tunnuspildi lisamiseks leia väli "Tunnuspilt" (allpool).
 
 http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-17%20at%2012.26.48.png
 
+== Lehtede haldamine/loomine/struktuur ===
+
+Vaata: [http://code.google.com/p/hk-wp-mall/wiki/SisuLoogika Struktuuri loogika]
+
+*Uue alamlehe loomine*
+
+ # Leia vasakust menüüst "Lehed" ja "Lisa uus"
+ # Lisa pealkiri ja sisu
+ # Vali millisesse ülemlehe alla leht kuulub, selleks
+  # Leia väli "Lehe omadused"
+  # Määra "Ülemleht"
+ # Vajuta "Avalda" või "Uuenda" olenevalt, kas lõid uue lehe või muutsid olemasolevat
+
+_NB! Peameeles, et üle 3 taseme ei saa luua._
+
