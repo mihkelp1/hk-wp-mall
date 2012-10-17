@@ -44,10 +44,9 @@ Vaata: [http://code.google.com/p/hk-wp-mall/wiki/SisuLoogika Struktuuri loogika]
 
  # Leia vasakust menüüst "Lehed" ja "Lisa uus"
  # Lisa pealkiri ja sisu
- # Vali millisesse ülemlehe alla leht kuulub, selleks
+ # Vali millise ülemlehe alla leht kuulub, selleks
   # Leia väli "Lehe omadused"
   # Määra "Ülemleht"
  # Vajuta "Avalda" või "Uuenda" olenevalt, kas lõid uue lehe või muutsid olemasolevat
 
 _NB! Peameeles, et üle 3 taseme ei saa luua._
-
