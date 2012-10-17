@@ -8,6 +8,7 @@ _Antud juhend eeldab Wordpress platvormiga eelnevat kogemust._
  # Paigalda avalehel toodud lisamoodulid
  # Loo alam lehekülg/blog/site "en" - http://www.hk.tlu.ee/en/
  # Impordi XML formaadis sisu või taasta sisu MySQL tõmmisest.
+ # Korda seadistusi/sisu importi http:/www.hk.tlu.ee/en - alamlehe jaoks.
 
 === Üldised Wordpressi seadistused ===
  * Seadista üldinfo kodulehe kohta asukohas "Seaded -> Üldine" - Lühikirjelduse/description välja kasutatakse <description meta tag-is>.
