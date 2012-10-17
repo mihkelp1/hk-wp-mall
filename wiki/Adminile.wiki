@@ -3,3 +3,7 @@
 *Accordion Image Menu moodul on kergelt modifitseeritud, seda pluginat mitte uuendada või avalehel erialade kuvamine enam ei toimi.*
 
 Teemast on kaks versiooni, millest värskeim on branch-is "hk-wp-mall-news-right". See sama teema on ka aktiivses kasutuses.
+
+=== Failide üleslaadimine ===
+
+Kui failide üleslaadimisel on probleeme, siis tõenäoliselt tuleb lisada faililaiendeid. "Sätted -> Meedia" - (Media Upload Types moodul peab olema lisatud ja aktiveeritud)
