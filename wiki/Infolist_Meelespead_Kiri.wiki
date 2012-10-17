@@ -1,13 +1,18 @@
-#summary One-sentence summary of this page.
+#summary Infolisti/meelespead tellimise funktsioon
 
-= Introduction =
+=== Mis see on ? ===
 
-Add your content here.
+Infolistiga liitumine/meelespea tellimise idee on selles, et potensiaalne tudeng saab liituda infolistiga, mis edastab vahetult enne vastuvõtu algamist teate.
 
+Teade saadetakse käisitsi halduri poolt.
 
-= Details =
+*Igale kirjale on lisatud päiseks TLÜ Haapsalu Kolledži logo*
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+=== Seadistamine ===
+
+Seadmiseks tuleb liikuda asukohta "Sätted -> Meelespead" või "Meelespead -> Seaded".
+
+ * Hüpikaken - on aken, mida kuvatakse peale nupu "Liitu infolistiga" vajutamist maandumislehel. Selle akna sisuks peaks olema esmane info tellijale.
+ * Kinnituskiri - igale tellijale saadetakse kinnituskiri, et ta on liitunud info listiga ja vajadusel saab ta end sellest eemaldada. Eemaldamise lingi lisamiseks kirja tuleb sobivasse kohta kirja sisu lisada lühiviide "{unsubscribe_link} - mis kirja saatmisel asendatakse reaalse lingiga.
+ *Meelespea nimekirjast eemaldatud - see kiri saadetakse kinnituseks tellijale, kui too on end infolistist eemaldanud.
+ * Üldine - Selles sektsioonis saab määrata üleüldise jaluse kõigile väljaminevatele kirjadele.
