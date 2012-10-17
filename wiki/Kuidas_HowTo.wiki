@@ -1,13 +1,38 @@
 #summary Näited kuidas mõningatest toimingutest.
 
-= Introduction =
+=== Sisselogimine haldusesse ===
 
-Add your content here.
+ # Mine aadressile: http://www.hk.tlu.ee/wp-admin
+ # Logi sisse oma kasutajakontoga
 
+=== Uudise loomine ===
 
-= Details =
+ # Liigu hiirega vasakus menüüs asuvale valikule "Postitused"
+  # See järel vali "Lisa uus"
+ # Loo postituse sisu ja vajuta "Avalda"
 
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+Sellega on uudis lisatud ja avaldatud hetke kuupäeva ja kellaaga.
+
+* Avaldamise kuupäeva muutmine *
+
+ # Lisa uus või muuda eelnevat postitust
+ # "Avalda" väljal paremal servas leia "Avalda kohe" ja  link "Muuda"
+ # Klõpsa lingil ja vali sobiv avaldamise aeg.
+ # Muudatuste jõustumiseks vajuta nuppu "Uuenda".
+
+* Sildite (tag(s)) lisamine *
+
+Sildid (ing. tags) on märksõnad postituste küljes, mis viitavad postituse sisule. Lisades postitustele sildid, genereerib süsteem meile sildi pilve.  Mis hõlbustab teatud märksõnadega uudiste ülesleidmisel.
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-17%20at%2012.23.33.png
+
+Sildite lisamiseks leia postituse loomise lehelt väli "Sildid" (allpool) ja lisa soovitud sildid.
+
+* Tunnuspilt (kehtib ka lehtedele) *
+
+Tunnuspilt (ing. featured image) on postitusega seotud pilt, mida kuvatakse postituse/lehe kuvamisel paremal pool. Pilte saab lisada ka lihtsalt postituse sisse, kuid tunnuspilt erineb sellepoolest, et selle asukoht on alati kindel - paremal, üleval nurgas.
+
+Tunnuspildi lisamiseks leia väli "Tunnuspilt" (allpool).
+
+http://hk-wp-mall.googlecode.com/files/Screen%20shot%202012-10-17%20at%2012.26.48.png
+
