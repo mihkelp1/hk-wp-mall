@@ -1,4 +1,4 @@
-#summary Näited kuidas mõningatest toimingutest.
+#summary Näited mõningatest toimingutest.
 
 === Sisselogimine haldusesse ===
 
@@ -64,4 +64,17 @@ Lehtede/alam lehtede järjekorda saab muuta lihtsalt neist kinnivõttes ja ükst
 
 Kasutajaid saab hallata ainult võrgustiku administraator (super admin), kasutajate lisamiseks ja muutmiseks pöörduda IT-osakonna poole.
 
+=== Failide üleslaadimine ja lisamine ===
 
+Failide üleslaadimiseks on olemas Wordpress-il "Meediateek". Meediateegi leiad vasakust menüüst "Meedia" alt. 
+
+ * Uue meedia lisamiseks vali "Lisa uus"
+ 
+Meediat saab lisada ka otse postituse/lehe lisamise/muutmise vaates, vajutades tekstiredaktorist üleval asuvat nuppu "Lae üles/sisesta" (Upload/insert media).
+
+*Kui soovid lisada juba meediateegis olevat faili postitusse?*
+
+ * Siis vali samuti "Lae üles/sisesta" nupp
+ * Sakk "Meediateek"
+ * Fail vajalik fail ja vajuta "Näita"
+ * Seejärel vali "Lisa postitusse"
