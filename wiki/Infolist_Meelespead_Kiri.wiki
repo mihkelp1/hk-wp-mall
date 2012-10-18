@@ -14,7 +14,7 @@ Seadmiseks tuleb liikuda asukohta "Sätted -> Meelespead" või "Meelespead -> Se
 
  * Hüpikaken - on aken, mida kuvatakse peale nupu "Liitu infolistiga" vajutamist maandumislehel. Selle akna sisuks peaks olema esmane info tellijale.
  * Kinnituskiri - igale tellijale saadetakse kinnituskiri, et ta on liitunud info listiga ja vajadusel saab ta end sellest eemaldada. Eemaldamise lingi lisamiseks kirja tuleb sobivasse kohta kirja sisu lisada lühiviide "{unsubscribe_link} - mis kirja saatmisel asendatakse reaalse lingiga.
- *Meelespea nimekirjast eemaldatud - see kiri saadetakse kinnituseks tellijale, kui too on end infolistist eemaldanud.
+ * Meelespea nimekirjast eemaldatud - see kiri saadetakse kinnituseks tellijale, kui too on end infolistist eemaldanud.
  * Üldine - Selles sektsioonis saab määrata üleüldise jaluse kõigile väljaminevatele kirjadele.
 
 === Teavituse saatmine ===
