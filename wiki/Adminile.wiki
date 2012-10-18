@@ -11,3 +11,5 @@ Kui failide üleslaadimisel on probleeme, siis tõenäoliselt tuleb lisada faili
 === Inglise keelne leht ===
 
 On seisuga 18.10.2012 loodud eesti keelse duplikaadina aga on keelatud. Lubamiseks kasutada võrgustikuhaldamise vahendeid.
+
+*In English* link tuleb "Päise" menüüsse lisada custom tüüpi lingina.
