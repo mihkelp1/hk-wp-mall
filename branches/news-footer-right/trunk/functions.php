@@ -760,7 +760,9 @@ function getLandingPageMenu( $page_id, $id_only = false ) {
 		return $menu_id;
 	}
 	if ( $menu_id ) {
-		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
+		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper-top', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
+		//Uncomment below for bottom menu, after moving getLandingPageMenu( id ) function in landing page template into bottom.
+		//wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
 	}
 }
 
