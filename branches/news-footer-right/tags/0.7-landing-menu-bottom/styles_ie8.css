@@ -1,0 +1,34 @@
+.header-menu-container ul li:first-child + li + li + li + li + li { /* This should work for IE 8, means -> li:last-child */
+	border: 0px;
+}
+
+.header-menu-container ul li:first-child + li + li + li + li { /* This should work for IE 8, means --> nth-child(5) */
+	background: url('images/search-icon.png') center left no-repeat;
+	padding-left: 17px;
+	margin-left: 10px;
+}
+
+.header-menu-container ul li:first-child + li + li + li + li:hover {
+	background: url('images/search-icon-hover.png') center left no-repeat;
+}
+
+.content-home .aim a {
+	background-position: left 0%;
+	border-left: 1px solid #eee;
+}
+
+.content-home .aim a:first-child {
+	border: 0px;
+}
+
+.content-home .aim a:first-child + a + a + a + a {
+	background-position: right 0%;
+}
+
+.content-home .aim a:first-child + a + a + a + a span {
+	bottom: -2px;
+}
+
+.nav-menu-container ul li:first-child + li + li + li + li + li {
+	background: none;
+}

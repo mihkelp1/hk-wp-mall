@@ -1,0 +1,1 @@
+These languages files need to be moved to "wp-jquery-lightbox" languages folder for now.
