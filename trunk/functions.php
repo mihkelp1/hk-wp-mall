@@ -594,12 +594,17 @@ if ( !function_exists( 'wp_nav_menu_title' ) ) {
  */
 
 function getLatestNews() {
+	//Get news only from the news category
+	$category = get_term_by('name', 'uudised', 'category');
 	$args = array(
 		'numberposts'     => 4,
 		'orderby'         => 'post_date',
 		'order'           => 'DESC',
 		'post_type'       => 'post',
 		'post_status'     => 'publish' );
+	if ( $category ) {
+		$args['category'] = $category->term_id;
+	}
 	$posts = get_posts( $args );
 	
 	if ( $posts ) {
@@ -875,6 +880,10 @@ function searchFilter( $query ) {
     if ($query->is_search) {
         $query->set( 'orderby', 'title' );
         $query->set( 'order', 'asc' );
+    }
+    $teated_cat = get_term_by( 'name', 'Teated', 'category' );
+	if ( $teated_cat && !is_category( 'Teated' ) ) {
+		$query->set( 'cat', '-'.$teated_cat->term_id );
     }
     return $query;
 }
