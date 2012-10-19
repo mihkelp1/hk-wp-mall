@@ -882,7 +882,7 @@ function searchFilter( $query ) {
         $query->set( 'order', 'asc' );
     }
     $teated_cat = get_term_by( 'name', 'Teated', 'category' );
-	if ( $teated_cat && !is_category( 'Teated' ) ) {
+	if ( !is_admin() && $teated_cat && !is_category( 'Teated' ) ) {
 		$query->set( 'cat', '-'.$teated_cat->term_id );
     }
     return $query;
