@@ -594,7 +594,7 @@ if ( !function_exists( 'wp_nav_menu_title' ) ) {
  */
 
 function getLatestNews() {
-	//Get news only from the news category
+	//Get news from the news category
 	$category = get_term_by('name', 'uudised', 'category');
 	$args = array(
 		'numberposts'     => 4,
@@ -765,9 +765,10 @@ function getLandingPageMenu( $page_id, $id_only = false ) {
 		return $menu_id;
 	}
 	if ( $menu_id ) {
-		wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper-top', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
-		//Uncomment below for bottom menu, after moving getLandingPageMenu( id ) function in landing page template into bottom.
-		//wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
+	wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper-top', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );
+		
+/*wp_nav_menu( array( 'menu' => $menu_id, 'container_class' => 'landing-nav-menu-wrapper', 'menu_class' => 'landing-page-menu', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker() ) );*/
+
 	}
 }
 
@@ -861,6 +862,17 @@ function override_author_email( $author_email ) {
 }
 
 /**
+ * Helper method for checking site language
+ */
+
+function isEnglish() {
+	if ( get_bloginfo('language') == 'et' ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * This method returns language with country
  */
 
@@ -882,7 +894,7 @@ function searchFilter( $query ) {
         $query->set( 'order', 'asc' );
     }
     $teated_cat = get_term_by( 'name', 'Teated', 'category' );
-	if ( !is_admin() && $teated_cat && !is_category( 'Teated' ) ) {
+    if ( !is_admin() && $teated_cat && !is_category( 'Teated' ) ) {
 		$query->set( 'cat', '-'.$teated_cat->term_id );
     }
     return $query;
@@ -912,4 +924,5 @@ function the_parentTitle( $post ) {
 		echo getParentTitle( $post ).' &#8250; ';
 	}
 }
+
 ?>

@@ -27,15 +27,17 @@ get_header(); ?>
 					?>
 					<?php the_content(); ?>
 					
-					<?php 
-						//This will output menu, if any assigned, otherwise nothing
-						getLandingPageMenu( get_the_ID() );
-					?>
-					
+	<?php 
+		//This will output menu, if any assigned, otherwise nothing
+		getLandingPageMenu( get_the_ID() );
+	?>
+
 					<div id="landing-meta">
+						<?php if ( !isEnglish() ) { ?>
 						<div class="landing-sais-button">
 							<a href="http://www.sais.ee/" title="SAIS"><img src="<?php echo getFileURL('/images/sais-button.png');?>"/></a>
 						</div>
+						<?php } ?>
 						<?php
 							do_shortcode('[hk_reminder flag="'.$post->post_name.'"]');
 						?>
@@ -58,6 +60,7 @@ get_header(); ?>
 			</article><!-- #post-<?php the_ID(); ?> -->
 		
 		<?php endwhile; // end of the loop. ?>
+
 	</div>
 </div><!-- #primary -->
 

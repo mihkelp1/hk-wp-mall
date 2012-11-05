@@ -23,16 +23,15 @@ jQuery(document).ready(function($){
 	var search_esc_closed = false;
 	var searchform = $('div.#rollout-searchform');
 	
-	
-	$('.header-menu-container li:nth-child(5)').bind( 'click', function(event) {
+	$('.header-menu-container a[href="#"]:first').bind( 'click', function(event) {
 		event.preventDefault();
 		event.stopPropagation();
 	});
 	
-	$('.header-menu-container li:nth-child(5)').bind('click', function() {
+	$('.header-menu-container a[href="#"]:first').bind('click', function() {
 		var pos = $(this).position();
 		var parent_pos = $('#header-menu').position();
-		var width = pos.left - parent_pos.left; // We get total width for our searchform
+		var width = pos.left - parent_pos.left - 15; // We get total width for our searchform
 		var right = $(document).width() - pos.left - $(this).outerWidth() - 9; //How many pixels from the right side
 		if ( !search_esc_closed ) {
 			$('div.#rollout-searchform').css({
