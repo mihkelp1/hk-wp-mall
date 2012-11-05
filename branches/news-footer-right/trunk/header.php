@@ -18,6 +18,7 @@
 	bloginfo( 'name' );
 	?></title>
 <meta name="description" content="<?php bloginfo('description'); ?>" />
+
 <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700|Ubuntu+Condensed&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 <link href="<?php bloginfo('rss2_url'); ?>" rel="alternate" type="application/rss+xml" title="<?php bloginfo( 'name' )?>" />
 <link rel="stylesheet" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
@@ -57,10 +58,12 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 <![endif]-->
 
 <?php 
- if ( get_bloginfo('language') == 'et' ) {
+ if ( !isEnglish() ) {
  	echo '<style type="text/css">';
  	echo '#jqlb_closelabel { background-image: url("'.getFileUrl('/images/lightbox-close-et.png').'"); }';
  	echo '</style>';
+ } else {
+	echo '<link rel="stylesheet" media="all" href="'.get_bloginfo('template_directory').'/styles_en.css ?>" />';
  }
 ?>
 
@@ -70,7 +73,14 @@ is_ie7 = true; /* Override is_ie7 variable in landing page JS file */
 
 <div id="main-container">
 	<header class="page-header">
-	<a href="<?php echo home_url(); ?>"><img src="<?php echo getFileURL( '/images/college-logo.png' ); ?>" alt="<?php bloginfo( 'name' ); ?>" /></a>
+	<a href="<?php echo home_url(); ?>">
+		<?php if ( isEnglish() ) {
+				$logo_url = getFileURL( '/images/college-logo-en.png' );
+			} else {
+				$logo_url = getFileURL( '/images/college-logo.png' );
+			}
+		?>
+		<img src="<?php echo $logo_url; ?>" alt="<?php bloginfo( 'name' ); ?>" /></a>
 		<nav id="header-menu">
 			<?php wp_nav_menu( array( 'theme_location' => 'header-menu', 'container_class' => 'header-menu-container', 'fallback_cb' => false, 'walker' => new isDraftMenuWalker()  ) ); ?>
 		</nav>
